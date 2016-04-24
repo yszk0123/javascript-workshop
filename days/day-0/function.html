@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <script>
+    (function() {
+      "use strict";
+
+      console.log("add(x, y) ====================");
+      function add(x, y) {
+        return x + y;
+      }
+      console.log("add(10, 5) =", add(10, 5));
+      console.log('add("foo", "bar") =', add("foo", "bar"));
+
+      console.log("makeAdd(x) ====================");
+      function makeAdd(x) {
+        return function(y) {
+          return x + y;
+        };
+      }
+
+      const addOne = makeAdd(1);
+      console.log("addOne(5) =", addOne(5));
+
+      console.log("makeAdd(10)(5) =", makeAdd(10)(5));
+    })();
+  </script>
+</body>
+</html>
