@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <div id="instruction">
+    実習: for 文の計算をいろいろ変えてみる<br>
+    0 ~ 100 まで出力してみる<br>
+    カウントを 0,1,2,... => 0,2,4,6,8,... に変えてみる
+  </div>
+
+  <script>
+    (function() {
+      "use strict";
+
+      var y;
+
+      console.log("[Before] y =", y);
+
+      for (y = 0; y < 10; y = y + 1) {
+        console.log("y =", y);
+      }
+
+      console.log("[After] y =", y);
+    })();
+  </script>
+</body>
+</html>

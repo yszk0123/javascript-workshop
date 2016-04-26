@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <div id="instruction">
+    実習: value の値を変えて、case 1 ~ case 4 まで出力してみる
+  </div>
+
+  <script>
+    (function() {
+      "use strict";
+
+      var value = 200;
+
+      if (value < 100) {
+        console.log("case 1: value < 100");
+      }
+      else if (value < 200) {
+        console.log("case 2: value < 200");
+      }
+      else if (value < 300) {
+        console.log("case 3: value < 300");
+      }
+      else {
+        console.log("case 4: otherwise");
+      }
+    })();
+  </script>
+</body>
+</html>

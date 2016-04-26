@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Click Counter</title>
+</head>
+<body>
+  <div id="instruction">
+    実習: Decrement ボタンが動作するように修正する
+  </div>
+
+  <div id="app-container">
+    <div id="button-container">
+      <input id="increment-button" type="button" value="Increment">
+      <input id="decrement-button" type="button" value="Decrement">
+    </div>
+
+    <div id="counter-container">
+      <div id="counter"></div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      "use strict";
+
+      // DOM要素にアクセスするための変数を定義
+
+      const incrementButtonElement = document.getElementById("increment-button");
+      const decrementButtonElement = document.getElementById("decrement-button");
+      const counterElement = document.getElementById("counter");
+
+      // アプリの状態を定義
+
+      let count = 0;
+
+      // クリックされた時の動作を定義
+
+      function onIncrementButtonClick(_event) {
+        count = count + 1;
+        updateCounter();
+      }
+
+      function onDecrementButtonClick(_event) {
+      }
+
+      // 画面更新の定義
+
+      function updateCounter() {
+        counterElement.innerText = count;
+      }
+
+      // DOM要素のイベントとクリックされた時の動作を結びつける
+
+      incrementButtonElement.addEventListener("click", onIncrementButtonClick);
+      decrementButtonElement.addEventListener("click", onDecrementButtonClick);
+
+      // 画面更新
+
+      updateCounter();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <div id="instruction">
+    実習: 0, 1, 2, 3 の後に続けて 2, 1, 0 を出力する
+    Before: 0, 1, 2, 3
+    After: 0, 1, 2, 3, 2, 1, 0
+  </div>
+
+  <script>
+    (function() {
+      "use strict";
+
+      let x = 0;
+
+      console.log("[Before] x =", x);
+
+      while (x < 3) {
+        console.log("x =", x);
+        x = x + 1;
+      }
+
+      console.log("[After] x =", x);
+    })();
+  </script>
+</body>
+</html>

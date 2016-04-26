@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Index</title>
+</head>
+<body>
+  <ul id="links-container">
+  </ul>
+
+  <script>
+    (function() {
+      "use strict";
+
+      const links = [
+        "hello-world",
+        "comment",
+        "literal",
+        "operator-1",
+        "operator-2",
+        "variable-1",
+        "variable-2",
+        "variable-3",
+        "condition-1",
+        "condition-2",
+        "loop-1-while-1",
+        "loop-1-while-2",
+        "loop-3-for",
+        "function-1",
+        "function-2",
+        "function-3",
+        "click-counter-1",
+        "click-counter-2",
+        "click-counter-3",
+      ];
+
+      function appendLink(link, parentElement) {
+        const listItemElement = document.createElement("li");
+        const linkElement = document.createElement("a");
+        linkElement.href = "./" + link + ".html";
+        linkElement.innerText = link;
+        listItemElement.appendChild(linkElement);
+        parentElement.appendChild(listItemElement);
+      }
+
+      const linksElement = document.getElementById("links-container");
+      links.forEach(function(link) {
+        appendLink(link, linksElement);
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -5,6 +5,13 @@
   <title></title>
 </head>
 <body>
+  <div id="instruction">
+    実習: いろいろな計算を試してみる<br>
+    3.14159 / 2 = ?<br>
+    1 + 2 / 3 = ?<br>
+    ...
+  </div>
+
   <script>
     (function() {
       "use strict";
@@ -22,6 +29,10 @@
       console.log("10 * 3 =", 10 * 3);
       console.log("10 / 3 =", 10 / 3);
       console.log("10 % 3 =", 10 % 3);
+
+      console.log("演算子の優先順位 ====================");
+      console.log("10 + 5 * 3 = 10 + (5 * 3) =", 10 + 5 * 3);
+      console.log("(10 + 5) * 3 =", (10 + 5) * 3);
     })();
   </script>
 </body>

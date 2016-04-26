@@ -5,13 +5,16 @@
   <title></title>
 </head>
 <body>
+  <div id="instruction">
+    実習: 変数 a, b の値を変えて出力を変えてみる
+  </div>
+
   <script>
     (function() {
       "use strict";
 
-      const a = 10;
-      const b = 5;
-      const c = 3;
+      var a = 10;
+      var b = 5;
 
       console.log("====================");
       console.log("a + b =", a + b);
@@ -19,13 +22,6 @@
       console.log("a * b =", a * b);
       console.log("a / b =", a / b);
       console.log("a % b =", a % b);
-
-      console.log("====================");
-      console.log("a + c =", a + c);
-      console.log("a - c =", a - c);
-      console.log("a * c =", a * c);
-      console.log("a / c =", a / c);
-      console.log("a % c =", a % c);
 
       console.log("====================");
       console.log("+a =", +a);
