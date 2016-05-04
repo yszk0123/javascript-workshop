@@ -1,0 +1,35 @@
+.Exercise {
+}
+
+.ReloadButton {
+  border: none;
+  background: blue;
+  color: white;
+  border-radius: 3px;
+  font-size: 90%;
+  font-weight: bold;
+}
+
+.ReloadButton:hover {
+  opacity: 0.8;
+}
+
+.ReloadButton:active {
+  background: darkblue;
+}
+
+.ReloadButton:focus {
+  outline: none;
+}
+
+.Title {
+  display: block;
+  color: gray;
+  margin: 0;
+  font-size: 90%;
+}
+
+.Frame {
+  border: none;
+  box-shadow: 1px 1px 5px black;
+}
