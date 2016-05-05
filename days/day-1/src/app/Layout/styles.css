@@ -22,6 +22,8 @@
   bottom: 0;
   padding: 1em;
   background: #f8f8f8;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 .RightPane {
@@ -32,7 +34,6 @@
   right: 0;
   bottom: 0;
   height: 100%;
-  padding: 0.5em;
   background: #e8e8e8;
 }
 
@@ -46,7 +47,13 @@
 }
 
 .MainContent {
-  background: white;
-  padding: 1.3em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0.5rem;
+  padding: 1.3rem;
   min-height: 100px;
+  background: white;
 }

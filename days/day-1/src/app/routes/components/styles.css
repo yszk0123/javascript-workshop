@@ -1,5 +1,6 @@
 .Exercise {
   position: relative;
+  height: 100%;
 }
 
 .ReloadButton {
@@ -29,16 +30,32 @@
   outline: none;
 }
 
+.Header {
+  margin-bottom: 0.5rem;
+  height: 30px;
+}
+
 .Title {
   display: block;
   color: gray;
   font-size: 0.9rem;
-  margin-bottom: 0.5rem;
+}
+
+.Content {
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 30px;
+  right: 0;
+  bottom: 0;
 }
 
 .Frame {
+  display: block;
   box-sizing: border-box;
   width: 100%;
+  height: 100%;
   border: none;
   box-shadow: 1px 1px 5px black;
 }

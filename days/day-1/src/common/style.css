@@ -1,0 +1,22 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.3rem;
+}
+
+.InstructionContainer {
+  margin: 1.3rem;
+  box-shadow: 1px 1px 2px gray;
+}
+
+.Instruction {
+  padding: 1.3rem;
+  margin: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.Instruction:first-child {
+  border-top: none;
+}

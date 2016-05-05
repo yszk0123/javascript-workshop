@@ -2,31 +2,37 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="../../common/style.css">
 </head>
 <body>
-  <pre id="instruction">
-    for 文による反復処理と、配列に用意されたコレクション用メソッドによる反復処理を比べる
+  <div class="InstructionContainer">
+    <pre class="Instruction">
+      for 文による反復処理と、配列に用意されたコレクション用メソッドによる反復処理を比べる
+    </pre>
+    <pre class="Instruction">
+      コレクション用メソッドの例:
+      Array.forEach
+      Array.map
+      Array.filter
+      Array.some
+      Array.every
+    </pre>
+    <pre class="Instruction">
+      コレクション用メソッドを使う利点:
 
-    コレクション用メソッドの例:
-    Array.forEach
-    Array.map
-    Array.filter
-    Array.some
-    Array.every
+      余分な変数を省ける (i が不要)
+      配列要素の長さを知らなくて良くなる (array.length が不要)
 
-    コレクション用メソッドを使う利点:
+      変数の繰り上げ等を省ける (i = i + 1 が不要)
+      =&gt; 配列要素を処理する順番を抽象化できる
+      =&gt; 配列を操作する目的が明確になる (e.g. Array.filter は特定の要素だけ集める時に使うが、for 文を使うとそのような意図を読み取れない)
 
-    余分な変数を省ける (i が不要)
-    配列要素の長さを知らなくて良くなる (array.length が不要)
-
-    変数の繰り上げ等を省ける (i = i + 1 が不要)
-    =&gt; 配列要素を処理する順番を抽象化できる
-    =&gt; 配列を操作する目的が明確になる (e.g. Array.filter は特定の要素だけ集める時に使うが、for 文を使うとそのような意図を読み取れない)
-
-    無限ループを防げる
-
-    発展: Promise, Observable
-  </pre>
+      無限ループを防げる
+    </pre>
+    <pre class="Instruction">
+      発展: Promise, Observable
+    </pre>
+  </div>
 
   <script src="../../common/bootstrap.js"></script>
   <script src="../../common/test-utils.js"></script>
