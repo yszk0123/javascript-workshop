@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router";
 
 import * as Styles from "./styles.css";
-import ExtraStyles from "./ExtraStyles";
 
 const RouteLinks = ({ label, routes }) => (
   <div>
@@ -10,7 +9,7 @@ const RouteLinks = ({ label, routes }) => (
     <ul className={Styles.Links}>
       {routes.map(({ absolutePath, title }, i) => (
         <li className={Styles.Link} key={i}>
-          <Link to={absolutePath} activeStyle={ExtraStyles.ActiveLink}>{title}</Link>
+          <Link to={absolutePath} activeClassName={Styles.ActiveLink}>{title}</Link>
         </li>
       ))}
     </ul>
