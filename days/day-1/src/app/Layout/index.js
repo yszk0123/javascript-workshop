@@ -21,14 +21,14 @@ const RightPane = (props) =>
 
 const LinkGroupOuter = () => (
   <div className={Styles.LinkGroupOuter}>
-    {!!exerciseRoutes.length &&
-      <LinkGroup>
-        <RouteLinks label="Exercises" routes={exerciseRoutes} />
-      </LinkGroup>
-    }
     {!!documentRoutes.length &&
       <LinkGroup>
         <RouteLinks label="Documents" routes={documentRoutes} />
+      </LinkGroup>
+    }
+    {!!exerciseRoutes.length &&
+      <LinkGroup>
+        <RouteLinks label="Exercises" routes={exerciseRoutes} />
       </LinkGroup>
     }
   </div>

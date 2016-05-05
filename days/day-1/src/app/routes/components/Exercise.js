@@ -22,13 +22,13 @@ class Exercise extends React.Component {
   }
 
   render() {
-    const { title, src, document } = this.props;
+    const { label, src, document } = this.props;
 
     return (
       <div className={Styles.Exercise}>
         <Header>
           <ReloadButton onClick={this.handleReloadClick.bind(this)} />
-          <label className={Styles.Title}>{title}</label>
+          <label className={Styles.Label}>{label}</label>
         </Header>
         <Content>
           <iframe ref="frame" className={Styles.Frame} src={src} />
