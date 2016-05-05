@@ -34,22 +34,27 @@ const LinkGroupOuter = ({ documents, exercises }) => (
   </div>
 );
 
+const MainContentTransition = ({ children }) =>
+  <ReactCSSTransitionGroup
+    component="div"
+    transitionName={mainContentTransition}
+    transitionEnterTimeout={500}
+    transitionLeaveTimeout={500}
+  >
+    {children}
+  </ReactCSSTransitionGroup>;
+
 const Layout = ({ contents, children, location }) => (
   <Outer>
     <LeftPane>
       <LinkGroupOuter documents={contents.documents} exercises={contents.exercises} />
     </LeftPane>
     <RightPane>
-      <ReactCSSTransitionGroup
-        component="div"
-        transitionName={mainContentTransition}
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={500}
-      >
+      <MainContentTransition>
         <MainContent key={location.pathname}>
           {children}
         </MainContent>
-      </ReactCSSTransitionGroup>
+      </MainContentTransition>
     </RightPane>
   </Outer>
 );
