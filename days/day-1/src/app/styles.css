@@ -1,38 +1,3 @@
-.LinkGroupContainer {
-  padding: 0.5em;
-}
-
-.LinkGroup {
-  margin: 0;
-  padding-bottom: 0.5em;
-}
-
-.Links {
-  list-style-type: none;
-  padding: 3px;
-  margin: 0 0 1em;
-}
-
-.LinkHeader {
-  margin: 0;
-  font-size: 110%;
-  font-weight: bold;
-}
-
-.Link {
-  margin: 5px;
-}
-
-.Link a {
-  padding: 8px;
-  text-decoration: none;
-  border-radius: 3px;
-}
-
-.Link a:hover {
-  background: #eee;
-}
-
 :global(html),
 :global(body),
 :global(#root),
@@ -41,6 +6,15 @@
   padding: 0;
   width: 100%;
   height: 100%;
+}
+
+.LinkGroupLayout {
+  padding: 0.5em;
+}
+
+.LinkGroup {
+  margin: 0;
+  padding-bottom: 0.5em;
 }
 
 .Outer {
@@ -68,7 +42,7 @@
   background: #e8e8e8;
 }
 
-.Content {
+.MainContent {
   background: white;
   padding: 0.8em;
   min-height: 100px;

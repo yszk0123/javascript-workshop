@@ -1,43 +1,29 @@
 import React from "react";
-import { Link } from "react-router";
 
 import { exerciseRoutes, documentRoutes } from "./routes";
+import ExerciseLinks from "./components/ExerciseLinks";
+import DocumentLinks from "./components/DocumentLinks";
 import { Outer } from "./undefined-components";
 
 import "normalize.css";
 import * as Styles from "./styles.css";
 
-// TODO: Move to a separate file
-const ACTIVE = {
-  background: "#ddd"
-};
-
 const LinkGroup = (props) =>
   <div className={Styles.LinkGroup} {...props} />;
 
-const Content = (props) =>
-  <div className={Styles.Content} {...props} />;
+const MainContent = (props) =>
+  <div className={Styles.MainContent} {...props} />;
 
-const Links = () => (
-  <div className={Styles.LinkGroupContainer}>
+const LinkGroupLayout = () => (
+  <div className={Styles.LinkGroupLayout}>
     {!!exerciseRoutes.length &&
       <LinkGroup>
-        <h2 className={Styles.LinkHeader}>Exercises</h2>
-        <ul className={Styles.Links}>
-          {exerciseRoutes.map(({ path, title }, i) => (
-            <li className={Styles.Link} key={i}><Link to={path} activeStyle={ACTIVE}>{title}</Link></li>
-          ))}
-        </ul>
+        <ExerciseLinks routes={exerciseRoutes} />
       </LinkGroup>
     }
     {!!documentRoutes.length &&
       <LinkGroup>
-        <h2 className={Styles.LinkHeader}>Documents</h2>
-        <ul className={Styles.Links}>
-          {documentRoutes.map(({ path, title }, i) => (
-            <li className={Styles.Link} key={i}><Link to={path} activeStyle={ACTIVE}>{title}</Link></li>
-          ))}
-        </ul>
+        <DocumentLinks routes={documentRoutes} />
       </LinkGroup>
     }
   </div>
@@ -52,12 +38,12 @@ const RightPane = (props) =>
 const Layout = ({ children }) => (
   <Outer>
     <LeftPane>
-      <Links />
+      <LinkGroupLayout />
     </LeftPane>
     <RightPane>
-      <Content>
+      <MainContent>
         {children}
-      </Content>
+      </MainContent>
     </RightPane>
   </Outer>
 );

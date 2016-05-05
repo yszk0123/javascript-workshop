@@ -1,0 +1,25 @@
+.Links {
+  list-style-type: none;
+  padding: 3px;
+  margin: 0 0 1em;
+}
+
+.LinkHeader {
+  margin: 0;
+  font-size: 110%;
+  font-weight: bold;
+}
+
+.Link {
+  margin: 5px;
+}
+
+.Link a {
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.Link a:hover {
+  background: #eee;
+}
