@@ -6,6 +6,21 @@ var globby = require("globby");
 var autoprefixer = require("autoprefixer");
 var fs = require("fs");
 
+var exercises = globby
+  .sync(["*.html", "*/index.html"], { cwd: "./src/exercises" })
+  .sort();
+
+var documents = globby
+  .sync(["*.md", "*/index.md"], { cwd: "./docs" })
+  .sort()
+  .map(function(filename) {
+
+    return {
+      filename: filename,
+      content: fs.readFileSync("./docs/" + filename, "utf8")
+    };
+  });
+
 module.exports = {
   devtool: "cheap-module-eval-source-map",
   node: {
@@ -76,14 +91,8 @@ module.exports = {
   plugins: [
     new ExtractTextWebpackPlugin("style.css"),
     new webpack.DefinePlugin({
-      "__EXERCISES__": JSON.stringify(globby.sync(["*.html", "*/index.html"], { cwd: "./src/exercises" })),
-      "__DOCUMENTS__": JSON.stringify(globby.sync(["*.md", "*/index.md"], { cwd: "./docs" }).map(function(filename) {
-
-        return {
-          filename: filename,
-          content: fs.readFileSync("./docs/" + filename, "utf8")
-        };
-      })),
+      "__EXERCISES__": JSON.stringify(exercises),
+      "__DOCUMENTS__": JSON.stringify(documents),
       "__DEVELOPMENT__": true,
       "process.env": {
         "NODE_ENV": JSON.stringify("development")
