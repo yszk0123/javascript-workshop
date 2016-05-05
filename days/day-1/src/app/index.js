@@ -38,12 +38,16 @@ export function mount(initialState, mountElement) {
     <Provider store={store}>
       <Router history={history}>
         <Route path="/" component={Layout}>
-          {documentRoutes.map(({ path, component }, i) => (
-            <Route key={i} path={path} component={component} />
-          ))}
-          {exerciseRoutes.map(({ path, component }, i) => (
-            <Route key={i} path={path} component={component} />
-          ))}
+          <Route path="docs">
+            {documentRoutes.map(({ path, component }, i) => (
+              <Route key={i} path={path} component={component} />
+            ))}
+          </Route>
+          <Route path="exercises">
+            {exerciseRoutes.map(({ path, component }, i) => (
+              <Route key={i} path={path} component={component} />
+            ))}
+          </Route>
         </Route>
       </Router>
     </Provider>,

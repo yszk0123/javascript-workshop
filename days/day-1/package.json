@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "mkdir -p ./dist/assets && cp ./src/entries/app/index.html ./dist/assets/index.html && cp -r ./src/exercises ./dist/assets/ && webpack-dev-server --config ./config/webpack.js --port 3000 --hot --inline"
+    "start": "rm -rf ./dist/assets && mkdir -p ./dist/assets && cp ./src/entries/app/index.html ./dist/assets/index.html && webpack-dev-server --config ./config/webpack.js --port 3000 --hot --inline"
   },
   "keywords": [],
   "author": "",

@@ -10,9 +10,11 @@ const titleExtractor = new Extractor()
 export default __EXERCISES__.map(function(key) {
   const title = titleExtractor.execute(key);
 
+  console.log(title, key);
   return {
     title,
-    path: `/${title}`,
-    component: (_props) => <Exercise title={title} src={key} />
+    path: title,
+    absolutePath: `/exercises/${title}`,
+    component: (_props) => <Exercise title={title} src={`/exercises/${key}`} />
   };
 });

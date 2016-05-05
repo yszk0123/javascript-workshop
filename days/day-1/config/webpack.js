@@ -75,8 +75,8 @@ module.exports = {
   plugins: [
     new ExtractTextWebpackPlugin("style.css"),
     new webpack.DefinePlugin({
-      "__EXERCISES__": JSON.stringify(globby.sync("exercises/*/index.html", { cwd: "./src" })),
-      "__DOCUMENTS__": JSON.stringify(globby.sync("./{src,test,docs}/**/*.md", { realpath: true }).map(function(filename) {
+      "__EXERCISES__": JSON.stringify(globby.sync(["*.html", "*/index.html"], { cwd: "./src/exercises" })),
+      "__DOCUMENTS__": JSON.stringify(globby.sync(["*.md", "*/index.md"], { cwd: "./docs" }).map(function(filename) {
 
         return {
           filename: filename,

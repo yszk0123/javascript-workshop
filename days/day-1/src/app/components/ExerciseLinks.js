@@ -8,9 +8,9 @@ const ExerciseLinks = ({ routes }) => (
   <div>
     <h2 className={Styles.LinkHeader}>Exercises</h2>
     <ul className={Styles.Links}>
-      {routes.map(({ path, title }, i) => (
+      {routes.map(({ absolutePath, title }, i) => (
         <li className={Styles.Link} key={i}>
-          <Link to={path} activeStyle={ExtraStyles.ActiveLink}>{title}</Link>
+          <Link to={absolutePath} activeStyle={ExtraStyles.ActiveLink}>{title}</Link>
         </li>
       ))}
     </ul>
