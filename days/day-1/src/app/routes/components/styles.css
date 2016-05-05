@@ -13,7 +13,7 @@
   border-radius: 3px;
   opacity: 0.3;
 
-  font-size: 90%;
+  font-size: 0.9rem;
   font-weight: bold;
 }
 
@@ -32,11 +32,13 @@
 .Title {
   display: block;
   color: gray;
-  margin: 0;
-  font-size: 90%;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
 }
 
 .Frame {
+  box-sizing: border-box;
+  width: 100%;
   border: none;
   box-shadow: 1px 1px 5px black;
 }
