@@ -2,8 +2,7 @@ import React from "react";
 import "normalize.css";
 
 import { exerciseRoutes, documentRoutes } from "../routes";
-import ExerciseLinks from "../components/ExerciseLinks";
-import DocumentLinks from "../components/DocumentLinks";
+import RouteLinks from "../components/RouteLinks";
 import { Outer } from "../undefined-components";
 
 import * as Styles from "./styles.css";
@@ -24,12 +23,12 @@ const LinkGroupOuter = () => (
   <div className={Styles.LinkGroupOuter}>
     {!!exerciseRoutes.length &&
       <LinkGroup>
-        <ExerciseLinks routes={exerciseRoutes} />
+        <RouteLinks routes={exerciseRoutes} />
       </LinkGroup>
     }
     {!!documentRoutes.length &&
       <LinkGroup>
-        <DocumentLinks routes={documentRoutes} />
+        <RouteLinks routes={documentRoutes} />
       </LinkGroup>
     }
   </div>
