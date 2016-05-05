@@ -23,12 +23,12 @@ const LinkGroupOuter = () => (
   <div className={Styles.LinkGroupOuter}>
     {!!exerciseRoutes.length &&
       <LinkGroup>
-        <RouteLinks routes={exerciseRoutes} />
+        <RouteLinks label="Exercises" routes={exerciseRoutes} />
       </LinkGroup>
     }
     {!!documentRoutes.length &&
       <LinkGroup>
-        <RouteLinks routes={documentRoutes} />
+        <RouteLinks label="Documents" routes={documentRoutes} />
       </LinkGroup>
     }
   </div>
