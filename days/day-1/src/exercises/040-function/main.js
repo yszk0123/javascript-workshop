@@ -42,7 +42,7 @@
   var iife6 = function(global) {
     console.log("IIFE 6: global = window =", global);
   };
-  iief6(window);
+  iife6(window);
 
   (function(global) {
     console.log("IIFE 7: global = window =", global);
