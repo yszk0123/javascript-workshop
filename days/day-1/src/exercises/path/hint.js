@@ -5,7 +5,7 @@
 
   var resolver = new PathResolver({ currentDirectory: "/a/b/c" });
 
-  assert.equal(resolver.resolve("./file.js"), "/a/b/c/file.js");
-  assert.equal(resolver.resolve("../file.js"), "/a/b/file.js");
-  assert.equal(resolver.resolve("../../file.js"), "/a/file.js");
+  assert.ok(resolver.resolve("./file.js") === "/a/b/c/file.js");
+  assert.ok(resolver.resolve("../file.js") === "/a/b/file.js");
+  assert.ok(resolver.resolve("../../file.js") === "/a/file.js");
 })(window.JavaScriptWorkshop);
