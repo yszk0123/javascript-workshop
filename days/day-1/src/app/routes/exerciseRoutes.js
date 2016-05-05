@@ -10,7 +10,6 @@ const titleExtractor = new Extractor()
 export default __EXERCISES__.map(function({ filename, document }) {
   const title = titleExtractor.execute(filename);
 
-  console.log(title, filename);
   return {
     title,
     path: title,
