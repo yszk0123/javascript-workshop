@@ -14,14 +14,3 @@
 
 プロジェクト内 (javascript-workshop) で使うバージョンを指定
 `$ nodebrew local v5.11.0`
-
-# 実行方法
-## Install
-`$ npm install`
-
-## Run
-`$ npm start`
-
-## 確認
-1. ブラウザで `http://localhost:3000` を開く
-2. ページが表示されることを確認
