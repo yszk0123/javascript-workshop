@@ -20,6 +20,11 @@
     print(message);
   }
 
+  // TODO: Replace with assertDeepEqual
+  function assertSimilar(actual, expected, message) {
+    assertOk(JSON.stringify(actual) === JSON.stringify(expected), message);
+  }
+
   function assertOk(value, message) {
     if (!value) {
       return printErrorWithMessage("expected: truthy", message);
@@ -40,7 +45,8 @@
     assert: {
       equal: assertEqual,
       ok: assertOk,
-      fail: assertFail
+      fail: assertFail,
+      similar: assertSimilar
     }
   };
 })(window.JavaScriptWorkshop);
