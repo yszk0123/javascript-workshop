@@ -38,6 +38,8 @@ const MainContentTransition = ({ children }) =>
   <ReactCSSTransitionGroup
     component="div"
     transitionName={mainContentTransition}
+    transitionAppear={true}
+    transitionAppearTimeout={500}
     transitionEnterTimeout={500}
     transitionLeaveTimeout={500}
   >
