@@ -1,7 +1,5 @@
 import React from "react";
-import "normalize.css";
 
-import { exerciseRoutes, documentRoutes } from "../routes";
 import RouteLinks from "../components/RouteLinks";
 import { Outer } from "../undefined-components";
 
@@ -19,25 +17,25 @@ const LeftPane = (props) =>
 const RightPane = (props) =>
   <div className={Styles.RightPane} {...props} />;
 
-const LinkGroupOuter = () => (
+const LinkGroupOuter = ({ documents, exercises }) => (
   <div className={Styles.LinkGroupOuter}>
-    {!!documentRoutes.length &&
+    {!!documents.length &&
       <LinkGroup>
-        <RouteLinks label="Documents" routes={documentRoutes} />
+        <RouteLinks label="Documents" routes={documents} />
       </LinkGroup>
     }
-    {!!exerciseRoutes.length &&
+    {!!exercises.length &&
       <LinkGroup>
-        <RouteLinks label="Exercises" routes={exerciseRoutes} />
+        <RouteLinks label="Exercises" routes={exercises} />
       </LinkGroup>
     }
   </div>
 );
 
-const Layout = ({ children }) => (
+const Layout = ({ contents, children }) => (
   <Outer>
     <LeftPane>
-      <LinkGroupOuter />
+      <LinkGroupOuter documents={contents.documents} exercises={contents.exercises} />
     </LeftPane>
     <RightPane>
       <MainContent>

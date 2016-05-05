@@ -2,31 +2,30 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import { Router, Route, browserHistory } from "react-router";
+import { Router, browserHistory } from "react-router";
 import { syncHistoryWithStore, routerReducer } from "react-router-redux";
+import "normalize.css";
 
-import { exerciseRoutes, documentRoutes } from "./routes";
-import Layout from "./Layout";
+import renderRoute from "./renderRoute";
 
-// import reducers from "<project-path>/reducers";
-const reducers = {};
+import reducers from "./reducers";
 
 // TODO: Use initialState
 export function mount(initialState, mountElement) {
-  const store = createStore(
+  const getReducers = (reducers) =>
     combineReducers({
       ...reducers,
       routing: routerReducer
-    })
-  );
+    });
+
+  const store = createStore(getReducers(reducers));
 
   if (__DEVELOPMENT__) {
     if (module.hot) {
-      module.hot.accept("./Layout", () => {
-        const nextReducer = {};
-        // const nextReducer = require("src/app").reducers; // eslint-disable-line global-require
+      module.hot.accept("./reducers", () => {
+        const nextReducers = require("./reducers"); // eslint-disable-line global-require
         store.replaceReducer( // eslint-disable-line no-use-before-define
-          getReducers(nextReducer.default || nextReducer)
+          getReducers(nextReducers.default || nextReducers)
         );
       });
     }
@@ -34,21 +33,11 @@ export function mount(initialState, mountElement) {
 
   const history = syncHistoryWithStore(browserHistory, store);
 
+  console.log(store.getState());
   ReactDOM.render(
     <Provider store={store}>
       <Router history={history}>
-        <Route path="/" component={Layout}>
-          <Route path="docs">
-            {documentRoutes.map(({ path, component }, i) => (
-              <Route key={i} path={path} component={component} />
-            ))}
-          </Route>
-          <Route path="exercises">
-            {exerciseRoutes.map(({ path, component }, i) => (
-              <Route key={i} path={path} component={component} />
-            ))}
-          </Route>
-        </Route>
+        {renderRoute(store.getState().contents)}
       </Router>
     </Provider>,
     mountElement

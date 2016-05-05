@@ -1,7 +1,7 @@
 import React from "react";
 
 import * as Styles from "./styles.css";
-import Markdown from "./Markdown";
+import Markdown from "../Markdown";
 
 const ReloadButton = ({ onClick }) =>
   <input className={Styles.ReloadButton} type="button" value="更新" onClick={onClick} />;

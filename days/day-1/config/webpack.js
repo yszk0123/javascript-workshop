@@ -2,31 +2,10 @@
 var webpack = require("webpack");
 var path = require("path");
 var ExtractTextWebpackPlugin = require("extract-text-webpack-plugin");
-var globby = require("globby");
 var autoprefixer = require("autoprefixer");
-var fs = require("fs");
 
-var exercises = globby
-  .sync("*/index.html", { cwd: "./src/exercises" })
-  .sort()
-  .map(function(filename) {
-    var dir = filename.replace(/\/index.html$/, "");
-
-    return {
-      filename: filename,
-      document: fs.readFileSync("./src/exercises/" + dir + "/README.md", "utf8")
-    };
-  });
-
-var documents = globby
-  .sync(["*.md", "*/index.md"], { cwd: "./docs" })
-  .sort()
-  .map(function(filename) {
-    return {
-      filename: filename,
-      content: fs.readFileSync("./docs/" + filename, "utf8")
-    };
-  });
+var documents = require("./contents/documents");
+var exercises = require("./contents/exercises");
 
 module.exports = {
   devtool: "cheap-module-eval-source-map",
@@ -98,8 +77,10 @@ module.exports = {
   plugins: [
     new ExtractTextWebpackPlugin("style.css"),
     new webpack.DefinePlugin({
-      "__EXERCISES__": JSON.stringify(exercises),
-      "__DOCUMENTS__": JSON.stringify(documents),
+      "__INITIAL_STATE__": JSON.stringify({
+        exercises: exercises,
+        documents: documents
+      }),
       "__DEVELOPMENT__": true,
       "process.env": {
         "NODE_ENV": JSON.stringify("development")
