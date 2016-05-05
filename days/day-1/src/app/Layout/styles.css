@@ -15,15 +15,17 @@
 .LeftPane {
   box-sizing: border-box;
   position: absolute;
+  z-index: 1;
   display: block;
   left: 0;
   top: 0;
-  right: 0;
   bottom: 0;
   padding: 1em;
+  width: 200px;
   background: #f8f8f8;
   overflow-x: hidden;
   overflow-y: scroll;
+  white-space: nowrap;
 }
 
 .RightPane {
@@ -48,6 +50,7 @@
 
 .MainContent {
   position: absolute;
+  z-index: 0;
   left: 0;
   right: 0;
   top: 0;

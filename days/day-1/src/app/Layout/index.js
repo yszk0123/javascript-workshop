@@ -1,9 +1,11 @@
 import React from "react";
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 import RouteLinks from "../components/RouteLinks";
 import { Outer } from "../undefined-components";
 
 import * as Styles from "./styles.css";
+import mainContentTransition from "./mainContentTransition.css";
 
 const LinkGroup = (props) =>
   <div className={Styles.LinkGroup} {...props} />;
@@ -32,15 +34,22 @@ const LinkGroupOuter = ({ documents, exercises }) => (
   </div>
 );
 
-const Layout = ({ contents, children }) => (
+const Layout = ({ contents, children, location }) => (
   <Outer>
     <LeftPane>
       <LinkGroupOuter documents={contents.documents} exercises={contents.exercises} />
     </LeftPane>
     <RightPane>
-      <MainContent>
-        {children}
-      </MainContent>
+      <ReactCSSTransitionGroup
+        component="div"
+        transitionName={mainContentTransition}
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={500}
+      >
+        <MainContent key={location.pathname}>
+          {children}
+        </MainContent>
+      </ReactCSSTransitionGroup>
     </RightPane>
   </Outer>
 );
