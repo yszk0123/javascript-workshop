@@ -4,6 +4,7 @@ var path = require("path");
 var ExtractTextWebpackPlugin = require("extract-text-webpack-plugin");
 var globby = require("globby");
 var autoprefixer = require("autoprefixer");
+var fs = require("fs");
 
 module.exports = {
   devtool: "cheap-module-eval-source-map",
@@ -80,7 +81,7 @@ module.exports = {
 
         return {
           filename: filename,
-          content: fs.readFileSync(filename, "utf8")
+          content: fs.readFileSync("./docs/" + filename, "utf8")
         };
       })),
       "__DEVELOPMENT__": true,
