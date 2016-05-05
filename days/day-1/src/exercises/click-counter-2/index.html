@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Click Counter</title>
+</head>
+<body>
+  <pre id="instruction">
+    演習1: クリックで増減するカウンタ値を 1 から 10 に変えてみる
+    createModel() を変更する必要があったか
+    createView() を変更する必要があったか
+
+    演習2: リセットボタンを取り除いてみる
+    createModel() を変更する必要があったか
+    createView() を変更する必要があったか
+
+    想像: ソースコードの内容を忘れてしまった頃、演習1 をやるとして
+    createView() 全体をみて内容を思い出したいと思うか
+
+    演習: ページが読み込まれた後の順序はどうなっているか
+    DOM 要素が作成される
+    DOM 要素にアクセスする (e.g. document.getElementById("increment-button"))
+    ヒント: script タグの位置
+  </pre>
+
+  <div id="app-container">
+    <div id="button-container">
+      <input id="increment-button" type="button" value="Increment">
+      <input id="decrement-button" type="button" value="Decrement">
+      <input id="reset-button" type="button" value="Reset">
+    </div>
+
+    <div id="counter-container">
+      <div id="counter"></div>
+    </div>
+  </div>
+
+  <script src="../../common/bootstrap.js"></script>
+  <script src="../../common/test-utils.js"></script>
+  <script src="./createView.js"></script>
+  <script src="./createModel.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Click Counter</title>
+</head>
+<body>
+  <pre id="instruction">
+    演習: main.js の中身を幾つかの関数に分割・整理してみる
+    終わったら main.js の中身を better.js に置き換える
+    better.js はあくまで解答例。正解はない
+    createModel(), と createView() を別々のファイルに分けてみる
+  </pre>
+
+  <div id="app-container">
+    <div id="button-container">
+      <input id="increment-button" type="button" value="Increment">
+      <input id="decrement-button" type="button" value="Decrement">
+      <input id="reset-button" type="button" value="Reset">
+    </div>
+
+    <div id="counter-container">
+      <div id="counter"></div>
+    </div>
+  </div>
+
+  <script src="../../common/bootstrap.js"></script>
+  <script src="../../common/test-utils.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>
