@@ -7,13 +7,14 @@ const titleExtractor = new Extractor()
   .addRule(/([^\/]+)\/index\.html$/, (_, title) => title)
   .addRule(/\/(.+)\.html$/, (_, title) => title);
 
-export default __EXERCISES__.map(function(key) {
-  const title = titleExtractor.execute(key);
+export default __EXERCISES__.map(function({ filename, document }) {
+  const title = titleExtractor.execute(filename);
 
   return {
     title,
     path: title,
     absolutePath: `/exercises/${title}`,
-    component: (_props) => <Exercise title={title} src={`/exercises/${key}`} />
+    component: (_props) =>
+      <Exercise title={title} src={`/exercises/${filename}`} document={document} />
   };
 });

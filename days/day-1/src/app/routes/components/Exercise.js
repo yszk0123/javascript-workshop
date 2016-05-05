@@ -1,6 +1,7 @@
 import React from "react";
 
 import * as Styles from "./styles.css";
+import Markdown from "./Markdown";
 
 const ReloadButton = ({ onClick }) =>
   <input className={Styles.ReloadButton} type="button" value="更新" onClick={onClick} />;
@@ -11,6 +12,9 @@ const Header = (props) =>
 const Content = (props) =>
   <div className={Styles.Content} {...props} />;
 
+const Footer = (props) =>
+  <div className={Styles.Footer} {...props} />;
+
 class Exercise extends React.Component {
   handleReloadClick(event) {
     event.preventDefault();
@@ -18,7 +22,7 @@ class Exercise extends React.Component {
   }
 
   render() {
-    const { title, src } = this.props;
+    const { title, src, document } = this.props;
 
     return (
       <div className={Styles.Exercise}>
@@ -29,6 +33,9 @@ class Exercise extends React.Component {
         <Content>
           <iframe ref="frame" className={Styles.Frame} src={src} />
         </Content>
+        <Footer>
+          <Markdown content={document} />
+        </Footer>
       </div>
     );
   }

@@ -7,14 +7,21 @@ var autoprefixer = require("autoprefixer");
 var fs = require("fs");
 
 var exercises = globby
-  .sync(["*.html", "*/index.html"], { cwd: "./src/exercises" })
-  .sort();
+  .sync("*/index.html", { cwd: "./src/exercises" })
+  .sort()
+  .map(function(filename) {
+    var dir = filename.replace(/\/index.html$/, "");
+
+    return {
+      filename: filename,
+      document: fs.readFileSync("./src/exercises/" + dir + "/README.md", "utf8")
+    };
+  });
 
 var documents = globby
   .sync(["*.md", "*/index.md"], { cwd: "./docs" })
   .sort()
   .map(function(filename) {
-
     return {
       filename: filename,
       content: fs.readFileSync("./docs/" + filename, "utf8")
