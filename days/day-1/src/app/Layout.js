@@ -2,13 +2,21 @@ import React from "react";
 import { Link } from "react-router";
 
 import { exerciseRoutes, documentRoutes } from "./routes";
-import { Content, Outer } from "./undefined-components";
+import { Outer } from "./undefined-components";
 
 import "normalize.css";
 import * as Styles from "./styles.css";
 
-const LinkGroup = ({ children }) =>
-  <div className={Styles.LinkGroup}>{children}</div>;
+// TODO: Move to a separate file
+const ACTIVE = {
+  background: "#ddd"
+};
+
+const LinkGroup = (props) =>
+  <div className={Styles.LinkGroup} {...props} />;
+
+const Content = (props) =>
+  <div className={Styles.Content} {...props} />;
 
 const Links = () => (
   <div className={Styles.LinkGroupContainer}>
@@ -17,7 +25,7 @@ const Links = () => (
         <h2 className={Styles.LinkHeader}>Exercises</h2>
         <ul className={Styles.Links}>
           {exerciseRoutes.map(({ path, title }, i) => (
-            <li className={Styles.Link} key={i}><Link to={path}>{title}</Link></li>
+            <li className={Styles.Link} key={i}><Link to={path} activeStyle={ACTIVE}>{title}</Link></li>
           ))}
         </ul>
       </LinkGroup>
@@ -27,7 +35,7 @@ const Links = () => (
         <h2 className={Styles.LinkHeader}>Documents</h2>
         <ul className={Styles.Links}>
           {documentRoutes.map(({ path, title }, i) => (
-            <li className={Styles.Link} key={i}><Link to={path}>{title}</Link></li>
+            <li className={Styles.Link} key={i}><Link to={path} activeStyle={ACTIVE}>{title}</Link></li>
           ))}
         </ul>
       </LinkGroup>
@@ -35,13 +43,11 @@ const Links = () => (
   </div>
 );
 
-const LeftPane = ({ children }) => (
-  <div className={Styles.LeftPane}>{children}</div>
-);
+const LeftPane = (props) =>
+  <div className={Styles.LeftPane} {...props} />;
 
-const RightPane = ({ children }) => (
-  <div className={Styles.RightPane}>{children}</div>
-);
+const RightPane = (props) =>
+  <div className={Styles.RightPane} {...props} />;
 
 const Layout = ({ children }) => (
   <Outer>

@@ -20,11 +20,17 @@
 }
 
 .Link {
-  margin: 3px;
+  margin: 5px;
 }
 
 .Link a {
+  padding: 8px;
   text-decoration: none;
+  border-radius: 3px;
+}
+
+.Link a:hover {
+  background: #eee;
 }
 
 :global(html),
@@ -50,12 +56,20 @@
   min-width: 100px;
   height: 100%;
   padding: 1em;
-  border-right: 3px dotted lightgray;
+  background: #f8f8f8;
 }
 
 .RightPane {
   float: left;
   width: auto;
+  min-width: 200px;
   height: 100%;
-  padding: 1em;
+  padding: 0.5em;
+  background: #e8e8e8;
+}
+
+.Content {
+  background: white;
+  padding: 0.8em;
+  min-height: 100px;
 }
