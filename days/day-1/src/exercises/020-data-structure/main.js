@@ -3,7 +3,7 @@
   var assert = namespace.TestUtils.assert;
 
   function testObject() {
-    console.group("========== オブジェクト (Object) ==========");
+    console.group("オブジェクト (Object)");
 
     var object = {
       id: 1,
@@ -29,7 +29,7 @@
   }
 
   function testArray() {
-    console.group("========== 配列 (Array) ==========");
+    console.group("配列 (Array)");
 
     var array = [
       100,
@@ -67,7 +67,7 @@
   }
 
   function testBoolean() {
-    console.group("========== ブーリアン (Boolean) ==========");
+    console.group("ブーリアン (Boolean)");
 
     assert.ok(true, "例1");
     assert.fail(false, "例2");

@@ -3,7 +3,7 @@
   var assert = namespace.TestUtils.assert;
 
   function testForStatement() {
-    console.group("========== for statement ==========");
+    console.group("for statement");
     var items = [10, 20, 30];
     var i;
 
@@ -20,7 +20,7 @@
   }
 
   function testCollection() {
-    console.group("========== collection ==========");
+    console.group("collection");
     var items = [10, 20, 30];
 
     items.forEach(function(item, index) {
