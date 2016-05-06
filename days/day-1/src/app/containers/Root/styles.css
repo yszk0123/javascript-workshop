@@ -39,15 +39,6 @@
   background: #e8e8e8;
 }
 
-.LinkGroupOuter {
-  padding: 0.5em;
-}
-
-.LinkGroup {
-  margin: 0;
-  padding-bottom: 0.5em;
-}
-
 .MainContent {
   position: absolute;
   z-index: 0;

@@ -77,10 +77,7 @@ module.exports = {
   plugins: [
     new ExtractTextWebpackPlugin("style.css"),
     new webpack.DefinePlugin({
-      "__INITIAL_STATE__": JSON.stringify({
-        exercises: exercises,
-        docs: docs
-      }),
+      "__INITIAL_STATE__": JSON.stringify(exercises.concat(docs)),
       "__DEVELOPMENT__": true,
       "process.env": {
         "NODE_ENV": JSON.stringify("development")

@@ -1,14 +1,12 @@
 import React from "react";
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import { connect } from "react-redux";
 
-import RouteLinks from "../components/RouteLinks";
-import { Outer } from "../undefined-components";
+import LinkGroups from "../LinkGroups";
+import { Outer } from "../../undefined-components";
 
 import * as Styles from "./styles.css";
 import mainContentTransition from "./mainContentTransition.css";
-
-const LinkGroup = (props) =>
-  <div className={Styles.LinkGroup} {...props} />;
 
 const MainContent = (props) =>
   <div className={Styles.MainContent} {...props} />;
@@ -18,21 +16,6 @@ const LeftPane = (props) =>
 
 const RightPane = (props) =>
   <div className={Styles.RightPane} {...props} />;
-
-const LinkGroupOuter = ({ docs, exercises }) => (
-  <div className={Styles.LinkGroupOuter}>
-    {!!docs.length &&
-      <LinkGroup>
-        <RouteLinks label="Docs" routes={docs} />
-      </LinkGroup>
-    }
-    {!!exercises.length &&
-      <LinkGroup>
-        <RouteLinks label="Exercises" routes={exercises} />
-      </LinkGroup>
-    }
-  </div>
-);
 
 const MainContentTransition = ({ children }) =>
   <ReactCSSTransitionGroup
@@ -46,10 +29,10 @@ const MainContentTransition = ({ children }) =>
     {children}
   </ReactCSSTransitionGroup>;
 
-const Layout = ({ contents, children, location }) => (
+const Layout = ({ children, location }) =>
   <Outer>
     <LeftPane>
-      <LinkGroupOuter docs={contents.docs} exercises={contents.exercises} />
+      <LinkGroups />
     </LeftPane>
     <RightPane>
       <MainContentTransition>
@@ -58,7 +41,6 @@ const Layout = ({ contents, children, location }) => (
         </MainContent>
       </MainContentTransition>
     </RightPane>
-  </Outer>
-);
+  </Outer>;
 
-export default Layout;
+export default connect((state) => state)(Layout);

@@ -1,34 +1,16 @@
 import React from "react";
 import { Route } from "react-router";
 
-import Exercise from "./components/Exercise";
-import Markdown from "./components/Markdown";
-import Container from "./Container";
+import Root from "./containers/Root";
+import Content from "./containers/Content";
 
-const mapDoc = ({ path, content }, index) =>
-  <Route
-    key={index}
-    path={path}
-    component={() =>
-      <Markdown value={content} />
-    }
-  />;
-
-const mapExercise = ({ absoluteFilePath, path, content }, index) =>
-  <Route
-    key={index}
-    path={path}
-    component={() =>
-      <Exercise label={absoluteFilePath} src={absoluteFilePath} doc={content} />
-    }
-  />;
-
-export default ({ docs, exercises }) =>
-  <Route path="/" component={Container}>
-    <Route path="docs">
-      {docs.map(mapDoc)}
-    </Route>
-    <Route path="exercises">
-      {exercises.map(mapExercise)}
-    </Route>
+export default (contentsGroups) =>
+  <Route path="/" component={Root}>
+    {contentsGroups.map((contentsGroup, index) =>
+      <Route key={contentsGroup.type} path={contentsGroup.path}>
+        {contentsGroup.contents.map((content) =>
+          <Route key={content.path} path={content.path} component={Content} />
+        )}
+      </Route>
+    )}
   </Route>;

@@ -6,9 +6,9 @@ import { Router, browserHistory } from "react-router";
 import { syncHistoryWithStore, routerReducer } from "react-router-redux";
 import "normalize.css";
 
-import renderRoute from "./renderRoute";
-
 import reducers from "./reducers";
+import renderRoute from "./renderRoute";
+import { contentsGroupsSelector } from "./selectors";
 
 // TODO: Use initialState
 export function mount(initialState, mountElement) {
@@ -33,11 +33,10 @@ export function mount(initialState, mountElement) {
 
   const history = syncHistoryWithStore(browserHistory, store);
 
-  console.log(store.getState());
   ReactDOM.render(
     <Provider store={store}>
       <Router history={history}>
-        {renderRoute(store.getState().contents)}
+        {renderRoute(contentsGroupsSelector(store.getState()))}
       </Router>
     </Provider>,
     mountElement
