@@ -4,7 +4,7 @@ var path = require("path");
 var ExtractTextWebpackPlugin = require("extract-text-webpack-plugin");
 var autoprefixer = require("autoprefixer");
 
-var documents = require("./contents/documents");
+var docs = require("./contents/docs");
 var exercises = require("./contents/exercises");
 
 module.exports = {
@@ -79,7 +79,7 @@ module.exports = {
     new webpack.DefinePlugin({
       "__INITIAL_STATE__": JSON.stringify({
         exercises: exercises,
-        documents: documents
+        docs: docs
       }),
       "__DEVELOPMENT__": true,
       "process.env": {

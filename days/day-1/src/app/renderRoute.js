@@ -5,12 +5,12 @@ import Exercise from "./components/Exercise";
 import Markdown from "./components/Markdown";
 import Container from "./Container";
 
-const mapDocument = ({ path, content }, index) =>
+const mapDoc = ({ path, content }, index) =>
   <Route
     key={index}
     path={path}
     component={() =>
-      <Markdown content={content} />
+      <Markdown value={content} />
     }
   />;
 
@@ -19,14 +19,14 @@ const mapExercise = ({ absoluteFilePath, path, content }, index) =>
     key={index}
     path={path}
     component={() =>
-      <Exercise label={absoluteFilePath} src={absoluteFilePath} document={content} />
+      <Exercise label={absoluteFilePath} src={absoluteFilePath} doc={content} />
     }
   />;
 
-export default ({ documents, exercises }) =>
+export default ({ docs, exercises }) =>
   <Route path="/" component={Container}>
     <Route path="docs">
-      {documents.map(mapDocument)}
+      {docs.map(mapDoc)}
     </Route>
     <Route path="exercises">
       {exercises.map(mapExercise)}

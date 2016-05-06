@@ -25,7 +25,7 @@ class Exercise extends React.Component {
   }
 
   render() {
-    const { label, src, document, loadReady } = this.props;
+    const { label, src, doc, loadReady } = this.props;
 
     return (
       <div className={Styles.Exercise}>
@@ -37,7 +37,7 @@ class Exercise extends React.Component {
           {loadReady && <iframe ref="frame" className={Styles.Frame} src={src} />}
         </Main>
         <Footer>
-          <Markdown content={document} />
+          <Markdown value={doc} />
         </Footer>
       </div>
     );

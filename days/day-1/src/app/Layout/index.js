@@ -19,11 +19,11 @@ const LeftPane = (props) =>
 const RightPane = (props) =>
   <div className={Styles.RightPane} {...props} />;
 
-const LinkGroupOuter = ({ documents, exercises }) => (
+const LinkGroupOuter = ({ docs, exercises }) => (
   <div className={Styles.LinkGroupOuter}>
-    {!!documents.length &&
+    {!!docs.length &&
       <LinkGroup>
-        <RouteLinks label="Documents" routes={documents} />
+        <RouteLinks label="Docs" routes={docs} />
       </LinkGroup>
     }
     {!!exercises.length &&
@@ -49,7 +49,7 @@ const MainContentTransition = ({ children }) =>
 const Layout = ({ contents, children, location }) => (
   <Outer>
     <LeftPane>
-      <LinkGroupOuter documents={contents.documents} exercises={contents.exercises} />
+      <LinkGroupOuter docs={contents.docs} exercises={contents.exercises} />
     </LeftPane>
     <RightPane>
       <MainContentTransition>

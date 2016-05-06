@@ -1,7 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
 
-const Markdown = ({ content }) =>
-  <ReactMarkdown source={content} escapeHtml={true} />;
+const Markdown = ({ value }) =>
+  <ReactMarkdown source={value} escapeHtml={true} />;
 
 export default Markdown;
