@@ -21,5 +21,6 @@
     };
   }
 
+  // 他のモジュールから createModel を参照できるようにする
   namespace.createModel = createModel;
 })(window.JavaScriptWorkshop);

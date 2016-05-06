@@ -4,14 +4,17 @@
 
   // たい焼きの「型」
   class Taiyaki {
+    // たい焼きの初期状態を設定する
     constructor() {
       this._an = 100;
     }
 
+    // たい焼きの動作を定義する (1)
     eat() {
       this._an = this._an - 1;
     }
 
+    // たい焼きの動作を定義する (2)
     getAn() {
       return this._an;
     }

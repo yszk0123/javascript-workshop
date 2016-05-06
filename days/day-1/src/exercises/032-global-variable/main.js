@@ -14,3 +14,5 @@
   // 演習: "use strict" をコメントアウトした状態で次のコードが実行できることを確認する
   // undefinedVariable = "This variable is global!!!";
 })(window.JavaScriptWorkshop);
+
+// 演習: ここで定義した変数 (グローバル変数) は他のファイルからも参照できてしまう

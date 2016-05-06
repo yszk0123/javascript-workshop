@@ -46,5 +46,6 @@
     };
   }
 
+  // 他のモジュールから createView を参照できるようにする
   namespace.createView = createView;
 })(window.JavaScriptWorkshop);
