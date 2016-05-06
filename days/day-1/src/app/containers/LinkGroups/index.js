@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 
 import * as Styles from "./styles.css";
-import RouteLinks from "../../components/RouteLinks";
+import ContentLinks from "../../components/ContentLinks";
 import { contentsGroupsSelector } from "../../selectors";
 
 const Outer = (props) =>
@@ -15,7 +15,7 @@ const LinkGroups = ({ contentsGroups }) =>
   <Outer>
     {contentsGroups.map((contentsGroup) =>
       <LinkGroup key={contentsGroup.type}>
-        <RouteLinks label={contentsGroup.type} routes={contentsGroup.contents} />
+        <ContentLinks label={contentsGroup.type} contents={contentsGroup.contents} />
       </LinkGroup>
     )}
   </Outer>;

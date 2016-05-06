@@ -3,11 +3,11 @@ import { Link } from "react-router";
 
 import * as Styles from "./styles.css";
 
-const RouteLinks = ({ label, routes }) => (
+const ContentLinks = ({ label, contents }) => (
   <div>
     <h2 className={Styles.LinkLabel}>{label}</h2>
     <ul className={Styles.Links}>
-      {routes.map(({ absolutePath, title }, i) => (
+      {contents.map(({ absolutePath, title }, i) => (
         <li className={Styles.Link} key={i}>
           <Link to={absolutePath} activeClassName={Styles.ActiveLink}>{title}</Link>
         </li>
@@ -16,4 +16,4 @@ const RouteLinks = ({ label, routes }) => (
   </div>
 );
 
-export default RouteLinks;
+export default ContentLinks;
