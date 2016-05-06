@@ -12,8 +12,8 @@ const ReloadButton = ({ onClick }) =>
 const Header = (props) =>
   <div className={Styles.Header} {...props} />;
 
-const Content = (props) =>
-  <div className={Styles.Content} {...props} />;
+const Main = (props) =>
+  <div className={Styles.Main} {...props} />;
 
 const Footer = (props) =>
   <div className={Styles.Footer} {...props} />;
@@ -33,9 +33,9 @@ class Exercise extends React.Component {
           <ReloadButton onClick={this.handleReloadClick.bind(this)} />
           <label className={Styles.Label}>{label}</label>
         </Header>
-        <Content>
+        <Main>
           {loadReady && <iframe ref="frame" className={Styles.Frame} src={src} />}
-        </Content>
+        </Main>
         <Footer>
           <Markdown content={document} />
         </Footer>
