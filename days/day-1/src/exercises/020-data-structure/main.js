@@ -56,12 +56,12 @@
     // 演習: 一番前から配列要素を取り除く
     // <ここで何かやる>
     assert.similar(array, ["is", "a", "pen"], "演習1");
-    assert.ok(array.length === 2, "例6");
+    assert.ok(array.length === 2, "演習2");
 
     // 演習: 一番前に新しい配列要素を追加する
     // <ここで何かやる>
-    assert.similar(array, ["This", "is", "a", "pen"], "演習2");
-    assert.ok(array.length === 3, "例8");
+    assert.similar(array, ["This", "is", "a", "pen"], "演習3");
+    assert.ok(array.length === 3, "演習4");
 
     console.groupEnd();
   }
@@ -73,7 +73,7 @@
     assert.fail(false, "例2");
     assert.ok(1 < 2 === true, "例3");
     assert.ok(1 < 0 === false, "例4");
-    assert.ok((1 + 1 === 2) === true, "例4");
+    assert.ok((1 + 1 === 2) === true, "例5");
 
     console.groupEnd();
   }

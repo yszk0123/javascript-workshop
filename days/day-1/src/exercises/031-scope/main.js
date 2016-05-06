@@ -4,6 +4,7 @@
   // スコープ2: おまじないで導入される関数スコープ
 
   "use strict";
+  var assert = namespace.TestUtils.assert;
 
   function testScope() {
     // スコープ3: testScope() で導入される関数スコープ
@@ -29,6 +30,8 @@
 
     // スコープ3 (外側)から、スコープ4 (内側)の変数を参照することは出来ない
     // assert.ok(scope4 === "scope4", "例4");
+
+    something();
   }
 
   testScope();

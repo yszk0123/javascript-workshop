@@ -3,7 +3,7 @@
   var assert = namespace.TestUtils.assert;
 
   assert.ok(window.document === document, "例1");
-  assert.fail(window.window === window, "例2");
+  assert.ok(window.window === window, "例2");
 
   // 演習: 次の値をコンソールで表示できるか確認する
   var localVariable = "This variable is local";
