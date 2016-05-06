@@ -3,7 +3,7 @@
 
   // アプリの見た目を扱う
   function createView(model) {
-    // DOM要素にアクセスするための変数を定義
+    // DOM要素にアクセスするための変数を宣言
 
     const incrementButtonElement = document.getElementById("increment-button");
     const decrementButtonElement = document.getElementById("decrement-button");

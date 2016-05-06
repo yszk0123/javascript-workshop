@@ -15,4 +15,4 @@
   // undefinedVariable = "This variable is global!!!";
 })(window.JavaScriptWorkshop);
 
-// 演習: ここで定義した変数 (グローバル変数) は他のファイルからも参照できてしまう
+// 演習: ここで宣言した変数 (グローバル変数) は他のファイルからも参照できてしまう
