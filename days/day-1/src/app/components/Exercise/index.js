@@ -7,7 +7,9 @@ import lazySwitcher from "./lazySwitcher";
 const LOAD_TIMEOUT = 500;
 
 const ReloadButton = ({ onClick }) =>
-  <input className={Styles.ReloadButton} type="button" value="更新" onClick={onClick} />;
+  <button className={Styles.ReloadButton} onClick={onClick}>
+    <span><i className="fa fa-refresh" /> 更新</span>
+  </button>;
 
 const Header = (props) =>
   <div className={Styles.Header} {...props} />;

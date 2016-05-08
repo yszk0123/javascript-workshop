@@ -15,7 +15,10 @@ const LinkGroups = ({ contentsGroups }) =>
   <Outer>
     {contentsGroups.map((contentsGroup) =>
       <LinkGroup key={contentsGroup.type}>
-        <ContentLinks label={contentsGroup.type} contents={contentsGroup.contents} />
+        <ContentLinks
+          label={<span><i className={`fa fa-${contentsGroup.icon} fa-lg`} /> {contentsGroup.type}</span>}
+          contents={contentsGroup.contents}
+        />
       </LinkGroup>
     )}
   </Outer>;

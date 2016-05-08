@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import { Router, browserHistory } from "react-router";
 import { syncHistoryWithStore, routerReducer } from "react-router-redux";
 import "normalize.css";
+import "font-awesome/css/font-awesome.css";
 
 import reducers from "./reducers";
 import renderRoutes from "./renderRoutes";

@@ -24,11 +24,13 @@ export const contentsGroupsSelector = createSelector(
     return [
       {
         type: ContentType.Doc,
+        icon: "book",
         path: "docs",
         contents: groupsByType[ContentType.Doc]
       },
       {
         type: ContentType.Exercise,
+        icon: "question-circle",
         path: "exercises",
         contents: groupsByType[ContentType.Exercise]
       }

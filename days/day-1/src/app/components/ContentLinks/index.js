@@ -4,7 +4,7 @@ import { Link } from "react-router";
 import * as Styles from "./styles.css";
 
 const ContentLinks = ({ label, contents }) => (
-  <div>
+  <span>
     <h2 className={Styles.LinkLabel}>{label}</h2>
     <ul className={Styles.Links}>
       {contents.map(({ absolutePath, title }, i) => (
@@ -13,7 +13,7 @@ const ContentLinks = ({ label, contents }) => (
         </li>
       ))}
     </ul>
-  </div>
+  </span>
 );
 
 export default ContentLinks;
