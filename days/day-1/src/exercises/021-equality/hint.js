@@ -8,10 +8,10 @@
     var objectA = {};
 
     var objectB = objectA;
-    assert.shouldCorrect(objectA === objectB, "演習1");
+    assert.ok(objectA === objectB, "例1");
 
     var objectC = {};
-    assert.shouldCorrect(objectA === objectC, "演習2");
+    assert.ok(objectA !== objectC, "例2");
 
     console.groupEnd();
   }
@@ -24,10 +24,10 @@
     var booleanA = true;
 
     var booleanB = booleanA;
-    assert.shouldCorrect(booleanA === booleanB, "演習1");
+    assert.ok(booleanA === booleanB, "例1");
 
     var booleanC = true;
-    assert.shouldCorrect(booleanA === booleanC, "演習2");
+    assert.ok(booleanA === booleanC, "例2");
 
     console.groupEnd();
   }
@@ -40,14 +40,13 @@
     var arrayA = [];
 
     var arrayB = arrayA;
-    assert.shouldCorrect(arrayA === arrayB, "演習1");
+    assert.ok(arrayA === arrayB, "例1");
 
     var arrayC = [];
-    assert.shouldCorrect(arrayA === arrayC, "演習2");
+    assert.ok(arrayA !== arrayC, "例2");
 
     console.groupEnd();
   }
 
-  // 演習: 配列はオブジェクトとブーリアンどちらのタイプか予想する
   testArray();
 })(window.JavaScriptWorkshop);

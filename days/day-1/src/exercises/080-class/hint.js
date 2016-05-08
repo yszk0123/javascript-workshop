@@ -33,9 +33,8 @@
 
   // taiyakiB の状態(餡の量) が変わる
   // taiyakiA の状態は変わっていない
-  // 演習: 正しい値を予想する
-  assert.ok(taiyakiA.getAn() === "?", "例3");
-  assert.ok(taiyakiB.getAn() === "?", "例4");
+  assert.ok(taiyakiA.getAn() === 100, "例3");
+  assert.ok(taiyakiB.getAn() === 99, "例4");
 
   // 演習: コメントを外した時の挙動を予想する
   // Taiyaki 自体には実体がないので、餡もなければ食べることも出来ない

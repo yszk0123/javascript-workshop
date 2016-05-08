@@ -13,7 +13,8 @@
   assert.ok(v2 === 2, "例2");
 
   // const で宣言した変数は代入不可能
+  // 演習: コメントを外した時の挙動を予想する
   const v3 = 1;
-  v3 = v3 + 1;
-  // assert.ok(v3 === 2, "例3");
+  // v3 = v3 + 1;
+  // assert.ok(v3 === 2, "演習1");
 })(window.JavaScriptWorkshop);

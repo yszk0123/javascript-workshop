@@ -28,6 +28,8 @@
     console.groupEnd();
   }
 
+  testObject();
+
   function testArray() {
     console.group("配列 (Array)");
 
@@ -66,6 +68,8 @@
     console.groupEnd();
   }
 
+  testArray();
+
   function testBoolean() {
     console.group("ブーリアン (Boolean)");
 
@@ -78,7 +82,5 @@
     console.groupEnd();
   }
 
-  testObject();
-  testArray();
   testBoolean();
 })(window.JavaScriptWorkshop);

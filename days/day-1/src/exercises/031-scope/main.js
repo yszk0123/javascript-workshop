@@ -29,7 +29,7 @@
 
       // 演習: ここで scope3 という同名の変数を宣言するとどうなるか
       var scope3 = "new scope3";
-      assert.ok(scope3 === "?", "演習1")
+      assert.shouldCorrect(scope3 === "?", "演習1")
     }
 
     // スコープ3 (外側)から、スコープ4 (内側)の変数を参照することは出来ない

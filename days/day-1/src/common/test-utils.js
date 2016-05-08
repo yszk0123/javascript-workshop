@@ -41,12 +41,17 @@
     print(message);
   }
 
+  function assertShouldCorrect(_value, message) {
+    printErrorWithMessage("訂正して下さい", message);
+  }
+
   namespace.TestUtils = {
     assert: {
       equal: assertEqual,
       ok: assertOk,
       fail: assertFail,
-      similar: assertSimilar
+      similar: assertSimilar,
+      shouldCorrect: assertShouldCorrect
     }
   };
 })(window.JavaScriptWorkshop);

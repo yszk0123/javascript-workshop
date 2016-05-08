@@ -53,5 +53,5 @@
   (function() { console.log("IIFE 8"); }());
 
   // 演習: なぜ括弧が必要か
-  assert.ok(false, "演習");
+  assert.shouldCorrect(false, "演習");
 })(window.JavaScriptWorkshop);
