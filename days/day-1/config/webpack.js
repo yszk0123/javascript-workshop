@@ -83,7 +83,7 @@ module.exports = {
     },
   },
   plugins: [
-    new ExtractTextWebpackPlugin("style.css"),
+    new ExtractTextWebpackPlugin("[name].css"),
     new webpack.DefinePlugin({
       "__INITIAL_STATE__": JSON.stringify(exercises.concat(docs)),
       "__DEVELOPMENT__": true,
