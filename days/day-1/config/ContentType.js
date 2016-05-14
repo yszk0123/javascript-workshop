@@ -2,5 +2,6 @@
 
 module.exports = {
   Doc: 'Doc',
-  Exercise: 'Exercise'
+  LegacyExercise: 'LegacyExercise',
+  ModularExercise: 'ModularExercise'
 };

@@ -10,7 +10,8 @@ const Content = ({ type, value, absoluteFilePath }) => {
   switch (type) {
     case ContentType.Doc:
       return <Markdown value={value} />;
-    case ContentType.Exercise:
+    case ContentType.LegacyExercise:
+    case ContentType.ModularExercise:
       return <Exercise label={absoluteFilePath} src={absoluteFilePath} doc={value} />;
     default:
       return null;

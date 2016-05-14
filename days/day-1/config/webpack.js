@@ -6,8 +6,11 @@ var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 var docs = require('./contents/docs');
-var exercises = require('./contents/exercises');
+var legacyExercises = require('./contents/legacyExercises');
+var modularExercises = require('./contents/modularExercises');
 var collectWebpackEntries = require('./utils/collectWebpackEntries');
+
+var contents = legacyExercises.concat(modularExercises).concat(docs);
 
 var entries = collectWebpackEntries('./src/entries');
 entries.app.push('webpack/hot/dev-server');
@@ -97,7 +100,7 @@ module.exports = {
   plugins: htmlWebpackPlugins.concat([
     new ExtractTextWebpackPlugin('[name].css'),
     new webpack.DefinePlugin({
-      '__INITIAL_STATE__': JSON.stringify(exercises.concat(docs)),
+      '__INITIAL_STATE__': JSON.stringify(contents),
       '__DEVELOPMENT__': true,
       'process.env': {
         'NODE_ENV': JSON.stringify('development')

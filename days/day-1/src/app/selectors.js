@@ -31,10 +31,16 @@ export const contentsGroupsSelector = createSelector(
         contents: groupsByType[ContentType.Doc]
       },
       {
-        type: ContentType.Exercise,
+        type: ContentType.LegacyExercise,
         icon: 'question-circle',
-        path: 'exercises',
-        contents: groupsByType[ContentType.Exercise]
+        path: 'legacy-exercises',
+        contents: groupsByType[ContentType.LegacyExercise]
+      },
+      {
+        type: ContentType.ModularExercise,
+        icon: 'question-circle',
+        path: 'modular-exercises',
+        contents: groupsByType[ContentType.ModularExercise]
       }
     ].filter(Boolean);
   }
