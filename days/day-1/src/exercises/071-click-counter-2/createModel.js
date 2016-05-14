@@ -11,12 +11,6 @@
       },
       increment: function() {
         count = count + 1;
-      },
-      decrement: function() {
-        count = count - 1;
-      },
-      reset: function() {
-        count = 0;
       }
     };
   }
