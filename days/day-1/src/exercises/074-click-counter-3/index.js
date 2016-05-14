@@ -6,5 +6,5 @@ import createView from './createView';
 export function mount(state, element) {
   const model = createModel(state);
   const view = createView(model, element);
-  view.updateCounter();
+  view.update();
 }

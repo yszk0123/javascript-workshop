@@ -22,20 +22,20 @@
     // クリックされた時の動作を定義
     function onIncrementButtonClick(_event) {
       model.increment();
-      updateCounter();
+      update();
     }
 
     // 画面更新の定義
-    function updateCounter() {
+    function update() {
       counterElement.innerText = model.count;
     }
 
     // DOM要素のイベントとクリックされた時の動作を結びつける
     incrementButtonElement.addEventListener('click', onIncrementButtonClick);
 
-    // createView の呼び出し元から updateCounter を参照できるようにする
+    // createView の呼び出し元から update を参照できるようにする
     return {
-      updateCounter: updateCounter
+      update: update
     };
   }
 
@@ -43,7 +43,7 @@
   function main() {
     const model = createModel();
     const view = createView(model);
-    view.updateCounter();
+    view.update();
   }
 
   main();

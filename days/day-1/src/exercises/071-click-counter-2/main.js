@@ -9,7 +9,7 @@
   function main() {
     const model = createModel();
     const view = createView(model);
-    view.updateCounter();
+    view.update();
   }
 
   main();

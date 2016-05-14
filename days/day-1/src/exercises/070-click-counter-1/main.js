@@ -11,11 +11,11 @@
   // クリックされた時の動作を定義
   function onIncrementButtonClick(_event) {
     count = count + 1;
-    updateCounter();
+    update();
   }
 
   // 画面更新の定義
-  function updateCounter() {
+  function update() {
     counterElement.innerText = count;
   }
 
@@ -23,5 +23,5 @@
   incrementButtonElement.addEventListener('click', onIncrementButtonClick);
 
   // 画面更新
-  updateCounter();
+  update();
 })(window.JavaScriptWorkshop);
