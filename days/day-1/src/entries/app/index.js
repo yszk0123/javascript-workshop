@@ -1,3 +1,3 @@
-import * as App from "../../app";
+import * as App from '../../app';
 
-App.mount(undefined, document.getElementById("root"));
+App.mount(undefined, document.getElementById('root'));

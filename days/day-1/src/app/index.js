@@ -1,15 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
-import { Router, browserHistory } from "react-router";
-import { syncHistoryWithStore, routerReducer } from "react-router-redux";
-import "normalize.css";
-import "font-awesome/css/font-awesome.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import { Router, browserHistory } from 'react-router';
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
+import 'normalize.css';
+import 'font-awesome/css/font-awesome.css';
 
-import reducers from "./reducers";
-import renderRoutes from "./renderRoutes";
-import { contentsGroupsSelector } from "./selectors";
+import reducers from './reducers';
+import renderRoutes from './renderRoutes';
+import { contentsGroupsSelector } from './selectors';
 
 // TODO: Use initialState
 export function mount(initialState, mountElement) {
@@ -23,8 +23,8 @@ export function mount(initialState, mountElement) {
 
   if (__DEVELOPMENT__) {
     if (module.hot) {
-      module.hot.accept("./reducers", () => {
-        const nextReducers = require("./reducers"); // eslint-disable-line global-require
+      module.hot.accept('./reducers', () => {
+        const nextReducers = require('./reducers'); // eslint-disable-line global-require
         store.replaceReducer( // eslint-disable-line no-use-before-define
           getReducers(nextReducers.default || nextReducers)
         );

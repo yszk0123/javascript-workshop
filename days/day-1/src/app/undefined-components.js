@@ -1,10 +1,10 @@
 // CAUTION: DO NOT USE THIS COMPONENT FOR PRODUCTION CODE!
-import * as React from "react";
+import * as React from 'react';
 
 const Component = __DEVELOPMENT__ ?
   (props) => <div {...props} /> :
   (props) => {
-    throw new Error("UndefinedComponent should be used for test purpose");
+    throw new Error('UndefinedComponent should be used for test purpose');
   };
 
 module.exports = new Proxy({}, {

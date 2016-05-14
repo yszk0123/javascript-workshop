@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router";
+import React from 'react';
+import { Link } from 'react-router';
 
-import * as Styles from "./styles.css";
+import * as Styles from './styles.css';
 
 const ContentLinks = ({ label, contents }) => (
   <span>

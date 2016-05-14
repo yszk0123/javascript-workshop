@@ -1,6 +1,6 @@
-import { createSelector } from "reselect";
+import { createSelector } from 'reselect';
 
-import ContentType from "./ContentType";
+import ContentType from './ContentType';
 
 // TODO: Don't use Array#find()
 export const currentContentSelector = createSelector(
@@ -24,14 +24,14 @@ export const contentsGroupsSelector = createSelector(
     return [
       {
         type: ContentType.Doc,
-        icon: "book",
-        path: "docs",
+        icon: 'book',
+        path: 'docs',
         contents: groupsByType[ContentType.Doc]
       },
       {
         type: ContentType.Exercise,
-        icon: "question-circle",
-        path: "exercises",
+        icon: 'question-circle',
+        path: 'exercises',
         contents: groupsByType[ContentType.Exercise]
       }
     ].filter(Boolean);

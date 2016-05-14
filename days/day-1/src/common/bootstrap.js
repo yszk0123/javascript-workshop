@@ -1,4 +1,4 @@
 (function(global) {
-  "use strict";
+  'use strict';
   global.JavaScriptWorkshop = {};
 })(window);

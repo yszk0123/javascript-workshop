@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export default ({ switchName, timeout }) => (BaseComponent) => {
   class SwitcherComponent extends React.Component {

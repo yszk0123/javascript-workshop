@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import LinkGroups from "../LinkGroups";
-import { Outer } from "../../undefined-components";
+import LinkGroups from '../LinkGroups';
+import { Outer } from '../../undefined-components';
 
-import * as Styles from "./styles.css";
-import mainContentTransition from "./mainContentTransition.css";
+import * as Styles from './styles.css';
+import mainContentTransition from './mainContentTransition.css';
 
 const MainContent = (props) =>
   <div className={Styles.MainContent} {...props} />;

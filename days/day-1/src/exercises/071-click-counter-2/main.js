@@ -1,5 +1,5 @@
 (function(namespace) {
-  "use strict";
+  'use strict';
 
   // 作っておいた createModel, createView を参照する
   const createModel = namespace.createModel;

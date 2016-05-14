@@ -1,5 +1,5 @@
 (function(namespace) {
-  "use strict";
+  'use strict';
 
   // アプリの状態を扱う
   function createModel() {
@@ -25,10 +25,10 @@
   function createView(model) {
     // DOM要素にアクセスするための変数を宣言
 
-    const incrementButtonElement = document.getElementById("increment-button");
-    const decrementButtonElement = document.getElementById("decrement-button");
-    const resetButtonElement = document.getElementById("reset-button");
-    const counterElement = document.getElementById("counter");
+    const incrementButtonElement = document.getElementById('increment-button');
+    const decrementButtonElement = document.getElementById('decrement-button');
+    const resetButtonElement = document.getElementById('reset-button');
+    const counterElement = document.getElementById('counter');
 
     // クリックされた時の動作を定義
 
@@ -55,9 +55,9 @@
 
     // DOM要素のイベントとクリックされた時の動作を結びつける
 
-    incrementButtonElement.addEventListener("click", onIncrementButtonClick);
-    decrementButtonElement.addEventListener("click", onDecrementButtonClick);
-    resetButtonElement.addEventListener("click", onResetButtonClick);
+    incrementButtonElement.addEventListener('click', onIncrementButtonClick);
+    decrementButtonElement.addEventListener('click', onDecrementButtonClick);
+    resetButtonElement.addEventListener('click', onResetButtonClick);
 
     // 画面更新
 

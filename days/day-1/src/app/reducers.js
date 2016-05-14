@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
 
 function contentsReducer(state = __INITIAL_STATE__, action) {
   return state;

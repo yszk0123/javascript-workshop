@@ -1,5 +1,5 @@
 (function(namespace) {
-  "use strict";
+  'use strict';
 
   // アプリの状態を扱う
   function createModel() {

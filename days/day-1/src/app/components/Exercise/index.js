@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import * as Styles from "./styles.css";
-import Markdown from "../Markdown";
-import lazySwitcher from "./lazySwitcher";
+import * as Styles from './styles.css';
+import Markdown from '../Markdown';
+import lazySwitcher from './lazySwitcher';
 
 const LOAD_TIMEOUT = 500;
 
@@ -47,6 +47,6 @@ class Exercise extends React.Component {
 }
 
 export default lazySwitcher({
-  switchName: "loadReady",
+  switchName: 'loadReady',
   timeout: LOAD_TIMEOUT
 })(Exercise);

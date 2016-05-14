@@ -1,9 +1,9 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
-import * as Styles from "./styles.css";
-import ContentLinks from "../../components/ContentLinks";
-import { contentsGroupsSelector } from "../../selectors";
+import * as Styles from './styles.css';
+import ContentLinks from '../../components/ContentLinks';
+import { contentsGroupsSelector } from '../../selectors';
 
 const Outer = (props) =>
   <div className={Styles.Outer} {...props} />;
