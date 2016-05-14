@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 function Extractor() {
   this.rules = [];
@@ -6,7 +6,7 @@ function Extractor() {
 
 Extractor.prototype.addRule = function(pattern, handler) {
   this.rules.push({
-    pattern: typeof pattern === "string" ? new RegExp(pattern): pattern,
+    pattern: typeof pattern === 'string' ? new RegExp(pattern): pattern,
     handler
   });
 

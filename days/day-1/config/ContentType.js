@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
 module.exports = {
-  Doc: "Doc",
-  Exercise: "Exercise"
+  Doc: 'Doc',
+  Exercise: 'Exercise'
 };
