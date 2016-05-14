@@ -1,10 +1,11 @@
-// 作っておいた createModel, createView を参照する
-import createModel from './createModel';
-import createView from './createView';
+import document from 'global/document';
 
-// モデルとビューを作成して実行
-export function mount(_, element) {
-  const model = createModel();
-  const view = createView(model, element);
-  view.update();
-}
+import mount from './mount';
+
+document.addEventListener('DOMContentLoaded', function() {
+  const rootElement = document.createElement('div');
+
+  document.body.appendChild(rootElement);
+
+  mount(undefined, rootElement);
+});
