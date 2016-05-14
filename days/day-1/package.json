@@ -6,12 +6,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "rm -rf ./dist/assets && mkdir -p ./dist/assets && cp ./src/entries/app/index.html ./dist/assets/index.html && webpack-dev-server --config ./config/webpack.js --port 3000 --hot --inline"
+    "start": "rm -rf ./dist/assets && webpack-dev-server --config ./config/webpack.js --port 3000 --hot --inline"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "global": "^4.3.0",
     "normalize.css": "^4.1.1",
     "object-assign": "^4.1.0",
     "react": "^15.0.2",
@@ -36,6 +37,7 @@
     "file-loader": "^0.8.5",
     "font-awesome": "^4.6.1",
     "globby": "^4.0.0",
+    "html-webpack-plugin": "^2.17.0",
     "json-loader": "^0.5.4",
     "postcss-loader": "^0.9.1",
     "redux-logger": "^2.6.1",

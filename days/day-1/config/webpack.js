@@ -1,24 +1,32 @@
 'use strict';
 var webpack = require('webpack');
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
 var docs = require('./contents/docs');
 var exercises = require('./contents/exercises');
+var collectWebpackEntries = require('./utils/collectWebpackEntries');
+
+var entries = collectWebpackEntries('./src/entries');
+entries.app.push('webpack/hot/dev-server');
+
+var htmlWebpackPlugins = Object.keys(entries)
+  .map(function(name) {
+    return new HtmlWebpackPlugin({
+      title: 'JavaScript Workshop (day 1)',
+      filename: name + '.html',
+      chunks: [name]
+    });
+  });
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
   node: {
     __dirname: false
   },
-  entry: {
-    'app': [
-      './src/entries/app/index',
-      'webpack/hot/dev-server',
-      // "webpack-dev-server/client?http://localhost:3000/build"
-    ]
-  },
+  entry: entries,
   output: {
     path: path.resolve('./dist'),
     filename: '[name].js',
@@ -79,10 +87,10 @@ module.exports = {
     contentBase: './src',
     publicPath: 'http://localhost:3000/assets/',
     historyApiFallback: {
-      index: 'http://localhost:3000/entries/app/index.html'
+      index: 'http://localhost:3000/assets/app.html'
     },
   },
-  plugins: [
+  plugins: htmlWebpackPlugins.concat([
     new ExtractTextWebpackPlugin('[name].css'),
     new webpack.DefinePlugin({
       '__INITIAL_STATE__': JSON.stringify(exercises.concat(docs)),
@@ -92,5 +100,5 @@ module.exports = {
       }
     }),
     new webpack.NoErrorsPlugin()
-  ]
+  ])
 };
