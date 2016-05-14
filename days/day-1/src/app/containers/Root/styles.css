@@ -23,8 +23,7 @@
   padding: 1em;
   width: 200px;
   background: #f8f8f8;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: scroll;
   white-space: nowrap;
 }
 

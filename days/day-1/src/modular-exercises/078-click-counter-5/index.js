@@ -1,3 +1,5 @@
+import '../../modular-common/style.css';
+
 // 作っておいた Model, View を参照する
 import Model from './Model';
 import View from './View';

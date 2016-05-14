@@ -19,6 +19,7 @@ const LinkGroups = ({ contentsGroups }) =>
           label={
             <span>
               <i className={`fa fa-${contentsGroup.icon} fa-lg`} />
+              {' '}
               {contentsGroup.type}
             </span>
           }
