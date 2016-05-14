@@ -46,7 +46,7 @@ const Layout = ({ children, location }) =>
     </RightPane>
   </Outer>;
 Layout.propTypes = {
-  location: PropTypes.string.isRequired,
+  location: PropTypes.any.isRequired,
   children: PropTypes.element.isRequired
 };
 

@@ -16,7 +16,7 @@ const ContentLinks = ({ label, contents }) => (
   </span>
 );
 ContentLinks.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.any.isRequired,
   contents: PropTypes.array.isRequired
 };
 
