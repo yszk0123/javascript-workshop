@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import ContentType from '../ContentType';
@@ -15,6 +15,11 @@ const Content = ({ type, value, absoluteFilePath }) => {
     default:
       return null;
   }
+};
+Content.propTypes = {
+  type: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  absoluteFilePath: PropTypes.string.isRequired
 };
 
 export default connect(currentContentSelector)(Content);

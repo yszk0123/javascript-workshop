@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import * as Styles from './styles.css';
@@ -27,6 +27,9 @@ const LinkGroups = ({ contentsGroups }) =>
       </LinkGroup>
     )}
   </Outer>;
+LinkGroups.propTypes = {
+  contentsGroups: PropTypes.array.isRequired
+};
 
 export default connect((state) => ({
   contentsGroups: contentsGroupsSelector(state)

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 import * as Styles from './styles.css';
@@ -15,5 +15,9 @@ const ContentLinks = ({ label, contents }) => (
     </ul>
   </span>
 );
+ContentLinks.propTypes = {
+  label: PropTypes.string.isRequired,
+  contents: PropTypes.array.isRequired
+};
 
 export default ContentLinks;

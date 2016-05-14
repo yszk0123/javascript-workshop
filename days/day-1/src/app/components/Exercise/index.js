@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import * as Styles from './styles.css';
 import Markdown from '../Markdown';
@@ -10,6 +10,9 @@ const ReloadButton = ({ onClick }) =>
   <button className={Styles.ReloadButton} onClick={onClick}>
     <span><i className="fa fa-refresh" /> 更新</span>
   </button>;
+ReloadButton.propTypes = {
+  onClick: PropTypes.func.isRequired
+};
 
 const Header = (props) =>
   <div className={Styles.Header} {...props} />;
@@ -51,6 +54,12 @@ class Exercise extends React.Component {
     );
   }
 }
+Exercise.propTypes = {
+  label: PropTypes.string.isRequired,
+  src: PropTypes.string,
+  doc: PropTypes.string,
+  loadReady: PropTypes.bool.isRequired
+};
 
 export default lazySwitcher({
   switchName: 'loadReady',

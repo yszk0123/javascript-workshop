@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
 
@@ -28,6 +28,9 @@ const MainContentTransition = ({ children }) =>
   >
     {children}
   </ReactCSSTransitionGroup>;
+MainContentTransition.propTypes = {
+  children: PropTypes.element.isRequired
+};
 
 const Layout = ({ children, location }) =>
   <Outer>
@@ -42,5 +45,9 @@ const Layout = ({ children, location }) =>
       </MainContentTransition>
     </RightPane>
   </Outer>;
+Layout.propTypes = {
+  location: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired
+};
 
 export default connect((state) => state)(Layout);
