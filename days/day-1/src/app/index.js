@@ -1,6 +1,7 @@
+import assign from 'object-assign';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
@@ -13,11 +14,8 @@ import { contentsGroupsSelector } from './selectors';
 
 // TODO: Use initialState
 export function mount(initialState, mountElement) {
-  const getReducers = (reducers) =>
-    combineReducers({
-      ...reducers,
-      routing: routerReducer
-    });
+  const getReducers = (baseReducers) =>
+    combineReducers(assign(baseReducers, { routing: routerReducer }));
 
   const store = createStore(getReducers(reducers));
 

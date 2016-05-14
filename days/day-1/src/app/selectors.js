@@ -16,7 +16,9 @@ export const contentsGroupsSelector = createSelector(
   (state) => state.contents,
   (contents) => {
     const groupsByType = contents.reduce((acc, content) => {
+      // eslint-disable-next-line no-param-reassign
       const item = acc[content.type] = acc[content.type] || [];
+
       item.push(content);
       return acc;
     }, {});

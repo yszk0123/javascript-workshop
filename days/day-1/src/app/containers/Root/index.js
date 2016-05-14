@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { connect } from 'react-redux';
 
 import LinkGroups from '../LinkGroups';
@@ -21,7 +21,7 @@ const MainContentTransition = ({ children }) =>
   <ReactCSSTransitionGroup
     component="div"
     transitionName={mainContentTransition}
-    transitionAppear={true}
+    transitionAppear
     transitionAppearTimeout={500}
     transitionEnterTimeout={500}
     transitionLeaveTimeout={500}

@@ -21,6 +21,12 @@ const Footer = (props) =>
   <div className={Styles.Footer} {...props} />;
 
 class Exercise extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleReloadClick = this.handleReloadClick.bind(this);
+  }
+
   handleReloadClick(event) {
     event.preventDefault();
     this.refs.frame.contentWindow.location.reload();
@@ -32,7 +38,7 @@ class Exercise extends React.Component {
     return (
       <div className={Styles.Exercise}>
         <Header>
-          <ReloadButton onClick={this.handleReloadClick.bind(this)} />
+          <ReloadButton onClick={this.handleReloadClick} />
           <label className={Styles.Label}>{label}</label>
         </Header>
         <Main>
