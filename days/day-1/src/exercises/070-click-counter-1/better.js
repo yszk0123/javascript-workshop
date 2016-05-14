@@ -3,16 +3,14 @@
 
   // アプリの状態を扱う
   function createModel() {
-    let count = 0;
-
-    return {
-      getCount: function() {
-        return count;
-      },
+    const model = {
+      count: 0,
       increment: function() {
-        count = count + 1;
+        model.count = model.count + 1;
       }
     };
+
+    return model;
   }
 
   // アプリの見た目を扱う

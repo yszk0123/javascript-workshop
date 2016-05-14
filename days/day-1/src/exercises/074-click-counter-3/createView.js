@@ -19,7 +19,7 @@ function createView(model, element) {
   // 画面更新の定義
 
   function updateCounter() {
-    counterElement.innerText = model.getCount();
+    counterElement.innerText = model.count;
   }
 
   // DOM要素のイベントとクリックされた時の動作を結びつける
