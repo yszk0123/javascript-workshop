@@ -11,16 +11,16 @@ var titleExtractor = new Extractor()
 module.exports = globby
   .sync('*/index.js', { cwd: './src/modular-exercises' })
   .sort()
-  .map(function(filePath) {
-    var title = titleExtractor.execute(filePath);
+  .map(function(originalFilePath) {
+    var title = titleExtractor.execute(originalFilePath);
+    var filePath = originalFilePath.replace(/\/index\.js$/, '.html');
 
     return {
       type: ContentType.ModularExercise,
       title: title,
       path: title,
       absolutePath: '/modular-exercises/' + title,
-      absoluteFilePath: '/modular-exercises/' + filePath,
-      filePath: filePath,
+      absoluteFilePath: '/assets/modular-exercises-' + filePath,
       value: fs.readFileSync('./src/modular-exercises/' + title + '/README.md', 'utf8')
     };
   });

@@ -21,7 +21,6 @@ module.exports = globby
       path: title,
       absolutePath: '/legacy-exercises/' + title,
       absoluteFilePath: '/legacy-exercises/' + filePath,
-      filePath: filePath,
       value: fs.readFileSync('./src/legacy-exercises/' + dir + '/README.md', 'utf8')
     };
   });

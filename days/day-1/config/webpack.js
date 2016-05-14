@@ -1,4 +1,5 @@
 'use strict';
+var assign = require('object-assign');
 var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -12,7 +13,10 @@ var collectWebpackEntries = require('./utils/collectWebpackEntries');
 
 var contents = legacyExercises.concat(modularExercises).concat(docs);
 
-var entries = collectWebpackEntries('./src/entries');
+var entries = assign(
+  collectWebpackEntries('./src/entries', ''),
+  collectWebpackEntries('./src/modular-exercises', 'modular-exercises-')
+);
 entries.app.push('webpack/hot/dev-server');
 
 var htmlWebpackPlugins = Object.keys(entries)
