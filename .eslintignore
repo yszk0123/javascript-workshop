@@ -1,4 +1,9 @@
+# /
 config/
 dist/
-experimental
+experimental/
 node_modules/
+
+# /days/day-1/
+/days/day-1/src/legacy-exercises/
+/days/day-1/src/common/
