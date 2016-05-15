@@ -47,7 +47,7 @@ const Layout = ({ children, location }) =>
   </Outer>;
 Layout.propTypes = {
   location: PropTypes.any.isRequired,
-  children: PropTypes.element.isRequired
+  children: PropTypes.element
 };
 
 export default connect((state) => state)(Layout);
