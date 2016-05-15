@@ -1,8 +1,7 @@
 const MODULE_ROOT_DIR = 'node_modules';
 
 export default class ModulePathResolver {
-  constructor(options) {
-    options = options || {};
+  constructor(options = {}) {
     this.currentDirectory = options.currentDirectory;
     this.packageRootDirectory = options.packageRootDirectory;
   }
@@ -17,7 +16,7 @@ export default class ModulePathResolver {
       prefixPath = packageRootPath.concat(MODULE_ROOT_DIR);
     }
 
-    path.forEach(function(pathFragment) {
+    path.forEach((pathFragment) => {
       if (pathFragment === '') {
         prefixPath = [''];
         return;

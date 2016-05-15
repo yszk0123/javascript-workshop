@@ -1,14 +1,15 @@
+/* eslint-disable no-console */
 import { assert } from '../../modular-common/test-utils';
 
 function testObject() {
   console.group('オブジェクト (Object)');
 
-  var objectA = {};
+  const objectA = {};
 
-  var objectB = objectA;
+  const objectB = objectA;
   assert.ok(objectA === objectB, '例1');
 
-  var objectC = {};
+  const objectC = {};
   assert.ok(objectA !== objectC, '例2');
 
   console.groupEnd();
@@ -19,12 +20,12 @@ testObject();
 function testBoolean() {
   console.group('ブーリアン (Boolean)');
 
-  var booleanA = true;
+  const booleanA = true;
 
-  var booleanB = booleanA;
+  const booleanB = booleanA;
   assert.ok(booleanA === booleanB, '例1');
 
-  var booleanC = true;
+  const booleanC = true;
   assert.ok(booleanA === booleanC, '例2');
 
   console.groupEnd();
@@ -35,12 +36,12 @@ testBoolean();
 function testArray() {
   console.group('配列 (Array)');
 
-  var arrayA = [];
+  const arrayA = [];
 
-  var arrayB = arrayA;
+  const arrayB = arrayA;
   assert.ok(arrayA === arrayB, '例1');
 
-  var arrayC = [];
+  const arrayC = [];
   assert.ok(arrayA !== arrayC, '例2');
 
   console.groupEnd();

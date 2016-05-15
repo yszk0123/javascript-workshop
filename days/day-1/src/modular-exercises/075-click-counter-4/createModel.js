@@ -2,7 +2,7 @@
 function createModel() {
   const model = {
     count: 0,
-    increment: function() {
+    increment() {
       model.count = model.count + 1;
     }
   };

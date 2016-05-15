@@ -1,3 +1,4 @@
+/* eslint-disable no-self-compare */
 import { assert } from '../../modular-common/test-utils';
 
 function main() {

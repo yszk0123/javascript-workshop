@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+import document from 'global/document';
 import renderClickCounter from './renderClickCounter.hbs';
 
 // アプリの見た目を扱う
@@ -23,9 +25,7 @@ function createView(model, element) {
   incrementButtonElement.addEventListener('click', onIncrementButtonClick);
 
   // createView の呼び出し元から update を参照できるようにする
-  return {
-    update: update
-  };
+  return { update };
 }
 
 // 他のモジュールから createView を参照できるようにする

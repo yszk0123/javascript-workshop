@@ -1,5 +1,3 @@
-import document from 'global/document';
-
 import { assert } from '../../modular-common/test-utils';
 
 const HTML = '<ul><li class="name">{{name}}</li><li>{{age}}</li></ul>';
@@ -11,9 +9,7 @@ function renderHtml(data) {
 }
 
 function renderTemplate(template, data) {
-  return template.replace(/\{\{([^}]*)\}\}/g, function(_, key) {
-    return data[key];
-  });
+  return template.replace(/\{\{([^}]*)\}\}/g, (_, key) => data[key]);
 }
 
 function main() {

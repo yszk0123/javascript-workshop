@@ -1,5 +1,5 @@
 import { assert } from '../../modular-common/test-utils';
-import PathResolver from '../../modular-common/PathResolver';
+import ModulePathResolver from '../../modular-common/ModulePathResolver';
 
 const resolver = new ModulePathResolver({
   currentDirectory: '/users/foo/my-project/src',
@@ -7,5 +7,10 @@ const resolver = new ModulePathResolver({
 });
 
 assert.ok(resolver.resolve('./file.js') === '/users/foo/my-project/src/file.js');
-assert.ok(resolver.resolve('awesome-package') === '/users/foo/my-project/node_modules/awesome-package');
-assert.ok(resolver.resolve('../node_modules/awesome-package') === '/users/foo/my-project/node_modules/awesome-package');
+assert.ok(
+  resolver.resolve('awesome-package') === '/users/foo/my-project/node_modules/awesome-package'
+);
+assert.ok(
+  resolver.resolve('../node_modules/awesome-package') ===
+  '/users/foo/my-project/node_modules/awesome-package'
+);

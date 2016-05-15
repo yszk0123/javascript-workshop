@@ -3,6 +3,9 @@ import renderClickCounter from './renderClickCounter.hbs';
 // アプリの見た目を扱う
 class View {
   constructor(model, element) {
+    this.model = model;
+    this.element = element;
+
     // 画面更新
     this.update();
 

@@ -1,6 +1,5 @@
 export default class PathResolver {
-  constructor(options) {
-    options = options || {};
+  constructor(options = {}) {
     this.currentDirectory = options.currentDirectory;
   }
 
@@ -9,7 +8,7 @@ export default class PathResolver {
     const path = pathString.split('/');
     let prefixPath = this.currentDirectory.split('/');
 
-    path.forEach(function(pathFragment) {
+    path.forEach((pathFragment) => {
       if (pathFragment === '') {
         prefixPath = [''];
         return;

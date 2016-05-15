@@ -6,5 +6,13 @@ const modulePathResolver = new ModulePathResolver({
   packageRootDirectory: '/users/foo/my-project'
 });
 
-assert.ok(modulePathResolver.resolve('?') === '/users/foo/my-project/node_modules/awesome-package', 'Q1');
-assert.ok(modulePathResolver.resolve('?') === '/users/foo/my-project/node_modules/awesome-package/function', 'Q2');
+assert.ok(
+  modulePathResolver.resolve('?') ===
+  '/users/foo/my-project/node_modules/awesome-package',
+  'Q1'
+);
+assert.ok(
+  modulePathResolver.resolve('?') ===
+  '/users/foo/my-project/node_modules/awesome-package/function',
+  'Q2'
+);

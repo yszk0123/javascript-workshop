@@ -1,9 +1,10 @@
+/* eslint-disable no-console */
 import { assert } from '../../modular-common/test-utils';
 
 function testObject() {
   console.group('オブジェクト (Object)');
 
-  var object = {
+  const object = {
     id: 1,
     name: 'foo'
   };
@@ -31,7 +32,7 @@ testObject();
 function testArray() {
   console.group('配列 (Array)');
 
-  var array = [
+  const array = [
     100,
     true,
     'foo'
@@ -51,17 +52,17 @@ function testArray() {
   assert.similar(array, [100, true, 300], '例7');
   assert.ok(array.length === 3, '例8');
 
-  array = ['That', 'is', 'a', 'pen'];
+  const array2 = ['That', 'is', 'a', 'pen'];
 
   // 演習: 一番前から配列要素を取り除く
   // <ここで何かやる>
-  assert.similar(array, ['is', 'a', 'pen'], '演習1');
-  assert.ok(array.length === 2, '演習2');
+  assert.similar(array2, ['is', 'a', 'pen'], '演習1');
+  assert.ok(array2.length === 2, '演習2');
 
   // 演習: 一番前に新しい配列要素を追加する
   // <ここで何かやる>
-  assert.similar(array, ['This', 'is', 'a', 'pen'], '演習3');
-  assert.ok(array.length === 3, '演習4');
+  assert.similar(array2, ['This', 'is', 'a', 'pen'], '演習3');
+  assert.ok(array2.length === 3, '演習4');
 
   console.groupEnd();
 }
