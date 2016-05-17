@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!-- HTML ではページの構造を扱う -->
+<!-- (例: どのファイルを読み込むか) -->
+<html>
+<head>
+  <meta charset="UTF-8">
+
+  <!-- CSS ではページの見た目を扱う -->
+  <!-- (例: 文字の大きさ、フォントのサイズ) -->
+  <!-- (例: 比較的簡単なアニメーション) -->
+  <!-- 課題: HTML と CSS と Javascript を分割する -->
+  <link rel="stylesheet" href="../../common/style.css">
+</head>
+<body>
+  <!-- HTML ではページの構造を扱う -->
+  <!-- (例: サイドバーがあり、その中にリストと検索ボックスがある) -->
+  <div class="container">
+    <div class="sidebar">
+      <div class="search-container">
+        <input class="search" type="text" value="foo">
+      </div>
+      <div class="links-container">
+        <ul class="links">
+          <li class="link">One</li>
+          <li class="link">Two</li>
+          <li class="link">Three</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript ではページの動きを扱う -->
+  <!-- (例: ボタンをクリックしたらダイアログを表示する) -->
+  <!-- (例: 複雑なアニメーションを行う) -->
+  <!-- 課題: HTML と CSS と Javascript を分割する -->
+  <script src="../../common/bootstrap.js"></script>
+  <script src="../../common/test-utils.js"></script>
+  <script src="../../common/PathResolver.js"></script>
+  <script src="./utils.js"></script>
+  <script>
+    // 課題: namespace を使って、ファイルが増えた時に管理できるようにする
+    (function(namespace) {
+      'use strict';
+
+      // 課題: 他のファイルで作った関数等を参照する
+
+      var Utils = namespace.Utils;
+      var assert = namespace.TestUtils.assert;
+      var PathResolver = namespace.PathResolver;
+
+      // 他のファイルで作った関数等を使う
+      Utils.printHelloWorld();
+
+      // 課題: ブレークポイントを使って、プログラムの中で変数の値が変化するかを覗く
+
+      var count = 0;
+      count = count + 1;
+      count = count + 1;
+      count = count + 1;
+
+      // 課題: 簡単なテスト方法を覚える
+
+      assert.ok(1 === 1, '例1');
+      assert.fail(1 !== 1, '例2');
+
+      // 課題: var, let, const の違い
+
+      var v1 = 1;
+      let v2 = 1;
+      const v3 = 1;
+      v1 = 2;
+      v2 = 2;
+      // v3 = 2;
+
+      // 課題: 基本的なデータ構造
+
+      var object = { a: 1, b: 2 };
+      console.log(object.a);
+
+      var array = [1, 2, 'foo', 'bar'];
+
+      // 課題: === で何が「等しい」のかを理解する
+
+      var objectA = { a: 1 };
+      var objectB = objectA;
+      var objectC = { a: 1 };
+      console.log(objectA === objectB); // => ?
+      console.log(objectA === objectC); // => ?
+
+      // 課題: おまじないの仕組みを理解する (IIFE)
+
+      (function() {
+        console.log('おまじない');
+      })();
+
+      // 課題: スコープ, クロージャの概念を理解する
+      // グローバル変数, namespace の問題点
+      // モジュールの利点
+      // var, let, const の違い
+
+      function createPrint() {
+        var x = 0;
+        function printXInner() {
+          console.log(x);
+        }
+        return printXInner;
+      }
+      var printX = createPrint();
+      printX();
+
+      // 課題: 絶対パスと相対パスを使えるようにする
+      var resolver = new PathResolver({ currentDirectory: '/home' });
+      console.log(resolver.resolve('./file.js')); // => '/home/file.js'
+
+      // 課題: namespace と モジュールを使った場合の違いを比べる
+
+      // var Utils = namespace.Utils;
+      // import Utils from 'utils';
+
+      // 課題: 文字列の置換とテンプレートエンジン
+
+      console.log('1 + 2 = 4'.replace('4', '3')); // => '1 + 2 = 3'
+
+    })(window.JavaScriptWorkshop);
+  </script>
+</body>
+</html>

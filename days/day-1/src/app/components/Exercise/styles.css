@@ -48,14 +48,14 @@
   left: 0;
   top: 30px;
   right: 0;
-  bottom: 200px;
+  bottom: 300px;
 }
 
 .Footer {
   display: block;
   box-sizing: border-box;
   position: absolute;
-  height: 200px;
+  height: 300px;
   bottom: 0;
   overflow-x: hidden;
   overflow-y: scroll;
