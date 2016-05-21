@@ -11,7 +11,12 @@ var legacyExercises = require('./contents/legacyExercises');
 var modularExercises = require('./contents/modularExercises');
 var collectWebpackEntries = require('./utils/collectWebpackEntries');
 
-var contents = legacyExercises.concat(modularExercises).concat(docs);
+var contents = legacyExercises
+  .concat(modularExercises)
+  .concat(docs)
+  .sort(function comparator(a, b) {
+    return a.title > b.title;
+  });
 
 var entries = assign(
   collectWebpackEntries('./src/entries', ''),
