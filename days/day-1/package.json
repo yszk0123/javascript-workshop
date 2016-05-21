@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "rm -rf ./dist/assets && webpack-dev-server --config ./config/webpack.js --port 3000 --hot --inline"
+    "start": "rm -rf ./dist/assets && webpack-dev-server --config ./config/webpack.js --hot --inline"
   },
   "keywords": [],
   "author": "",

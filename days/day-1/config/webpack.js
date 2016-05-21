@@ -11,6 +11,8 @@ var legacyExercises = require('./contents/legacyExercises');
 var modularExercises = require('./contents/modularExercises');
 var collectWebpackEntries = require('./utils/collectWebpackEntries');
 
+var PORT = parseInt(process.env.PORT || 3000, 10);
+
 var contents = legacyExercises
   .concat(modularExercises)
   .concat(docs)
@@ -42,7 +44,7 @@ module.exports = {
   output: {
     path: path.resolve('./dist'),
     filename: '[name].js',
-    publicPath: 'http://localhost:3000/assets/'
+    publicPath: 'http://localhost:' + PORT + '/assets/'
   },
   resolve: {
     extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json']
@@ -101,10 +103,11 @@ module.exports = {
     // hot: true,
     // inline: true,
     contentBase: './src',
-    publicPath: 'http://localhost:3000/assets/',
+    publicPath: 'http://localhost:' + PORT + '/assets/',
     historyApiFallback: {
-      index: 'http://localhost:3000/assets/app.html'
+      index: 'http://localhost:' + PORT + '/assets/app.html'
     },
+    port: PORT
   },
   plugins: htmlWebpackPlugins.concat([
     new ExtractTextWebpackPlugin('[name].css'),
