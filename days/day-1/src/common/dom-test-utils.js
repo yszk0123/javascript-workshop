@@ -116,7 +116,7 @@
     render({ testCases: newTestCases }, element);
   }
 
-  namespace.TestUtils = {
+  namespace.DomTestUtils = {
     describe: describe,
     runTest: runTest,
     assert: {
