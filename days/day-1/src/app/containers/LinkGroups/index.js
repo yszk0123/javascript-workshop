@@ -18,18 +18,24 @@ Icon.propTypes = {
   size: PropTypes.string.isRequired
 };
 
+const IconLabel = ({ icon, label, size }) =>
+  <span>
+    <Icon type={icon} size={size} />
+    {' '}
+    {label}
+  </span>;
+IconLabel.propTypes = {
+  icon: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  size: PropTypes.string.isRequired
+};
+
 const LinkGroups = ({ contentsGroups }) =>
   <Outer>
     {contentsGroups.map((contentsGroup) =>
       <LinkGroup key={contentsGroup.type}>
         <ContentLinks
-          label={
-            <span>
-              <Icon type={contentsGroup.icon} size="lg" />
-              {' '}
-              {contentsGroup.type}
-            </span>
-          }
+          label={<IconLabel icon={contentsGroup.icon} label={contentsGroup.type} size="lg" />}
           contents={contentsGroup.contents}
         />
       </LinkGroup>
