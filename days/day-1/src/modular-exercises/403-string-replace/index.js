@@ -1,4 +1,4 @@
-import { assert } from '../../modular-common/test-utils';
+import { describe, assert, runTest } from '../../modular-common/test-utils';
 
 const HTML = '<ul><li class="name">{{name}}</li><li>{{age}}</li></ul>';
 
@@ -12,7 +12,7 @@ function renderTemplate(template, data) {
   return template.replace(/\{\{([^}]*)\}\}/g, (_, key) => data[key]);
 }
 
-function main() {
+describe('文字列の置換', () => {
   assert.ok('Hello, world!'.replace('world', 'Tanaka') === 'Hello, Tanaka!', '例1');
 
   assert.ok('Hello, {{NAME}}!'.replace('{{NAME}}', 'Tanaka') === 'Hello, Tanaka!', '例2');
@@ -27,6 +27,6 @@ function main() {
 
   // 演習: renderTemplate() の第１引数を修正する
   assert.shouldCorrect(renderTemplate('', data) === 'name = Tanaka, age = 20', '演習1');
-}
+});
 
-main();
+runTest();

@@ -1,31 +1,10 @@
-/* eslint-disable no-console */
-import React from 'react';
-import ReactDOM from 'react-dom';
-import cx from 'classnames';
+import document from 'global/document';
 
-import * as Styles from './style.css';
-import './style.css';
+import renderToDom from './renderToDom';
+import renderToConsole from './renderToConsole';
 
 const testCases = [];
 let currentTestCase = null;
-
-const TestCaseOuter = (props) =>
-  <div className={Styles.TestCaseOuter} {...props} />;
-
-const TestCaseHeader = ({ label }) =>
-  <h2 className={Styles.TestCaseHeader}>{label}</h2>;
-
-const TestCase = ({ isError, message, error }) =>
-  <pre
-    className={cx({
-      [Styles.TestCase]: true,
-      failure: isError,
-      success: !isError
-    })}
-  >
-    {error && `${error}\n`}
-    {message}
-  </pre>;
 
 function printErrorWithMessage(error, message) {
   currentTestCase.assertions.push({
@@ -87,37 +66,41 @@ export function describe(message, callback) {
   });
 }
 
-function render(state, mountElement) {
-  ReactDOM.render(
-    <TestCaseOuter>
-      {state.testCases.map(({ message, assertions }, i) =>
-        <div className={Styles.Group} key={i}>
-          <TestCaseHeader label={message} />
-          {assertions.map((testCase, i) => <TestCase key={i} {...testCase} />)}
-        </div>
-      )}
-    </TestCaseOuter>,
-    mountElement
-  );
-}
-
-export function runTest() {
+export function runTest(format) {
   const newTestCases = testCases.map(({ message, callback }) => {
     currentTestCase = {
       message,
       assertions: []
     };
 
-    callback();
+    try {
+      callback();
+    }
+    catch (error) {
+      printErrorWithMessage(error, '(error in try statement)');
+    }
+
+    if (currentTestCase.assertions.length === 0) {
+      currentTestCase.assertions.push({
+        isError: false,
+        message: 'All test pass!'
+      });
+    }
 
     return currentTestCase;
   });
 
+  const state = { testCases: newTestCases };
+
   const element = document.createElement('div');
   document.body.appendChild(element);
-  console.dir(newTestCases);
 
-  render({ testCases: newTestCases }, element);
+  if (format === 'console') {
+    renderToConsole(state);
+  }
+  else {
+    renderToDom(state, element);
+  }
 }
 
 export const assert = {

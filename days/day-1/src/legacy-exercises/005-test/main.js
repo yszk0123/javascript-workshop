@@ -1,8 +1,8 @@
 (function(namespace) {
   'use strict';
-  var assert = namespace.DomTestUtils.assert;
-  var describe = namespace.DomTestUtils.describe;
-  var runTest = namespace.DomTestUtils.runTest;
+  var assert = namespace.TestUtils.assert;
+  var describe = namespace.TestUtils.describe;
+  var runTest = namespace.TestUtils.runTest;
 
   describe('成功例', function() {
     assert.ok(1 + 1 === 2, '例1');

@@ -1,5 +1,4 @@
-/* eslint-disable no-console */
-import { describe, runTest, assert } from '../../modular-common/dom-test-utils';
+import { describe, assert, runTest } from '../../modular-common/test-utils';
 
 describe('オブジェクト (Object)', () => {
   const object = {

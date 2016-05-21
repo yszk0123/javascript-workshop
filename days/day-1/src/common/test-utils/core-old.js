@@ -1,12 +1,20 @@
 (function(namespace) {
   var assert = {};
+  var testCases = [];
+  var currentTestCase = null;
 
   function printErrorWithMessage(error, message) {
-    console.error('[Assertion Error]', message || '', error);
+    currentTestCase.assertions.push({
+      isError: true,
+      error: error.toString(),
+      message: message || ''
+    });
   }
 
   function print(message) {
-    console.info('[Assertion Pass]', message || '');
+    currentTestCase.assertions.push({
+      message: message || ''
+    })
   }
 
   function assertEqual(actual, expected, message) {
@@ -45,7 +53,16 @@
     printErrorWithMessage('訂正して下さい', message);
   }
 
+  function describe(message, callback) {
+    testCases.push({
+      message,
+      callback
+    });
+  }
+
   namespace.TestUtils = {
+    describe: describe,
+    runTest: runTest,
     assert: {
       equal: assertEqual,
       ok: assertOk,

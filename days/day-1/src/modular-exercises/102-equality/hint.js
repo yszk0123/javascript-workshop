@@ -1,9 +1,6 @@
-/* eslint-disable no-console */
-import { assert } from '../../modular-common/test-utils';
+import { describe, assert, runTest } from '../../modular-common/test-utils';
 
-function testObject() {
-  console.group('オブジェクト (Object)');
-
+describe('オブジェクト (Object)', () => {
   const objectA = {};
 
   const objectB = objectA;
@@ -11,15 +8,9 @@ function testObject() {
 
   const objectC = {};
   assert.ok(objectA !== objectC, '例2');
+});
 
-  console.groupEnd();
-}
-
-testObject();
-
-function testBoolean() {
-  console.group('ブーリアン (Boolean)');
-
+describe('ブーリアン (Boolean)', () => {
   const booleanA = true;
 
   const booleanB = booleanA;
@@ -27,15 +18,9 @@ function testBoolean() {
 
   const booleanC = true;
   assert.ok(booleanA === booleanC, '例2');
+});
 
-  console.groupEnd();
-}
-
-testBoolean();
-
-function testArray() {
-  console.group('配列 (Array)');
-
+describe('配列 (Array)', () => {
   const arrayA = [];
 
   const arrayB = arrayA;
@@ -43,8 +28,6 @@ function testArray() {
 
   const arrayC = [];
   assert.ok(arrayA !== arrayC, '例2');
+});
 
-  console.groupEnd();
-}
-
-testArray();
+runTest();

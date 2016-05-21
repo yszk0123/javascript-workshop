@@ -34,7 +34,9 @@
   <!-- (例: 複雑なアニメーションを行う) -->
   <!-- 課題: HTML と CSS と Javascript を分割する -->
   <script src="../../common/bootstrap.js"></script>
-  <script src="../../common/test-utils.js"></script>
+  <script src="../../common/test-utils/core.js"></script>
+  <script src="../../common/test-utils/renderToConsole.js"></script>
+  <script src="../../common/test-utils/renderToDom.js"></script>
   <script src="../../common/PathResolver.js"></script>
   <script src="./utils.js"></script>
   <script>
@@ -45,7 +47,7 @@
       // 課題: 他のファイルで作った関数等を参照する
 
       var Utils = namespace.Utils;
-      var assert = namespace.TestUtils.assert;
+      var TestUtils = namespace.TestUtils;
       var PathResolver = namespace.PathResolver;
 
       // 他のファイルで作った関数等を使う
@@ -60,8 +62,12 @@
 
       // 課題: 簡単なテスト方法を覚える
 
-      assert.ok(1 === 1, '例1');
-      assert.fail(1 !== 1, '例2');
+      TestUtils.describe('簡単なテスト方法', function() {
+        TestUtils.assert.ok(1 === 1, '例1');
+        TestUtils.assert.fail(1 !== 1, '例2');
+      });
+      TestUtils.runTest('console'); // 結果を console に出力
+      TestUtils.runTest('dom'); // 結果を DOM に出力
 
       // 課題: var, let, const の違い
 
