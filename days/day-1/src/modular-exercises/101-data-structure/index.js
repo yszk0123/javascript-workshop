@@ -1,9 +1,7 @@
 /* eslint-disable no-console */
-import { assert } from '../../modular-common/test-utils';
+import { describe, runTest, assert } from '../../modular-common/dom-test-utils';
 
-function testObject() {
-  console.group('オブジェクト (Object)');
-
+describe('オブジェクト (Object)', () => {
   const object = {
     id: 1,
     name: 'foo'
@@ -23,15 +21,9 @@ function testObject() {
   // 演習: プロパティ "age" を取り除く
   // <ここで何かやる>
   assert.similar(object, { id: 1, name: 'bar' }, '演習');
+});
 
-  console.groupEnd();
-}
-
-testObject();
-
-function testArray() {
-  console.group('配列 (Array)');
-
+describe('配列 (Array)', () => {
   const array = [
     100,
     true,
@@ -63,22 +55,15 @@ function testArray() {
   // <ここで何かやる>
   assert.similar(array2, ['This', 'is', 'a', 'pen'], '演習3');
   assert.ok(array2.length === 3, '演習4');
+});
 
-  console.groupEnd();
-}
 
-testArray();
-
-function testBoolean() {
-  console.group('ブーリアン (Boolean)');
-
+describe('ブーリアン (Boolean)', () => {
   assert.ok(true, '例1');
   assert.fail(false, '例2');
   assert.ok(1 < 2 === true, '例3');
   assert.ok(1 < 0 === false, '例4');
   assert.ok((1 + 1 === 2) === true, '例5');
+});
 
-  console.groupEnd();
-}
-
-testBoolean();
+runTest();

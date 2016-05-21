@@ -5,3 +5,27 @@
 :global(body) {
   font-size: 1.3rem;
 }
+
+.TestCaseOuter {
+  padding: 10px;
+}
+
+.TestCaseHeader {
+  padding: 10px;
+  font-size: 130%;
+}
+
+.TestCase {
+  margin: 10px;
+  padding: 8px;
+}
+
+.TestCase:global(.success) {
+  background: lightgreen;
+  box-shadow: 0 0 2px #080;
+}
+
+.TestCase:global(.failure) {
+  background: red;
+  box-shadow: 0 0 2px #800;
+}

@@ -1,31 +1,23 @@
 (function(namespace) {
   'use strict';
   var assert = namespace.TestUtils.assert;
+  var describe = namespace.TestUtils.describe;
+  var runTest = namespace.TestUtils.runTest;
 
-  function testSuccess() {
-    console.group('成功例');
+  describe('成功例', function() {
     assert.ok(1 + 1 === 2, '例1');
     assert.fail(1 + 1 !== 2, '例2');
-    console.groupEnd();
-  }
+  });
 
-  testSuccess();
-
-  function testFailure() {
-    console.group('失敗例');
+  describe('失敗例', function() {
     assert.ok(1 + 1 === 3, '例1');
     assert.fail(1 + 1 !== 3, '例2');
-    console.groupEnd();
-  }
+  });
 
-  testFailure();
-
-  function testExercise() {
-    console.group('演習');
+  describe('演習', function() {
     assert.shouldCorrect(1 + 1 === 2, '演習1');
     assert.shouldCorrect(1 + 1 !== 2, '演習2');
-    console.groupEnd();
-  }
+  });
 
-  testExercise();
+  runTest();
 })(window.JavaScriptWorkshop);
