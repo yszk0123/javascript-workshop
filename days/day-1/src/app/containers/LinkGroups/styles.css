@@ -2,7 +2,31 @@
   padding: 0.5em;
 }
 
-.LinkGroup {
-  margin: 0;
-  padding-bottom: 0.5em;
+.SearchBox {
+  padding: 3px;
+  box-sizing: border-box;
+  background: white;
+}
+
+.SearchBox input {
+  border: none;
+}
+
+.SearchBox input:focus {
+  outline: none;
+}
+
+.Tag {
+  cursor: pointer;
+  margin: 3px;
+  padding: 3px;
+  border-radius: 3px;
+  background: lightgray;
+  color: white;
+  font-size: 90%;
+}
+
+.ActiveTag {
+  background: blue;
+  font-weight: bold;
 }

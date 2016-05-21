@@ -17,6 +17,7 @@ module.exports = globby
 
     return {
       type: ContentType.Doc,
+      tags: ['doc'],
       title: title,
       path: title,
       absolutePath: '/docs/' + title,

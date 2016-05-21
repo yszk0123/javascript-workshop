@@ -4,12 +4,6 @@
   margin: 0 0 1em;
 }
 
-.LinkLabel {
-  margin: 0;
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
 .Link {
   margin: 5px;
 }
@@ -26,4 +20,14 @@
 
 .ActiveLink {
   background: "#ddd"
+}
+
+.Tag {
+  padding: 2px;
+  border-radius: 3px;
+  font-size: 0.6rem;
+  font-weight: bold;
+
+  background: lightgray;
+  color: white;
 }

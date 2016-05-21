@@ -17,6 +17,7 @@ module.exports = globby
 
     return {
       type: ContentType.LegacyExercise,
+      tags: ['es5'],
       title: title,
       path: title,
       absolutePath: '/legacy-exercises/' + title,

@@ -17,6 +17,7 @@ module.exports = globby
 
     return {
       type: ContentType.ModularExercise,
+      tags: ['es6'],
       title: title,
       path: title,
       absolutePath: '/modular-exercises/' + title,

@@ -2,6 +2,9 @@ import { createSelector } from 'reselect';
 
 import ContentType from './ContentType';
 
+export const searchSelector = (state) =>
+  state.search;
+
 // TODO: Don't use Array#find()
 export const currentContentSelector = createSelector(
   [
@@ -10,6 +13,20 @@ export const currentContentSelector = createSelector(
   ],
   (contents, location) =>
     contents.find((content) => content.absolutePath === location.pathname)
+);
+
+export const contentsSelector = createSelector(
+  [
+    (state) => state.search.text,
+    (state) => state.search.tags,
+    (state) => state.contents
+  ],
+  (searchText, searchTags, contents) => {
+    return contents.filter((content) =>
+      (!searchText || content.title.indexOf(searchText) > -1) &&
+      (!searchTags.length || content.tags.some((tag) => searchTags.indexOf(tag) > -1))
+    );
+  }
 );
 
 export const contentsGroupsSelector = createSelector(
