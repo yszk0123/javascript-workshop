@@ -11,6 +11,13 @@ const Outer = (props) =>
 const LinkGroup = (props) =>
   <div className={Styles.LinkGroup} {...props} />;
 
+const Icon = ({ type, size }) =>
+  <i className={`fa fa-${type} fa-${size}`} />;
+Icon.propTypes = {
+  type: PropTypes.string.isRequired,
+  size: PropTypes.string.isRequired
+};
+
 const LinkGroups = ({ contentsGroups }) =>
   <Outer>
     {contentsGroups.map((contentsGroup) =>
@@ -18,7 +25,7 @@ const LinkGroups = ({ contentsGroups }) =>
         <ContentLinks
           label={
             <span>
-              <i className={`fa fa-${contentsGroup.icon} fa-lg`} />
+              <Icon type={contentsGroup.icon} size="lg" />
               {' '}
               {contentsGroup.type}
             </span>
