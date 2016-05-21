@@ -6,7 +6,7 @@ import ContentLinks from '../../components/ContentLinks';
 import { searchSelector, contentsSelector } from '../../selectors';
 import { changeSearchText, changeSearchTags } from '../../actions';
 
-const SEARCH_PLACEHOLDER_TEXT = '検索語句';
+const SEARCH_PLACEHOLDER_TEXT = '検索語句を入力';
 const TAGS = ['doc', 'es5', 'es6'];
 
 const toggleTags = (tags, newTag) => {
