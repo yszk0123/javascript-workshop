@@ -64,7 +64,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loaders: ['react-hot', 'babel-loader'],
+        loaders: ['react-hot', 'babel-loader?cacheDirectory'],
         include: [
           path.resolve(__dirname, '..', 'src'),
           path.resolve(__dirname, '..', 'test')
