@@ -17,7 +17,7 @@ var exercises = legacy
   .concat(modular)
   .concat(docs)
   .sort(function comparator(a, b) {
-    return a.title > b.title;
+    return a.title.localeCompare(b.title);
   });
 
 var entries = assign(
