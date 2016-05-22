@@ -1,0 +1,7 @@
+.Markdown pre {
+  box-sizing: border-box;
+  margin: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 0 2px black;
+  background: #f8f8f8;
+}

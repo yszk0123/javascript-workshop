@@ -45,8 +45,7 @@
   right: 0;
   top: 0;
   bottom: 0;
-  margin: 0.5rem;
-  padding: 1.3rem;
-  min-height: 100px;
+  padding: 1px;
   background: white;
+  overflow: scroll;
 }

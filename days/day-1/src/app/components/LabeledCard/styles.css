@@ -1,0 +1,31 @@
+.LabeledCard {
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  margin: 1rem;
+
+  box-shadow: 1px 1px 5px black;
+}
+
+.LabeledCard:global(.space) .Card {
+  padding: 1.3rem;
+}
+
+.LabeledCard:global(.scrollable) .Card {
+  max-height: 400px;
+  overflow: scroll;
+}
+
+.Label {
+  display: block;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: 1.3rem;
+  padding: 5px;
+
+  border-bottom: 1px solid #ccc;
+  background: #eee;
+
+  font-size: 0.9rem;
+}

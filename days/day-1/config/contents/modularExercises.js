@@ -23,6 +23,5 @@ module.exports = globby
       absolutePath: '/modular-exercises/' + title,
       absoluteFilePath: '/assets/modular-exercises-' + filePath,
       value: fs.readFileSync('./src/modular-exercises/' + title + '/README.md', 'utf8')
-        .replace(/\|\r?\n\|/g, '|\n\n|')
     };
   });
