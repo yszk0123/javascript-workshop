@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import marked from 'marked';
 import hljs from 'highlight.js';
-import 'highlight.js/styles/dark.css';
+import 'highlight.js/styles/github.css';
 
 import * as Styles from './styles.css';
 

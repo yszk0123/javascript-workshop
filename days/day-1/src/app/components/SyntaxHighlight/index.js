@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
+import cx from 'classnames';
 import hljs from 'highlight.js';
-import 'highlight.js/styles/dark.css';
+import 'highlight.js/styles/github.css';
 
 import * as Styles from './styles.css';
 
@@ -13,7 +14,10 @@ export default class SyntaxHighlight extends React.Component {
     const { value } = this.props;
 
     return (
-      <pre className={Styles.SyntaxHighlight} dangerouslySetInnerHTML={{ __html: hljs.highlightAuto(value).value }} />
+      <pre
+        className={cx({ [Styles.SyntaxHighlight]: true, hljs: true })}
+        dangerouslySetInnerHTML={{ __html: hljs.highlightAuto(value).value }}
+      />
     );
   }
 }

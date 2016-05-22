@@ -7,16 +7,8 @@
   box-shadow: 1px 1px 5px black;
 }
 
-.LabeledCard:global(.space) .Card {
-  padding: 1.3rem;
-}
-
-.LabeledCard:global(.scrollable) .Card {
-  max-height: 400px;
-  overflow: scroll;
-}
-
 .Label {
+  cursor: pointer;
   display: block;
   top: 0;
   left: 0;
@@ -28,4 +20,19 @@
   background: #eee;
 
   font-size: 0.9rem;
+}
+
+.LabeledCard:global(.space) .Card {
+  padding: 1.3rem;
+}
+
+.LabeledCard .Card {
+  max-height: 400px;
+  transition: max-height 0.2s ease-in;
+  overflow: scroll;
+}
+
+.LabeledCard:global(.hide) .Card {
+  max-height: 0;
+  overflow: hidden;
 }
