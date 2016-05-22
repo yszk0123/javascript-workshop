@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "javascript-workshop-day-1",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
