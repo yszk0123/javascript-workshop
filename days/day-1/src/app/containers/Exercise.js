@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import assign from 'object-assign';
 
 import ExerciseType from '../ExerciseType';
+import ExerciseItemType from '../ExerciseItemType';
 import ScriptBlock from '../components/ScriptBlock';
 import LabeledCard from '../components/LabeledCard';
+import IconLabel from '../components/IconLabel';
 import Box from '../components/Box';
 import Markdown from '../components/Markdown';
 import SyntaxHighlight from '../components/SyntaxHighlight';
@@ -19,7 +21,7 @@ class Exercise extends React.Component {
     };
   }
 
-  toggleStatus(path) {
+  handleLabelClick(path) {
     const { toggleStatusByPath } = this.state;
     this.setState({
       toggleStatusByPath: assign({}, toggleStatusByPath, {
@@ -29,42 +31,27 @@ class Exercise extends React.Component {
   }
 
   render() {
-    const { type, tags, script, doc, files } = this.props;
+    const { type, tags, files } = this.props;
     const { toggleStatusByPath } = this.state;
-    const showDoc = true;
-    const showScript = !!script;
 
     return (
       <Box>
-        {showScript &&
-          <LabeledCard
-            label={`script: ${script.absolutePath}`}
-            open={toggleStatusByPath[script.absolutePath]}
-            onLabelClick={() => this.toggleStatus(script.absolutePath)}
-          >
-            <ScriptBlock src={script.absolutePath} />
-          </LabeledCard>
-        }
-        {files.map(({ absolutePath, value }, i) =>
+        {files.map(({ type, icon, absolutePath, value }, i) =>
           <LabeledCard
             key={i}
-            label={`file: ${absolutePath}`}
+            label={<IconLabel icon={icon} label={absolutePath} />}
             open={toggleStatusByPath[absolutePath]}
-            onLabelClick={() => this.toggleStatus(absolutePath)}
+            space={type === ExerciseItemType.Doc}
+            onLabelClick={() => this.handleLabelClick(absolutePath)}
           >
-            <SyntaxHighlight value={value} />
+            {type === ExerciseItemType.Demo ?
+              <ScriptBlock src={absolutePath} /> :
+             type === ExerciseItemType.Doc ?
+              <Markdown value={value} /> :
+              <SyntaxHighlight value={value} />
+            }
           </LabeledCard>
         )}
-        {showDoc &&
-          <LabeledCard
-            label={`doc: ${doc.absolutePath}`}
-            space
-            open={toggleStatusByPath[doc.absolutePath]}
-            onLabelClick={() => this.toggleStatus(doc.absolutePath)}
-          >
-            <Markdown value={doc.value} />
-          </LabeledCard>
-        }
       </Box>
     );
   }
@@ -72,7 +59,6 @@ class Exercise extends React.Component {
 Exercise.propTypes = {
   type: PropTypes.string.isRequired,
   tags: PropTypes.array.isRequired,
-  doc: PropTypes.object.isRequired,
   files: PropTypes.array.isRequired
 };
 

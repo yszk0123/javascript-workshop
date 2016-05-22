@@ -4,6 +4,7 @@ var fs = require('fs');
 
 var Extractor = require('../utils/Extractor');
 var ExerciseType = require('../ExerciseType');
+var ExerciseItemType = require('../ExerciseItemType');
 
 var titleExtractor = new Extractor()
   .addRule(/([^\/]+)\/README\.md$/, function(_, title) { return title; })
@@ -21,11 +22,13 @@ module.exports = globby
       title: title,
       path: title,
       absolutePath: '/docs/' + title,
-      script: null,
-      doc: {
-        absolutePath: '/docs/' + filePath,
-        value: fs.readFileSync('./docs/' + filePath, 'utf8')
-      },
-      files: []
+      files: [
+        {
+          type: ExerciseItemType.Doc,
+          icon: 'file-code-o',
+          absolutePath: '/docs/' + filePath,
+          value: fs.readFileSync('./docs/' + filePath, 'utf8')
+        }
+      ]
     };
   });
