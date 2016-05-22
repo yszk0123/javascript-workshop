@@ -12,6 +12,7 @@ var docs = require('./exercises/docs');
 var collectWebpackEntries = require('./utils/collectWebpackEntries');
 
 var PORT = parseInt(process.env.PORT || 3000, 10);
+var COMMON_CHUNK = 'common-chunk';
 
 var legacy = collectExercises('legacy-exercises', ExerciseType.Legacy, ['es5'], true);
 var modular = collectExercises('modular-exercises', ExerciseType.Modular, ['es6']);
@@ -26,14 +27,17 @@ var entries = assign(
   collectWebpackEntries('./src/entries', ''),
   collectWebpackEntries('./src/modular-exercises', 'modular-exercises-')
 );
-entries.app.push('webpack/hot/dev-server');
+Object.keys(entries).forEach(function(key) {
+  entries[key] = ['webpack/hot/only-dev-server'].concat(entries[key]);
+});
+entries[COMMON_CHUNK] = ['webpack-dev-server/client?http://localhost:' + PORT];
 
 var htmlWebpackPlugins = Object.keys(entries)
   .map(function(name) {
     return new HtmlWebpackPlugin({
       title: 'JavaScript Workshop (day 1)',
       filename: name + '.html',
-      chunks: [name]
+      chunks: [name, COMMON_CHUNK]
     });
   });
 
@@ -55,7 +59,7 @@ module.exports = {
     loaders: [
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader',
+        loaders: ['react-hot', 'babel-loader'],
         include: [
           path.resolve(__dirname, '..', 'src'),
           path.resolve(__dirname, '..', 'test')
