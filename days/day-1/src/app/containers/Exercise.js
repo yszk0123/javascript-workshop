@@ -36,10 +36,10 @@ class Exercise extends React.Component {
 
     return (
       <Box>
-        {files.map(({ type, icon, absolutePath, value }, i) =>
+        {files.map(({ type, icon, absolutePath, originalPath, value }, i) =>
           <LabeledCard
             key={i}
-            label={<IconLabel icon={icon} label={absolutePath} />}
+            label={<IconLabel icon={icon} label={originalPath} />}
             open={toggleStatusByPath[absolutePath]}
             space={type === ExerciseItemType.Doc}
             onLabelClick={() => this.handleLabelClick(absolutePath)}

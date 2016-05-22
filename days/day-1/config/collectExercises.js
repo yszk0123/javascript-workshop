@@ -16,14 +16,13 @@ module.exports = function collectExercises(namespace, type, tags, legacy) {
         .replace(/([^\/]+)\/index\.(?:jsx?|html)$/, function(_, t) {
           return t;
         });
-      var absoluteHtmlPath = originalFilePath
-        .replace(/\/index\.(?:jsx?|html)$/, '.html');
-      var exerciseBasePath = baseDir + title + '/';
+      var originalDir = baseDir + title + '/';
 
       var files = [
         {
           type: ExerciseItemType.Demo,
           icon: 'play-circle-o',
+          originalPath: originalDir + 'index.html',
           absolutePath: legacy ?
             '/' + namespace + '/' + title + '/index.html' :
             '/assets/' + namespace + '-' + title + '.html'
@@ -31,12 +30,13 @@ module.exports = function collectExercises(namespace, type, tags, legacy) {
         {
           type: ExerciseItemType.Doc,
           icon: 'file-o',
+          originalPath: originalDir + 'README.md',
           absolutePath: '/assets/' + namespace + '-' + title + '/README.md',
           value: fs.readFileSync(baseDir + title + '/README.md', 'utf8')
         }
       ];
       files = files.concat(
-        fs.readdirSync(exerciseBasePath)
+        fs.readdirSync(originalDir)
           .filter(function(file) {
             return FILE_PATTERN.test(file);
           })
@@ -44,8 +44,9 @@ module.exports = function collectExercises(namespace, type, tags, legacy) {
             return {
               type: ExerciseItemType.File,
               icon: 'file-code-o',
+              originalPath: originalDir + file,
               absolutePath: '/assets/' + namespace + '-' + file,
-              value: fs.readFileSync(exerciseBasePath + file, 'utf8')
+              value: fs.readFileSync(originalDir + file, 'utf8')
             };
           })
       );
