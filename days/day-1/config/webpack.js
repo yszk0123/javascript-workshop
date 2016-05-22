@@ -13,6 +13,7 @@ var collectWebpackEntries = require('./utils/collectWebpackEntries');
 
 var PORT = parseInt(process.env.PORT || 3000, 10);
 var COMMON_CHUNK = 'common-chunk';
+var VENDOR_CHUNK = 'vendor-chunk';
 
 var legacy = collectExercises('legacy-exercises', ExerciseType.Legacy, ['es5'], true);
 var modular = collectExercises('modular-exercises', ExerciseType.Modular, ['es6']);
@@ -27,17 +28,21 @@ var entries = assign(
   collectWebpackEntries('./src/entries', ''),
   collectWebpackEntries('./src/modular-exercises', 'modular-exercises-')
 );
-Object.keys(entries).forEach(function(key) {
-  entries[key] = ['webpack/hot/only-dev-server'].concat(entries[key]);
-});
-entries[COMMON_CHUNK] = ['webpack-dev-server/client?http://localhost:' + PORT];
+entries[VENDOR_CHUNK] = [
+  'webpack/hot/only-dev-server',
+  'global',
+  'react',
+  'react-dom',
+  'normalize.css',
+  'webpack-dev-server/client?http://localhost:' + PORT
+];
 
 var htmlWebpackPlugins = Object.keys(entries)
   .map(function(name) {
     return new HtmlWebpackPlugin({
       title: 'JavaScript Workshop (day 1)',
       filename: name + '.html',
-      chunks: [name, COMMON_CHUNK]
+      chunks: [COMMON_CHUNK, VENDOR_CHUNK, name]
     });
   });
 
@@ -116,6 +121,10 @@ module.exports = {
     port: PORT
   },
   plugins: htmlWebpackPlugins.concat([
+    new webpack.optimize.CommonsChunkPlugin({
+        names: [COMMON_CHUNK, VENDOR_CHUNK],
+        minChunks: 3
+    }),
     new ExtractTextWebpackPlugin('[name].css'),
     new webpack.DefinePlugin({
       '__INITIAL_STATE__': JSON.stringify(exercises),
