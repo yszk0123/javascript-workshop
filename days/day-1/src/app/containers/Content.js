@@ -9,17 +9,17 @@ import Markdown from '../components/Markdown';
 import { currentContentSelector } from '../selectors';
 
 const Content = ({ type, tags, value, absoluteFilePath }) => {
-  const hasDoc = true;
-  const hasScript = tags.indexOf('doc') === -1;
+  const showDoc = true;
+  const showScript = tags.indexOf('doc') === -1;
 
   return (
     <Box>
-      {hasScript &&
+      {showScript &&
         <LabeledCard label={`script: ${absoluteFilePath}`}>
-          <ScriptBlock src={absoluteFilePath} doc={value} />
+          <ScriptBlock src={absoluteFilePath} />
         </LabeledCard>
       }
-      {hasDoc &&
+      {showDoc &&
         <LabeledCard label={`doc: ${absoluteFilePath}`} space scrollable>
           <Markdown value={value} />
         </LabeledCard>
