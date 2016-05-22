@@ -1,0 +1,14 @@
+.Tag {
+  cursor: pointer;
+  margin: 3px;
+  padding: 3px;
+  border-radius: 3px;
+  background: lightgray;
+  color: white;
+  font-size: 90%;
+}
+
+.ActiveTag {
+  background: blue;
+  font-weight: bold;
+}

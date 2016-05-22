@@ -3,18 +3,12 @@ import { connect } from 'react-redux';
 
 import * as Styles from './styles.css';
 import ContentLinks from '../../components/ContentLinks';
+import TagFilter from '../../components/TagFilter';
 import { searchSelector, contentsSelector } from '../../selectors';
 import { changeSearchText, changeSearchTags } from '../../actions';
 
 const SEARCH_PLACEHOLDER_TEXT = '検索語句を入力';
 const TAGS = ['doc', 'es5', 'es6'];
-
-const toggleTags = (tags, newTag) => {
-  const index = tags.indexOf(newTag);
-  return index > -1 ?
-    tags.slice(0, index).concat(tags.slice(index + 1)) :
-    tags.concat(newTag);
-};
 
 const Outer = (props) =>
   <div className={Styles.Outer} {...props} />;
@@ -47,17 +41,7 @@ const SearchBox = ({ text, tags, onTextChange, onTagsChange }) =>
       onChange={(e) => onTextChange(e.target.value)}
     />
     <Icon type="search" size="lg" />
-    <div>
-      {TAGS.map((tag) =>
-        <span
-          key={tag}
-          className={`${Styles.Tag} ${tags.indexOf(tag) > -1 ? Styles.ActiveTag : ''}`}
-          onClick={(e) => onTagsChange(toggleTags(tags, tag))}
-        >
-          {tag}
-        </span>
-      )}
-    </div>
+    <TagFilter tags={TAGS} selected={tags} onChange={onTagsChange} />
   </div>;
 SearchBox.propTypes = {
   text: PropTypes.string.isRequired,
