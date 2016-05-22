@@ -5,6 +5,7 @@ import * as Styles from './styles.css';
 import ExerciseLinks from '../../components/ExerciseLinks';
 import TagFilter from '../../components/TagFilter';
 import Icon from '../../components/Icon';
+import IconLabel from '../../components/IconLabel';
 import { searchSelector, exercisesSelector } from '../../selectors';
 import { changeSearchText, changeSearchTags } from '../../actions';
 
@@ -13,18 +14,6 @@ const TAGS = ['doc', 'es5', 'es6'];
 
 const Outer = (props) =>
   <div className={Styles.Outer} {...props} />;
-
-const IconLabel = ({ icon, label, size }) =>
-  <span>
-    <Icon type={icon} size={size} />
-    {' '}
-    {label}
-  </span>;
-IconLabel.propTypes = {
-  icon: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired
-};
 
 const SearchBox = ({ text, tags, onTextChange, onTagsChange }) =>
   <div className={Styles.SearchBox}>

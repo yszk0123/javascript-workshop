@@ -11,7 +11,7 @@ const Label = ({ label, open, onClick }) =>
     <span>{label}</span>
   </div>;
 Label.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.any.isRequired,
   open: PropTypes.bool
 };
 
@@ -28,7 +28,7 @@ const LabeledCard = ({ label, space, open, children, onLabelClick }) =>
     <Card>{children}</Card>
   </div>;
 LabeledCard.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.any.isRequired,
   space: PropTypes.bool,
   open: PropTypes.bool,
   children: PropTypes.any,
