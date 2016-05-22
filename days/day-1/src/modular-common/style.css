@@ -1,7 +1,11 @@
-:global(html) {
+html {
   font-size: 62.5%;
 }
 
-:global(body) {
+body {
   font-size: 1.3rem;
+}
+
+body {
+  padding: 1.3rem;
 }
