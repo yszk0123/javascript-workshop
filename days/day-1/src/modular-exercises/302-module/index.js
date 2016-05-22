@@ -1,8 +1,11 @@
-/* eslint-disable no-self-compare */
-import { assert } from '../../modular-common/test-utils';
+import { runTest } from '../../modular-common/test-utils';
+import main from './main';
 
-function main() {
-  assert.ok(1 === 1, '例1');
+if (module.hot) {
+  module.hot.accept('./main', () => {
+    const nextMain = require('./main');
+    runTest(nextMain.default || nextMain);
+  });
 }
 
-main();
+runTest(main);

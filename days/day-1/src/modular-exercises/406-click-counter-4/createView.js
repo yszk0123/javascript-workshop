@@ -6,7 +6,6 @@ function createView(model, element) {
   // クリックされた時の動作を定義
   function onIncrementButtonClick(_event) {
     model.increment();
-    console.log(model);
     update();
   }
 

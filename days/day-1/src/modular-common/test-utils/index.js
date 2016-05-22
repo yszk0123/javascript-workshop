@@ -3,7 +3,7 @@ import document from 'global/document';
 import renderToDom from './renderToDom';
 import renderToConsole from './renderToConsole';
 
-const testCases = [];
+let testCases = [];
 let currentTestCase = null;
 
 function printErrorWithMessage(error, message) {
@@ -66,7 +66,9 @@ export function describe(message, callback) {
   });
 }
 
-export function runTest(format) {
+export function runTest(callback, format) {
+  callback();
+
   const newTestCases = testCases.map(({ message, callback }) => {
     currentTestCase = {
       message,
@@ -92,8 +94,12 @@ export function runTest(format) {
 
   const state = { testCases: newTestCases };
 
-  const element = document.createElement('div');
-  document.body.appendChild(element);
+  let element = document.getElementById('test');
+  if (!element) {
+    element = document.createElement('div');
+    element.setAttribute('id', 'test');
+    document.body.appendChild(element);
+  }
 
   if (format === 'console') {
     renderToConsole(state);
@@ -101,6 +107,8 @@ export function runTest(format) {
   else {
     renderToDom(state, element);
   }
+
+  testCases = [];
 }
 
 export const assert = {
