@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import document from 'global/document';
 
-export default function renderToDom(state) {
+export default function renderToConsole(state) {
   function renderTestCase({ isError, error, message }) {
     if (isError) {
       console.error('Failure:', message, error);
