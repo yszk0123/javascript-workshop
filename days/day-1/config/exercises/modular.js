@@ -3,7 +3,7 @@ var globby = require('globby');
 var fs = require('fs');
 
 var Extractor = require('../utils/Extractor');
-var ContentType = require('../ContentType');
+var ExerciseType = require('../ExerciseType');
 
 var titleExtractor = new Extractor()
   .addRule(/([^\/]+)\/index\.js$/, (_, title) => title);
@@ -16,7 +16,7 @@ module.exports = globby
     var filePath = originalFilePath.replace(/\/index\.js$/, '.html');
 
     return {
-      type: ContentType.ModularExercise,
+      type: ExerciseType.Modular,
       tags: ['es6'],
       title: title,
       path: title,

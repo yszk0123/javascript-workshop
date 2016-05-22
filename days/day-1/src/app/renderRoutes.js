@@ -1,14 +1,14 @@
 import Root from './containers/Root';
-import Content from './containers/Content';
+import Exercise from './containers/Exercise';
 
-export default (contentsGroups) => ({
+export default (exercisesGroups) => ({
   path: '/',
   component: Root,
-  childRoutes: contentsGroups.map((contentsGroup, _index) => ({
-    path: contentsGroup.path,
-    childRoutes: contentsGroup.contents.map((content) => ({
-      path: content.path,
-      component: Content
+  childRoutes: exercisesGroups.map((exercisesGroup, _index) => ({
+    path: exercisesGroup.path,
+    childRoutes: exercisesGroup.exercises.map((exercise) => ({
+      path: exercise.path,
+      component: Exercise
     }))
   }))
 });

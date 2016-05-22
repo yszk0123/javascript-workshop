@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import * as Styles from './styles.css';
-import ContentLinks from '../../components/ContentLinks';
+import ExerciseLinks from '../../components/ExerciseLinks';
 import TagFilter from '../../components/TagFilter';
-import { searchSelector, contentsSelector } from '../../selectors';
+import { searchSelector, exercisesSelector } from '../../selectors';
 import { changeSearchText, changeSearchTags } from '../../actions';
 
 const SEARCH_PLACEHOLDER_TEXT = '検索語句を入力';
@@ -50,18 +50,18 @@ SearchBox.propTypes = {
   onTagsChange: PropTypes.func.isRequired
 };
 
-const LinkGroups = ({ search, contents, onSearchTextChange, onSearchTagsChange }) =>
+const LinkGroups = ({ search, exercises, onSearchTextChange, onSearchTagsChange }) =>
   <Outer>
     <SearchBox
       {...search}
       onTextChange={onSearchTextChange}
       onTagsChange={onSearchTagsChange}
     />
-    <ContentLinks contents={contents} />
+    <ExerciseLinks exercises={exercises} />
   </Outer>;
 LinkGroups.propTypes = {
   search: PropTypes.object.isRequired,
-  contents: PropTypes.array.isRequired,
+  exercises: PropTypes.array.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
   onSearchTagsChange: PropTypes.func.isRequired,
 };
@@ -69,7 +69,7 @@ LinkGroups.propTypes = {
 export default connect(
   (state) => ({
     search: searchSelector(state),
-    contents: contentsSelector(state)
+    exercises: exercisesSelector(state)
   }),
   {
     onSearchTextChange: changeSearchText,

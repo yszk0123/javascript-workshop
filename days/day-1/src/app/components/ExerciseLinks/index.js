@@ -3,9 +3,9 @@ import { Link } from 'react-router';
 
 import * as Styles from './styles.css';
 
-const ContentLinks = ({ contents }) => (
+const ExerciseLinks = ({ exercises }) => (
   <ul className={Styles.Links}>
-    {contents.map(({ tags, absolutePath, title }, i) => (
+    {exercises.map(({ tags, absolutePath, title }, i) => (
       <li className={Styles.Link} key={i}>
         <Link to={absolutePath} activeClassName={Styles.ActiveLink}>{title}</Link>
         {tags.map((tag, i) =>
@@ -15,8 +15,8 @@ const ContentLinks = ({ contents }) => (
     ))}
   </ul>
 );
-ContentLinks.propTypes = {
-  contents: PropTypes.array.isRequired
+ExerciseLinks.propTypes = {
+  exercises: PropTypes.array.isRequired
 };
 
-export default ContentLinks;
+export default ExerciseLinks;

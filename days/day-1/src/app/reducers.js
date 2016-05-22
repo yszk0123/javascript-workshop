@@ -16,11 +16,11 @@ function searchReducer(state = { text: '', tags: [] }, action) {
   }
 }
 
-function contentsReducer(state = __INITIAL_STATE__, action) {
+function exercisesReducer(state = __INITIAL_STATE__, action) {
   return state;
 }
 
 export default {
   search: searchReducer,
-  contents: contentsReducer
+  exercises: exercisesReducer
 };

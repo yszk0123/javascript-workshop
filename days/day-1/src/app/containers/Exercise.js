@@ -1,14 +1,14 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import ContentType from '../ContentType';
+import ExerciseType from '../ExerciseType';
 import ScriptBlock from '../components/ScriptBlock';
 import LabeledCard from '../components/LabeledCard';
 import Box from '../components/Box';
 import Markdown from '../components/Markdown';
-import { currentContentSelector } from '../selectors';
+import { currentExerciseSelector } from '../selectors';
 
-const Content = ({ type, tags, value, absoluteFilePath }) => {
+const Exercise = ({ type, tags, value, absoluteFilePath }) => {
   const showDoc = true;
   const showScript = tags.indexOf('doc') === -1;
 
@@ -27,11 +27,11 @@ const Content = ({ type, tags, value, absoluteFilePath }) => {
     </Box>
   );
 };
-Content.propTypes = {
+Exercise.propTypes = {
   type: PropTypes.string.isRequired,
   tags: PropTypes.array.isRequired,
   value: PropTypes.string.isRequired,
   absoluteFilePath: PropTypes.string.isRequired
 };
 
-export default connect(currentContentSelector)(Content);
+export default connect(currentExerciseSelector)(Exercise);

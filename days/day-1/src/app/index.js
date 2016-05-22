@@ -10,7 +10,7 @@ import 'font-awesome/css/font-awesome.css';
 
 import reducers from './reducers';
 import renderRoutes from './renderRoutes';
-import { contentsGroupsSelector } from './selectors';
+import { exercisesGroupsSelector } from './selectors';
 
 // TODO: Use initialState
 export function mount(initialState, mountElement) {
@@ -36,7 +36,7 @@ export function mount(initialState, mountElement) {
     <Provider store={store}>
       <Router
         history={history}
-        routes={renderRoutes(contentsGroupsSelector(store.getState()))}
+        routes={renderRoutes(exercisesGroupsSelector(store.getState()))}
       />
     </Provider>,
     mountElement

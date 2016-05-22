@@ -6,15 +6,15 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
-var docs = require('./contents/docs');
-var legacyExercises = require('./contents/legacyExercises');
-var modularExercises = require('./contents/modularExercises');
+var docs = require('./exercises/docs');
+var legacy = require('./exercises/legacy');
+var modular = require('./exercises/modular');
 var collectWebpackEntries = require('./utils/collectWebpackEntries');
 
 var PORT = parseInt(process.env.PORT || 3000, 10);
 
-var contents = legacyExercises
-  .concat(modularExercises)
+var exercises = legacy
+  .concat(modular)
   .concat(docs)
   .sort(function comparator(a, b) {
     return a.title > b.title;
@@ -112,7 +112,7 @@ module.exports = {
   plugins: htmlWebpackPlugins.concat([
     new ExtractTextWebpackPlugin('[name].css'),
     new webpack.DefinePlugin({
-      '__INITIAL_STATE__': JSON.stringify(contents),
+      '__INITIAL_STATE__': JSON.stringify(exercises),
       '__DEVELOPMENT__': true,
       'process.env': {
         'NODE_ENV': JSON.stringify('development')

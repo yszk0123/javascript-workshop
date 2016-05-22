@@ -1,63 +1,63 @@
 import { createSelector } from 'reselect';
 
-import ContentType from './ContentType';
+import ExerciseType from './ExerciseType';
 
 export const searchSelector = (state) =>
   state.search;
 
 // TODO: Don't use Array#find()
-export const currentContentSelector = createSelector(
+export const currentExerciseSelector = createSelector(
   [
-    (state) => state.contents,
+    (state) => state.exercises,
     (state, ownProps) => ownProps.location
   ],
-  (contents, location) =>
-    contents.find((content) => content.absolutePath === location.pathname)
+  (exercises, location) =>
+    exercises.find((exercise) => exercise.absolutePath === location.pathname)
 );
 
-export const contentsSelector = createSelector(
+export const exercisesSelector = createSelector(
   [
     (state) => state.search.text,
     (state) => state.search.tags,
-    (state) => state.contents
+    (state) => state.exercises
   ],
-  (searchText, searchTags, contents) => {
-    return contents.filter((content) =>
-      (!searchText || content.title.indexOf(searchText) > -1) &&
-      (!searchTags.length || content.tags.some((tag) => searchTags.indexOf(tag) > -1))
+  (searchText, searchTags, exercises) => {
+    return exercises.filter((exercise) =>
+      (!searchText || exercise.title.indexOf(searchText) > -1) &&
+      (!searchTags.length || exercise.tags.some((tag) => searchTags.indexOf(tag) > -1))
     );
   }
 );
 
-export const contentsGroupsSelector = createSelector(
-  (state) => state.contents,
-  (contents) => {
-    const groupsByType = contents.reduce((acc, content) => {
+export const exercisesGroupsSelector = createSelector(
+  (state) => state.exercises,
+  (exercises) => {
+    const groupsByType = exercises.reduce((acc, exercise) => {
       // eslint-disable-next-line no-param-reassign
-      const item = acc[content.type] = acc[content.type] || [];
+      const item = acc[exercise.type] = acc[exercise.type] || [];
 
-      item.push(content);
+      item.push(exercise);
       return acc;
     }, {});
 
     return [
       {
-        type: ContentType.Doc,
+        type: ExerciseType.Doc,
         icon: 'book',
         path: 'docs',
-        contents: groupsByType[ContentType.Doc]
+        exercises: groupsByType[ExerciseType.Doc]
       },
       {
-        type: ContentType.LegacyExercise,
+        type: ExerciseType.Legacy,
         icon: 'question-circle',
         path: 'legacy-exercises',
-        contents: groupsByType[ContentType.LegacyExercise]
+        exercises: groupsByType[ExerciseType.Legacy]
       },
       {
-        type: ContentType.ModularExercise,
+        type: ExerciseType.Modular,
         icon: 'question-circle',
         path: 'modular-exercises',
-        contents: groupsByType[ContentType.ModularExercise]
+        exercises: groupsByType[ExerciseType.Modular]
       }
     ].filter(Boolean);
   }

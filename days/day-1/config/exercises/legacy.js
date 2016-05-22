@@ -3,7 +3,7 @@ var globby = require('globby');
 var fs = require('fs');
 
 var Extractor = require('../utils/Extractor');
-var ContentType = require('../ContentType');
+var ExerciseType = require('../ExerciseType');
 
 var titleExtractor = new Extractor()
   .addRule(/([^\/]+)\/index\.html$/, (_, title) => title);
@@ -16,7 +16,7 @@ module.exports = globby
     var title = titleExtractor.execute(filePath);
 
     return {
-      type: ContentType.LegacyExercise,
+      type: ExerciseType.Legacy,
       tags: ['es5'],
       title: title,
       path: title,
