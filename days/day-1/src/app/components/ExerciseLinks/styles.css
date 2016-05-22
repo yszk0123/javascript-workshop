@@ -5,11 +5,12 @@
 }
 
 .Link {
-  margin: 5px;
+  margin: 5px 0;
 }
 
 .Link a {
-  padding: 8px;
+  margin-right: 8px;
+  padding: 8px 0;
   text-decoration: none;
   border-radius: 3px;
 }

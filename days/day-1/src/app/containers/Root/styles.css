@@ -20,8 +20,8 @@
   left: 0;
   top: 0;
   bottom: 0;
-  padding: 1em;
-  width: 200px;
+  padding: 1rem;
+  width: 240px;
   background: #f8f8f8;
   overflow: scroll;
   white-space: nowrap;
@@ -30,7 +30,7 @@
 .RightPane {
   box-sizing: border-box;
   position: absolute;
-  left: 200px;
+  left: 240px;
   top: 0;
   right: 0;
   bottom: 0;
