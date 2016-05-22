@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as Styles from './styles.css';
 import ExerciseLinks from '../../components/ExerciseLinks';
 import TagFilter from '../../components/TagFilter';
+import Icon from '../../components/Icon';
 import { searchSelector, exercisesSelector } from '../../selectors';
 import { changeSearchText, changeSearchTags } from '../../actions';
 
@@ -12,13 +13,6 @@ const TAGS = ['doc', 'es5', 'es6'];
 
 const Outer = (props) =>
   <div className={Styles.Outer} {...props} />;
-
-const Icon = ({ type, size }) =>
-  <i className={`fa fa-${type} fa-${size}`} />;
-Icon.propTypes = {
-  type: PropTypes.string.isRequired,
-  size: PropTypes.string.isRequired
-};
 
 const IconLabel = ({ icon, label, size }) =>
   <span>
