@@ -6,13 +6,15 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
 
+var ExerciseType = require('./ExerciseType');
+var collectExercises = require('./collectExercises');
 var docs = require('./exercises/docs');
-var legacy = require('./exercises/legacy');
-var modular = require('./exercises/modular');
 var collectWebpackEntries = require('./utils/collectWebpackEntries');
 
 var PORT = parseInt(process.env.PORT || 3000, 10);
 
+var legacy = collectExercises('legacy-exercises', ExerciseType.Legacy, ['es5'], true);
+var modular = collectExercises('modular-exercises', ExerciseType.Modular, ['es6']);
 var exercises = legacy
   .concat(modular)
   .concat(docs)

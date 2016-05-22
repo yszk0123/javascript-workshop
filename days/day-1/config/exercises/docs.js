@@ -21,8 +21,11 @@ module.exports = globby
       title: title,
       path: title,
       absolutePath: '/docs/' + title,
-      absoluteFilePath: '/docs/' + filePath,
-      filePath: filePath,
-      value: fs.readFileSync('./docs/' + filePath, 'utf8')
+      script: null,
+      doc: {
+        absolutePath: '/docs/' + filePath,
+        value: fs.readFileSync('./docs/' + filePath, 'utf8')
+      },
+      files: []
     };
   });

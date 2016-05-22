@@ -6,22 +6,28 @@ import ScriptBlock from '../components/ScriptBlock';
 import LabeledCard from '../components/LabeledCard';
 import Box from '../components/Box';
 import Markdown from '../components/Markdown';
+import SyntaxHighlight from '../components/SyntaxHighlight';
 import { currentExerciseSelector } from '../selectors';
 
-const Exercise = ({ type, tags, value, absoluteFilePath }) => {
+const Exercise = ({ type, tags, script, doc, files }) => {
   const showDoc = true;
-  const showScript = tags.indexOf('doc') === -1;
+  const showScript = !!script;
 
   return (
     <Box>
       {showScript &&
-        <LabeledCard label={`script: ${absoluteFilePath}`}>
-          <ScriptBlock src={absoluteFilePath} />
+        <LabeledCard label={`script: ${script.absolutePath}`}>
+          <ScriptBlock src={script.absolutePath} />
         </LabeledCard>
       }
+      {files.map(({ absolutePath, value }, i) =>
+        <LabeledCard key={i} label={`file: ${absolutePath}`} space scrollable>
+          <SyntaxHighlight value={value} />
+        </LabeledCard>
+      )}
       {showDoc &&
-        <LabeledCard label={`doc: ${absoluteFilePath}`} space scrollable>
-          <Markdown value={value} />
+        <LabeledCard label={`doc: ${doc.absolutePath}`} space scrollable>
+          <Markdown value={doc.value} />
         </LabeledCard>
       }
     </Box>
@@ -30,8 +36,8 @@ const Exercise = ({ type, tags, value, absoluteFilePath }) => {
 Exercise.propTypes = {
   type: PropTypes.string.isRequired,
   tags: PropTypes.array.isRequired,
-  value: PropTypes.string.isRequired,
-  absoluteFilePath: PropTypes.string.isRequired
+  doc: PropTypes.object.isRequired,
+  files: PropTypes.array.isRequired
 };
 
 export default connect(currentExerciseSelector)(Exercise);
