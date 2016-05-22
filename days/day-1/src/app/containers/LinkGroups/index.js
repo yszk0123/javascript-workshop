@@ -17,14 +17,20 @@ const Outer = (props) =>
 
 const SearchBox = ({ text, tags, onTextChange, onTagsChange }) =>
   <div className={Styles.SearchBox}>
-    <input
-      type="text"
-      placeholder={SEARCH_PLACEHOLDER_TEXT}
-      value={text}
-      onChange={(e) => onTextChange(e.target.value)}
-    />
-    <Icon type="search" size="lg" />
-    <TagFilter tags={TAGS} selected={tags} onChange={onTagsChange} />
+    <div className={Styles.TextInput}>
+      <input
+        type="text"
+        placeholder={SEARCH_PLACEHOLDER_TEXT}
+        value={text}
+        onChange={(e) => onTextChange(e.target.value)}
+      />
+      <div className={Styles.SearchIcon}>
+        <Icon type="search" size="lg" />
+      </div>
+    </div>
+    <div className={Styles.TagFilterOuter}>
+      <TagFilter tags={TAGS} selected={tags} onChange={onTagsChange} />
+    </div>
   </div>;
 SearchBox.propTypes = {
   text: PropTypes.string.isRequired,
