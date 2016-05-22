@@ -49,7 +49,6 @@ class Exercise extends React.Component {
           <LabeledCard
             key={i}
             label={`file: ${absolutePath}`}
-            space
             open={toggleStatusByPath[absolutePath]}
             onLabelClick={() => this.toggleStatus(absolutePath)}
           >

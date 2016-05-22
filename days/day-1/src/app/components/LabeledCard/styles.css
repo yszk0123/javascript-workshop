@@ -23,7 +23,7 @@
 }
 
 .LabeledCard:global(.space) .Card {
-  padding: 1.3rem;
+  padding: 0 1.3rem 0;
 }
 
 .LabeledCard .Card {
