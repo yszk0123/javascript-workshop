@@ -1,9 +1,6 @@
-(function(namespace) {
-  'use strict';
-  var assert = namespace.TestUtils.assert;
-  var describe = namespace.TestUtils.describe;
-  var runTest = namespace.TestUtils.runTest;
+import { describe, assert } from '../../modular-common/test-utils';
 
+export default function main() {
   describe('成功例', function() {
     assert.ok(1 + 1 === 2, '例1');
     assert.fail(1 + 1 !== 2, '例2');
@@ -18,6 +15,4 @@
     assert.shouldCorrect(1 + 1 === 2, '演習1');
     assert.shouldCorrect(1 + 1 !== 2, '演習2');
   });
-
-  runTest();
-})(window.JavaScriptWorkshop);
+}
