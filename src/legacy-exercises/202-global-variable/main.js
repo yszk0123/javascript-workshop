@@ -25,6 +25,8 @@
     // undefinedVariable = "This variable is global!";
     assert.ok(false, '確認したらtrueに変える');
   });
+
+  runTest();
 })(window.JavaScriptWorkshop);
 
 // 演習: ここで宣言した変数 (グローバル変数) は他のファイルからも参照できてしまう
