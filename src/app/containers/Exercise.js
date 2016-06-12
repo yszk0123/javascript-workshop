@@ -12,12 +12,22 @@ import Markdown from '../components/Markdown';
 import SyntaxHighlight from '../components/SyntaxHighlight';
 import { currentExerciseSelector } from '../selectors';
 
+const OPEN_FILE_PATTERN = /README\.md$/;
+
 class Exercise extends React.Component {
   constructor(props) {
     super(props);
 
+    // TODO: Better method
+    const toggleStatusByPath = props.files.reduce((acc, { type, absolutePath }) => {
+      if (type === ExerciseItemType.Demo || OPEN_FILE_PATTERN.test(absolutePath)) {
+        acc[absolutePath] = true;
+      }
+      return acc;
+    }, {});
+
     this.state = {
-      toggleStatusByPath: {}
+      toggleStatusByPath
     };
   }
 
