@@ -3,6 +3,8 @@
 (function omajinai(namespace) {
   'use strict';
   const assert = namespace.TestUtils.assert;
+  const describe = namespace.TestUtils.describe;
+  const runTest = namespace.TestUtils.runTest;
 
   // スコープチェーン:
   // (makeGetValue)--> { assert: ..., makeGetValue: ..., getValue: ... } --(omajinai)--> ...
@@ -23,10 +25,15 @@
   // なので、makeGetValue() の外側にいるにもかかわらず、getValue() は value を参照できる
   const getValue = makeGetValue();
 
-  assert.ok(getValue() === 1, '例1');
+  describe('makeGetValue() の内側の変数を外から参照できる', function() {
+    assert.ok(getValue() === 1, '例1');
+  });
 
-  // 演習1: makeGetValue() を修正して、getValue() を呼び出す度に value の値が繰り上がるようにする
-  assert.ok(getValue() === 2, '演習1');
-  assert.ok(getValue() === 3, '演習2');
-  assert.ok(getValue() === 4, '演習3');
+  describe('演習: makeGetValue() を修正して、getValue() を呼び出す度に value の値が繰り上がるようにする', function() {
+    assert.ok(getValue() === 2, '繰り上がる');
+    assert.ok(getValue() === 3, '繰り上がる');
+    assert.ok(getValue() === 4, '繰り上がる');
+  });
+
+  runTest();
 })(window.JavaScriptWorkshop);
