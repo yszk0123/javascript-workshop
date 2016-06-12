@@ -8,11 +8,17 @@ import ScriptBlock from '../components/ScriptBlock';
 import LabeledCard from '../components/LabeledCard';
 import IconLabel from '../components/IconLabel';
 import Box from '../components/Box';
+import Card from '../components/Card';
 import Markdown from '../components/Markdown';
 import SyntaxHighlight from '../components/SyntaxHighlight';
 import { currentExerciseSelector } from '../selectors';
 
 const OPEN_FILE_PATTERN = /README\.md$/;
+const MANUAL_RELOAD_MESSAGE = 'この演習は自動リロードに対応していません';
+
+function ManualReloadMessage() {
+  return <Card>{MANUAL_RELOAD_MESSAGE}</Card>;
+}
 
 class Exercise extends React.Component {
   constructor(props) {
@@ -46,6 +52,7 @@ class Exercise extends React.Component {
 
     return (
       <Box>
+        {tags.indexOf("es5") > -1 && <ManualReloadMessage />}
         {files.map(({ type, icon, absolutePath, originalPath, value }, i) =>
           <LabeledCard
             key={i}

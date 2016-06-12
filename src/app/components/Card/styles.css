@@ -1,0 +1,10 @@
+.Card {
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  padding: 0.8rem 1.3rem;
+  margin: 1rem;
+
+  background: lightyellow;
+  box-shadow: 0 0 2px #880;
+}
