@@ -24,7 +24,7 @@ export const exercisesSelector = createSelector(
   (searchText, searchTags, exercises) => {
     return exercises.filter((exercise) =>
       (!searchText || exercise.title.indexOf(searchText) > -1) &&
-      (!searchTags.length || exercise.tags.some((tag) => searchTags.indexOf(tag) > -1))
+      exercise.tags.some((tag) => searchTags.indexOf(tag) > -1)
     );
   }
 );
