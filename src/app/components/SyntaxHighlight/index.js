@@ -3,7 +3,7 @@ import cx from 'classnames';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/github.css';
 
-import * as Styles from './styles.css';
+import * as styles from './styles.css';
 
 export default class SyntaxHighlight extends React.Component {
   shouldComponentUpdate(nextProps) {
@@ -15,7 +15,7 @@ export default class SyntaxHighlight extends React.Component {
 
     return (
       <pre
-        className={cx({ [Styles.SyntaxHighlight]: true, hljs: true })}
+        className={cx({ [styles.SyntaxHighlight]: true, hljs: true })}
         dangerouslySetInnerHTML={{ __html: hljs.highlightAuto(value).value }}
       />
     );

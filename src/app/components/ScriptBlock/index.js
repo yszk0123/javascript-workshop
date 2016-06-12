@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
 
-import * as Styles from './styles.css';
+import * as styles from './styles.css';
 import lazySwitcher from './lazySwitcher';
 
 const LOAD_TIMEOUT = 500;
 
 const ReloadButton = ({ onClick }) =>
-  <button className={Styles.ReloadButton} onClick={onClick}>
+  <button className={styles.ReloadButton} onClick={onClick}>
     <span><i className="fa fa-refresh" /> 更新</span>
   </button>;
 ReloadButton.propTypes = {
@@ -29,9 +29,9 @@ class ScriptBlock extends React.Component {
     const { src, loadReady } = this.props;
 
     return (
-      <div className={Styles.ScriptBlock}>
+      <div className={styles.ScriptBlock}>
         <ReloadButton onClick={this.handleReloadClick} />
-        {loadReady && <iframe ref="frame" className={Styles.Frame} src={src} />}
+        {loadReady && <iframe ref="frame" className={styles.Frame} src={src} />}
       </div>
     );
   }

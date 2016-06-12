@@ -5,17 +5,17 @@ import { connect } from 'react-redux';
 import LinkGroups from '../LinkGroups';
 import { Outer } from '../../undefined-components';
 
-import * as Styles from './styles.css';
+import * as styles from './styles.css';
 import mainContentTransition from './mainContentTransition.css';
 
 const MainContent = (props) =>
-  <div className={Styles.MainContent} {...props} />;
+  <div className={styles.MainContent} {...props} />;
 
 const LeftPane = (props) =>
-  <div className={Styles.LeftPane} {...props} />;
+  <div className={styles.LeftPane} {...props} />;
 
 const RightPane = (props) =>
-  <div className={Styles.RightPane} {...props} />;
+  <div className={styles.RightPane} {...props} />;
 
 const MainContentTransition = ({ children }) =>
   <ReactCSSTransitionGroup

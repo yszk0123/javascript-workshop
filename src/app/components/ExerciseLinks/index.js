@@ -1,15 +1,15 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-import * as Styles from './styles.css';
+import * as styles from './styles.css';
 
 const ExerciseLinks = ({ exercises }) => (
-  <ul className={Styles.Links}>
+  <ul className={styles.Links}>
     {exercises.map(({ tags, absolutePath, title }, i) => (
-      <li className={Styles.Link} key={i}>
-        <Link to={absolutePath} activeClassName={Styles.ActiveLink}>{title}</Link>
+      <li className={styles.Link} key={i}>
+        <Link to={absolutePath} activeClassName={styles.ActiveLink}>{title}</Link>
         {tags.map((tag, i) =>
-          <span key={i} className={Styles.Tag}>{tag}</span>
+          <span key={i} className={styles.Tag}>{tag}</span>
         )}
       </li>
     ))}

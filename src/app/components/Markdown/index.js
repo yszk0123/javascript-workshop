@@ -3,7 +3,7 @@ import marked from 'marked';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/github.css';
 
-import * as Styles from './styles.css';
+import * as styles from './styles.css';
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -28,7 +28,7 @@ export default class Markdown extends React.Component {
     const { value } = this.props;
 
     return (
-      <div className={Styles.Markdown} dangerouslySetInnerHTML={{ __html: marked(value) }} />
+      <div className={styles.Markdown} dangerouslySetInnerHTML={{ __html: marked(value) }} />
     );
   }
 }

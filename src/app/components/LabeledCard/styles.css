@@ -28,7 +28,7 @@
 
 .LabeledCard .Card {
   max-height: 400px;
-  transition: max-height 0.2s ease-in;
+  transition: max-height 0.12s ease-in;
   overflow: scroll;
 }
 

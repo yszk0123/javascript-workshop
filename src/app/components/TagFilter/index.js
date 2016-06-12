@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import * as Styles from './styles.css';
+import * as styles from './styles.css';
 
 const toggleTags = (tags, newTag) => {
   const index = tags.indexOf(newTag);
@@ -14,7 +14,7 @@ const TagFilter = ({ tags, selected, onChange }) =>
     {tags.map((tag) =>
       <span
         key={tag}
-        className={`${Styles.Tag} ${selected.indexOf(tag) > -1 ? Styles.ActiveTag : ''}`}
+        className={`${styles.Tag} ${selected.indexOf(tag) > -1 ? styles.ActiveTag : ''}`}
         onClick={(e) => onChange(toggleTags(selected, tag))}
       >
         {tag}

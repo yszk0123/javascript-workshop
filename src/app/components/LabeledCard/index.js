@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react';
 import cx from 'classnames'
 
 import Icon from '../Icon';
-import * as Styles from './styles.css';
+import * as styles from './styles.css';
 
 const Label = ({ label, open, onClick }) =>
-  <div className={Styles.Label} onClick={onClick}>
+  <div className={styles.Label} onClick={onClick}>
     <Icon type={open ? 'caret-down' : 'caret-right'} size="lg" />
     {' '}
     <span>{label}</span>
@@ -16,10 +16,10 @@ Label.propTypes = {
 };
 
 const Card = (props) =>
-  <div className={Styles.Card} {...props} />;
+  <div className={styles.Card} {...props} />;
 
 const LabeledCard = ({ label, space, open, children, onLabelClick }) =>
-  <div className={cx({ [Styles.LabeledCard]: true, space, hide: !open })}>
+  <div className={cx({ [styles.LabeledCard]: true, space, hide: !open })}>
     <Label
       label={label}
       onClick={onLabelClick}
