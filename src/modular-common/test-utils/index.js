@@ -41,22 +41,13 @@ function assertOk(value, message) {
   print(message);
 }
 
-function assertFail(value, message) {
-  if (value) {
-    printErrorWithMessage('expected: falsy', message);
-    return;
-  }
-
-  print(message);
+function assertFail(_value, message) {
+  printErrorWithMessage('訂正して下さい', message);
 }
 
 // TODO: Replace with assertDeepEqual
 function assertSimilar(actual, expected, message) {
   assertOk(JSON.stringify(actual) === JSON.stringify(expected), message);
-}
-
-function assertShouldCorrect(_value, message) {
-  printErrorWithMessage('訂正して下さい', message);
 }
 
 export function describe(message, callback) {
@@ -115,6 +106,5 @@ export const assert = {
   equal: assertEqual,
   ok: assertOk,
   fail: assertFail,
-  similar: assertSimilar,
-  shouldCorrect: assertShouldCorrect
+  similar: assertSimilar
 };

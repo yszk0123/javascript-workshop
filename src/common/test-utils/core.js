@@ -42,14 +42,6 @@
   }
 
   function assertFail(value, message) {
-    if (value) {
-      return printErrorWithMessage('expected: falsy', message);
-    }
-
-    print(message);
-  }
-
-  function assertShouldCorrect(_value, message) {
     printErrorWithMessage('訂正して下さい', message);
   }
 
@@ -104,8 +96,7 @@
       equal: assertEqual,
       ok: assertOk,
       fail: assertFail,
-      similar: assertSimilar,
-      shouldCorrect: assertShouldCorrect
+      similar: assertSimilar
     }
   };
 })(window.JavaScriptWorkshop);

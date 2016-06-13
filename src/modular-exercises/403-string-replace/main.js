@@ -27,6 +27,6 @@ export default function main() {
     assert.ok(renderedHtml2 === '<ul><li class="name">Tanaka</li><li>20</li></ul>', '例4');
 
     // 演習: renderTemplate() の第１引数を修正する
-    assert.shouldCorrect(renderTemplate('', data) === 'name = Tanaka, age = 20', '演習1');
+    assert.fail(renderTemplate('', data) === 'name = Tanaka, age = 20', '演習1');
   });
 }

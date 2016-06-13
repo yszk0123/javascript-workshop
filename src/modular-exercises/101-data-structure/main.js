@@ -59,9 +59,8 @@ export default function main() {
 
   describe('ブーリアン (Boolean)', () => {
     assert.ok(true, '例1');
-    assert.fail(false, '例2');
-    assert.ok(1 < 2 === true, '例3');
-    assert.ok(1 < 0 === false, '例4');
-    assert.ok((1 + 1 === 2) === true, '例5');
+    assert.ok(1 < 2 === true, '例2');
+    assert.ok(1 < 0 === false, '例3');
+    assert.ok((1 + 1 === 2) === true, '例4');
   });
 }

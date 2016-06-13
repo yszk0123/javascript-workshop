@@ -64,7 +64,7 @@
 
       TestUtils.describe('簡単なテスト方法', function() {
         TestUtils.assert.ok(1 === 1, '例1');
-        TestUtils.assert.fail(1 !== 1, '例2');
+        TestUtils.assert.ok(1 !== 2, '例2');
       });
       TestUtils.runTest('console'); // 結果を console に出力
       TestUtils.runTest('dom'); // 結果を DOM に出力
