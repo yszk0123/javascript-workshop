@@ -1,0 +1,5 @@
+- [ ] ドキュメント整備。もっと分かりやすく
+- [ ] `exercise` 管理方法改善
+  - `exercise` を `config/` 以下で管理せず、`exercise` 毎に設定ファイルを用意する (`exercise.json`)
+- [ ] テストモジュール修正
+  - `similar` の代わりに `deepEqual` 実装
