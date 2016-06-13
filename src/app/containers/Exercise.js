@@ -14,7 +14,7 @@ import SyntaxHighlight from '../components/SyntaxHighlight';
 import { currentExerciseSelector } from '../selectors';
 
 const OPEN_FILE_PATTERN = /README\.md$/;
-const MANUAL_RELOAD_MESSAGE = 'この演習は自動リロードに対応していません';
+const MANUAL_RELOAD_MESSAGE = 'この演習は自動リロードに対応していません。ファイル変更後は更新ボタンを押して下さい';
 
 function ManualReloadMessage() {
   return <Card>{MANUAL_RELOAD_MESSAGE}</Card>;
