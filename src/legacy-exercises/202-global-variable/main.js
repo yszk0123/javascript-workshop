@@ -1,4 +1,4 @@
-// FIXME: わかりにくいので直す
+// FIXME: わかりにくい
 
 (function(namespace) {
   'use strict';
@@ -22,7 +22,7 @@
   });
 
   describe('演習: "use strict" をコメントアウトした状態で次のコードが実行できることを確認する', function() {
-    // undefinedVariable = "This variable is global!";
+    // undefinedVariable = 'This variable is global!';
     assert.ok(false, '確認したらtrueに変える');
   });
 

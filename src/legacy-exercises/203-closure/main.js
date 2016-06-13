@@ -1,3 +1,4 @@
+// TODO: もっと分かりやすく
 // スコープチェーン:
 // (omajinai)-->(グローバルオブジェクト)
 (function omajinai(namespace) {
