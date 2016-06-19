@@ -28,6 +28,7 @@ class ScriptBlock extends React.Component {
   render() {
     const { src, loadReady } = this.props;
 
+    // TODO: Don't use string ref. Use callback ref instead.
     return (
       <div className={styles.ScriptBlock}>
         <ReloadButton onClick={this.handleReloadClick} />
