@@ -1,22 +1,19 @@
-(function(namespace) {
-  function renderToConsole(state) {
-    function renderTestCase(isError, error, message) {
-      if (isError) {
-        console.error('Failure:', message, error);
-      }
-      else {
-        console.info('Success:', message);
-      }
-    }
+/* eslint-disable no-console */
+import document from 'global/document';
 
-    state.testCases.forEach(function(testCase) {
-      console.group(testCase.message);
-      testCase.assertions.forEach(function(assertion) {
-        renderTestCase(assertion.isError, assertion.error, assertion.message);
-      });
-      console.groupEnd();
-    });
+export default function renderToConsole(state) {
+  function renderTestCase({ isError, error, message }) {
+    if (isError) {
+      console.error('Failure:', message, error);
+    }
+    else {
+      console.info('Success:', message);
+    }
   }
 
-  namespace.TestUtils.renderToConsole = renderToConsole;
-})(window.JavaScriptWorkshop);
+  state.testCases.forEach(({ message, assertions }) => {
+    console.group(message);
+    assertions.forEach(renderTestCase);
+    console.groupEnd();
+  });
+}

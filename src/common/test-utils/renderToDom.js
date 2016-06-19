@@ -1,40 +1,38 @@
-(function(namespace) {
-  function renderToDom(state, mountElement) {
-    function renderHeader(message) {
-      var element = document.createElement('h2');
-      element.classList.add('TestCaseHeader');
-      element.innerText = message || '';
-      return element;
-    }
+import React from 'react';
+import ReactDOM from 'react-dom';
+import cx from 'classnames';
 
-    function renderTestCase(isError, error, message) {
-      var element = document.createElement('pre');
-      element.classList.add('TestCase');
-      if (isError) {
-        element.classList.add('failure');
-        element.innerText = 'Failure: ' + (message || '') + '\n' + error.toString();
-      }
-      else {
-        element.classList.add('success');
-        element.innerText = 'Success: ' + (message || '');
-      }
-      return element;
-    }
+import * as styles from './styles.css';
+import '../style.css';
 
-    var testCaseOuterElement = document.createElement('div');
-    testCaseOuterElement.classList.add('TestCaseOuter');
+const TestCaseOuter = (props) =>
+  <div className={styles.TestCaseOuter} {...props} />;
 
-    state.testCases.forEach(function(testCase) {
-      testCaseOuterElement.appendChild(renderHeader(testCase.message));
-      testCase.assertions.forEach(function(assertion) {
-        testCaseOuterElement.appendChild(
-          renderTestCase(assertion.isError, assertion.error, assertion.message)
-        );
-      });
-    });
+const TestCaseHeader = ({ label }) =>
+  <h2 className={styles.TestCaseHeader}>{label}</h2>;
 
-    mountElement.appendChild(testCaseOuterElement);
-  }
+const TestCase = ({ isError, message, error }) =>
+  <pre
+    className={cx({
+      [styles.TestCase]: true,
+      failure: isError,
+      success: !isError
+    })}
+  >
+    {error && `${error}\n`}
+    {message}
+  </pre>;
 
-  namespace.TestUtils.renderToDom = renderToDom;
-})(window.JavaScriptWorkshop);
+export default function renderToDom(state, mountElement) {
+  ReactDOM.render(
+    <TestCaseOuter>
+      {state.testCases.map(({ message, assertions }, i) =>
+        <div className={styles.Group} key={i}>
+          <TestCaseHeader label={message} />
+          {assertions.map((testCase, i) => <TestCase key={i} {...testCase} />)}
+        </div>
+      )}
+    </TestCaseOuter>,
+    mountElement
+  );
+}
