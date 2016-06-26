@@ -1,4 +1,4 @@
-import { describe, assert } from '../../modular-common/test-utils';
+import { describe, assert } from '../../common/test-utils';
 
 export default function main() {
   describe('グループA', () => {

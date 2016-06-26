@@ -1,4 +1,4 @@
-import { describe, assert, runTest } from '../../modular-common/test-utils';
+import { describe, assert, runTest } from '../../common/test-utils';
 
 describe('オブジェクト (Object)', () => {
   const objectA = {};

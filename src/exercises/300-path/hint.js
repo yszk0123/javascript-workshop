@@ -1,5 +1,5 @@
-import { describe, assert, runTest } from '../../modular-common/test-utils';
-import PathResolver from '../../modular-common/PathResolver';
+import { describe, assert, runTest } from '../../common/test-utils';
+import PathResolver from '../../common/PathResolver';
 
 const resolver = new PathResolver({ currentDirectory: '/a/b/c' });
 

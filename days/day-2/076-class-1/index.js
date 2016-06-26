@@ -1,4 +1,4 @@
-import { assert } from '../../modular-common/test-utils';
+import { assert } from '../../common/test-utils';
 
 // たい焼きの「型」
 class Taiyaki {

@@ -1,4 +1,4 @@
-import '../../modular-common/style.css';
+import '../../common/style.css';
 
 // 作っておいた Model, View を参照する
 import Model from './Model';

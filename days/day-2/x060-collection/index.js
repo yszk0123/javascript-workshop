@@ -1,5 +1,5 @@
 /* eslint-disable no-console, arrow-body-style */
-import { assert } from '../../modular-common/test-utils';
+import { assert } from '../../common/test-utils';
 
 function testForStatement() {
   console.group('for statement');

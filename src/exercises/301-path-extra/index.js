@@ -1,4 +1,4 @@
-import { runTest } from '../../modular-common/test-utils';
+import { runTest } from '../../common/test-utils';
 import main from './main';
 
 if (module.hot) {

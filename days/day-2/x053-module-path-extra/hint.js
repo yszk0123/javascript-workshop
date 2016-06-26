@@ -1,5 +1,5 @@
-import { assert } from '../../modular-common/test-utils';
-import ModulePathResolver from '../../modular-common/ModulePathResolver';
+import { assert } from '../../common/test-utils';
+import ModulePathResolver from '../../common/ModulePathResolver';
 
 const modulePathResolver = new ModulePathResolver({
   currentDirectory: '/users/foo/my-project/src',

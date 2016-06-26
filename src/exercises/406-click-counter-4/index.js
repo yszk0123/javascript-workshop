@@ -1,7 +1,7 @@
 import document from 'global/document';
 
 import mount from './mount';
-import '../../modular-common/style.css';
+import '../../common/style.css';
 import './style.css';
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -1,4 +1,4 @@
-import { describe, assert } from '../../modular-common/test-utils';
+import { describe, assert } from '../../common/test-utils';
 import sayHello from './sayHello';
 import { sayHello2 } from './say-hello-2';
 import { sayHello2 as sayHello3 } from './say-hello-2';

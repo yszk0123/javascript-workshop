@@ -1,5 +1,5 @@
-import { describe, assert } from '../../modular-common/test-utils';
-import PathResolver from '../../modular-common/PathResolver';
+import { describe, assert } from '../../common/test-utils';
+import PathResolver from '../../common/PathResolver';
 
 export default function main() {
   const pathResolver = new PathResolver({
