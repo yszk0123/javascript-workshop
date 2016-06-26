@@ -1,33 +1,16 @@
 'use strict';
-var assign = require('object-assign');
 var webpack = require('webpack');
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
-
-var ExerciseType = require('./ExerciseType');
-var collectExercises = require('./collectExercises');
-var docs = require('./exercises/docs');
 var collectWebpackEntries = require('./utils/collectWebpackEntries');
 
 var PORT = parseInt(process.env.PORT || 3000, 10);
 var COMMON_CHUNK = 'common-chunk';
 var VENDOR_CHUNK = 'vendor-chunk';
 
-var legacy = collectExercises('legacy-exercises', ExerciseType.Legacy, ['es5'], true);
-var modular = collectExercises('modular-exercises', ExerciseType.Modular, ['es6']);
-var exercises = legacy
-  .concat(modular)
-  .concat(docs)
-  .sort(function comparator(a, b) {
-    return a.title.localeCompare(b.title);
-  });
-
-var entries = assign(
-  collectWebpackEntries('./src/entries', ''),
-  collectWebpackEntries('./src/modular-exercises', 'modular-exercises-')
-);
+var entries = collectWebpackEntries('./src/entries', '');
 entries[VENDOR_CHUNK] = [
   'webpack/hot/only-dev-server',
   'global',
@@ -40,7 +23,7 @@ entries[VENDOR_CHUNK] = [
 var htmlWebpackPlugins = Object.keys(entries)
   .map(function(name) {
     return new HtmlWebpackPlugin({
-      title: 'JavaScript Workshop (day 1)',
+      title: 'JavaScript Workshop',
       filename: name + '.html',
       chunks: [COMMON_CHUNK, VENDOR_CHUNK, name]
     });
@@ -127,7 +110,6 @@ module.exports = {
     }),
     new ExtractTextWebpackPlugin('[name].css'),
     new webpack.DefinePlugin({
-      '__INITIAL_STATE__': JSON.stringify(exercises),
       '__DEVELOPMENT__': true,
       'process.env': {
         'NODE_ENV': JSON.stringify('development')

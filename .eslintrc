@@ -12,7 +12,6 @@
     "no-underscore-dangle": ["error", { "allowAfterThis": true }]
   },
   "globals": {
-    "__INITIAL_STATE__": true,
     "__DEVELOPMENT__": true
   }
 }

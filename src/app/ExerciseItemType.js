@@ -1,3 +1,5 @@
-import ExerciseItemType from '../../config/ExerciseItemType';
-
-export default ExerciseItemType;
+export default {
+  Demo: 'Demo',
+  Doc: 'Doc',
+  File: 'File'
+};

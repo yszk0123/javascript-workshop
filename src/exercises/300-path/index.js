@@ -9,3 +9,7 @@ if (module.hot) {
 }
 
 runTest(main);
+
+export default manifest(module, {
+  legacy: false,
+});
