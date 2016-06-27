@@ -1,3 +1,4 @@
+import { createExercise } from 'jw-exercise';
 import { runTest } from '../../common/test-utils';
 import main from './main';
 
@@ -8,8 +9,13 @@ if (module.hot) {
   });
 }
 
-runTest(main);
-
-export default manifest(module, {
-  legacy: false,
+export default createExercise({
+  name: 'path',
+  description: '',
+  type: 'module',
+  tags: ['es6'],
+  doc: './README.md',
+  sources: ['./main.js', './hint.js']
+}, () => {
+  runTest(main);
 });

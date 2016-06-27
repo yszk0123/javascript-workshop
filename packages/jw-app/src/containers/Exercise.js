@@ -24,51 +24,50 @@ class Exercise extends React.Component {
   constructor(props) {
     super(props);
 
-    // TODO: Better method
-    const toggleStatusByPath = props.files.reduce((acc, { type, absolutePath }) => {
-      if (type === ExerciseItemType.Demo || OPEN_FILE_PATTERN.test(absolutePath)) {
-        acc[absolutePath] = true;
-      }
-      return acc;
-    }, {});
-
     this.state = {
-      toggleStatusByPath
+      activeTabId: null
     };
   }
 
-  handleLabelClick(path) {
-    const { toggleStatusByPath } = this.state;
+  handleTabClick(tabId) {
     this.setState({
-      toggleStatusByPath: assign({}, toggleStatusByPath, {
-        [path]: !toggleStatusByPath[path]
-      })
+      activeTabId: tabId
     });
   }
 
   render() {
-    const { type, tags, files } = this.props;
+    const { type, tags, entry, files } = this.props;
     const { toggleStatusByPath } = this.state;
 
     return (
       <Box>
         {tags.indexOf("es5") > -1 && <ManualReloadMessage />}
-        {files.map(({ type, icon, absolutePath, originalPath, value }, i) =>
-          <LabeledCard
-            key={i}
-            label={<IconLabel icon={icon} label={originalPath} />}
-            open={toggleStatusByPath[absolutePath]}
-            space={type === ExerciseItemType.Doc}
-            onLabelClick={() => this.handleLabelClick(absolutePath)}
-          >
-            {type === ExerciseItemType.Demo ?
-              <ScriptBlock src={absolutePath} /> :
-             type === ExerciseItemType.Doc ?
-              <Markdown value={value} /> :
-              <SyntaxHighlight value={value} />
-            }
-          </LabeledCard>
-        )}
+        <Demo>
+          <ScriptBlock src={entry} />
+        </Demo>
+        <Docs>
+          <Markdown value={doc.value} />
+        </Docs>
+        <Tabs>
+          <TabHeader>
+          </TabHeader>
+          <TabContent>
+            {files.map(({ id, type, icon, originalPath, value }) =>
+              <LabeledCard
+                key={id}
+                label={<IconLabel icon={icon} label={originalPath} />}
+                open={toggleStatusByPath[title]}
+                space={type === ExerciseItemType.Doc}
+                onLabelClick={() => this.handleTabClick(id)}
+              >
+                {type === ExerciseItemType.Demo ?
+                 type === ExerciseItemType.Doc ?
+                  <SyntaxHighlight value={value} />
+                }
+              </LabeledCard>
+            )}
+          </TabContent>
+        </Tabs>
       </Box>
     );
   }
@@ -76,6 +75,8 @@ class Exercise extends React.Component {
 Exercise.propTypes = {
   type: PropTypes.string.isRequired,
   tags: PropTypes.array.isRequired,
+  entry: PropTypes.func.isRequired,
+  docs: PropTypes.array.isRequired,
   files: PropTypes.array.isRequired
 };
 
