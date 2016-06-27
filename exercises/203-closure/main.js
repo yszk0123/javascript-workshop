@@ -1,6 +1,5 @@
 import { describe, assert } from 'jw-test-utils';
 
-// TODO: もっと分かりやすく
 // スコープチェーン:
 // (main)-->(グローバルオブジェクト)
 export default function main() {

@@ -9,6 +9,6 @@ import readmeText from '!raw!./README.md';
 
 storiesOf('300 Path', module)
   .add('説明', () => <Markdown value={readmeText} />)
-  .add('コード', () => <SyntaxHighlight value={mainText} />)
-  .add('ヒント', () => <SyntaxHighlight value={hintText} />)
+  .add('main.js', () => <SyntaxHighlight value={mainText} />)
+  .add('hint.js', () => <SyntaxHighlight value={hintText} />)
   .add('演習', () => runTest(main))
