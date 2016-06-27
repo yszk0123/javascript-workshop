@@ -1,7 +1,8 @@
+import { Exercise } from 'jw-exercise';
 import Root from './containers/Root';
-import Exercise from './containers/Exercise';
 import exercises from './exercises';
 
+// TODO: exercises を直接参照せず、exercisesSelector を使う
 export default function renderRoutes(exercisesGroups) {
   return {
     path: '/',

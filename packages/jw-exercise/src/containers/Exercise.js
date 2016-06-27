@@ -5,12 +5,7 @@ import assign from 'object-assign';
 import ExerciseType from '../ExerciseType';
 import ExerciseItemType from '../ExerciseItemType';
 import ScriptBlock from '../components/ScriptBlock';
-import LabeledCard from '../components/LabeledCard';
-import IconLabel from '../components/IconLabel';
-import Box from '../components/Box';
-import Card from '../components/Card';
-import Markdown from '../components/Markdown';
-import SyntaxHighlight from '../components/SyntaxHighlight';
+import { LabeledCard, IconLabel, Box, Card, Markdown, SyntaxHighlight } from 'jw-ui';
 import { currentExerciseSelector } from '../selectors';
 
 const OPEN_FILE_PATTERN = /README\.md$/;

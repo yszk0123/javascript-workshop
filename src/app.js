@@ -1,8 +1,7 @@
 import document from 'global/document';
-
-import * as App from '../../app';
+import { mount } from 'jw-app';
 
 const rootElement = document.createElement('div');
 document.body.appendChild(rootElement);
 
-App.mount(undefined, rootElement);
+mount(undefined, rootElement);

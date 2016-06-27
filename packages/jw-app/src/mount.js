@@ -5,15 +5,12 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
-import 'normalize.css';
-import 'font-awesome/css/font-awesome.css';
-
+import { exercisesGroupsSelector } from 'jw-exercise';
 import reducers from './reducers';
 import renderRoutes from './renderRoutes';
-import { exercisesGroupsSelector } from './selectors';
 
 // TODO: Use initialState
-export function mount(initialState, mountElement) {
+export default function mount(initialState, mountElement) {
   const getReducers = (baseReducers) =>
     combineReducers(assign(baseReducers, { routing: routerReducer }));
 

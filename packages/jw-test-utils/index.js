@@ -1,7 +1,6 @@
 import document from 'global/document';
-
-import renderToDom from './renderToDom';
-import renderToConsole from './renderToConsole';
+import renderToDom from './src/renderToDom';
+import renderToConsole from './src/renderToConsole';
 
 let testCases = [];
 let currentTestCase = null;
