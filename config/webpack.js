@@ -4,13 +4,15 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 var autoprefixer = require('autoprefixer');
-var collectWebpackEntries = require('./utils/collectWebpackEntries');
 
 var PORT = parseInt(process.env.PORT || 3000, 10);
 var COMMON_CHUNK = 'common-chunk';
 var VENDOR_CHUNK = 'vendor-chunk';
 
-var entries = collectWebpackEntries('./src/entries', '');
+var entries = {
+  app: './src/app'
+};
+
 entries[VENDOR_CHUNK] = [
   'webpack/hot/only-dev-server',
   'global',
@@ -41,6 +43,10 @@ module.exports = {
     publicPath: 'http://localhost:' + PORT + '/assets/'
   },
   resolve: {
+    root: [
+      path.resolve('./node_modules'),
+      path.resolve('./packages')
+    ],
     extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json']
   },
   module: {
