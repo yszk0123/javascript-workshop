@@ -1,5 +1,5 @@
 import { createExercise } from 'jw-exercise';
-import { runTest } from '../../common/test-utils';
+import { runTest } from 'jw-test-utils';
 import main from './main';
 
 if (module.hot) {
@@ -14,8 +14,7 @@ export default createExercise({
   description: '',
   type: 'module',
   tags: ['es6'],
-  doc: './README.md',
-  sources: ['./main.js', './hint.js']
+  files: ['./README.md', './main.js', './hint.js']
 }, () => {
   runTest(main);
 });
