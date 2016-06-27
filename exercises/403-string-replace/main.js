@@ -1,4 +1,4 @@
-import { describe, assert } from '../../common/test-utils';
+import { describe, assert } from 'jw-test-utils';
 
 const HTML = '<ul><li class="name">{{name}}</li><li>{{age}}</li></ul>';
 

@@ -1,4 +1,4 @@
-import { assert } from '../../common/test-utils';
+import { assert } from 'jw-test-utils';
 
 // たい焼きの「型」
 class Taiyaki {

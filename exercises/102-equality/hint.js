@@ -1,4 +1,4 @@
-import { describe, assert, runTest } from '../../common/test-utils';
+import { describe, assert, runTest } from 'jw-test-utils';
 
 describe('オブジェクト (Object)', () => {
   const objectA = {};

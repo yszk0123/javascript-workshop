@@ -20,11 +20,7 @@ module.exports = {
           'css-loader?modules&importLoaders=1&localIdentName=[local]---[hash:base64:5]',
           'postcss-loader'
         ],
-        include: [
-          path.resolve(__dirname, '..', 'packages'),
-          path.resolve(__dirname, '..', 'src'),
-          path.resolve(__dirname, '..', 'test')
-        ]
+        exclude: /node_modules/
       },
       {
         test: /\.css?$/,

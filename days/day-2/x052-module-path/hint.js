@@ -1,5 +1,5 @@
-import { assert } from '../../common/test-utils';
-import ModulePathResolver from '../../common/ModulePathResolver';
+import { assert } from 'jw-test-utils';
+import { ModulePathResolver } from 'jw-path-resolver';
 
 const resolver = new ModulePathResolver({
   currentDirectory: '/users/foo/my-project/src',

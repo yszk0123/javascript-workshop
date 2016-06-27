@@ -1,5 +1,5 @@
 /* eslint-disable arrow-body-style, object-shorthand, func-names */
-import { describe, assert } from '../../common/test-utils';
+import { describe, assert } from 'jw-test-utils';
 
 export default function main() {
   describe('テンプレート文字列', () => {
