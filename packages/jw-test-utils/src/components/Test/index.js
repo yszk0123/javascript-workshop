@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import cx from 'classnames';
 
 import * as styles from './styles.css';
-import '../style.css';
 
 const TestCaseOuter = (props) =>
   <div className={styles.TestCaseOuter} {...props} />;
@@ -23,16 +22,15 @@ const TestCase = ({ isError, message, error }) =>
     {message}
   </pre>;
 
-export default function renderToDom(state, mountElement) {
-  ReactDOM.render(
+export default function Test(props) {
+  return (
     <TestCaseOuter>
-      {state.testCases.map(({ message, assertions }, i) =>
+      {props.testCases.map(({ message, assertions }, i) =>
         <div className={styles.Group} key={i}>
           <TestCaseHeader label={message} />
           {assertions.map((testCase, i) => <TestCase key={i} {...testCase} />)}
         </div>
       )}
-    </TestCaseOuter>,
-    mountElement
+    </TestCaseOuter>
   );
 }

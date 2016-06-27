@@ -1,14 +1,11 @@
+import { describe, assert } from 'jw-test-utils';
+
 // TODO: もっと分かりやすく
 // スコープチェーン:
-// (omajinai)-->(グローバルオブジェクト)
-(function omajinai(namespace) {
-  'use strict';
-  const assert = namespace.TestUtils.assert;
-  const describe = namespace.TestUtils.describe;
-  const runTest = namespace.TestUtils.runTest;
-
+// (main)-->(グローバルオブジェクト)
+export default function main() {
   // スコープチェーン:
-  // (makeGetValue)--> { assert: ..., makeGetValue: ..., getValue: ... } --(omajinai)--> ...
+  // (makeGetValue)--> { assert: ..., makeGetValue: ..., getValue: ... } --(main)--> ...
   function makeGetValue() {
     const value = 1;
 
@@ -35,6 +32,4 @@
     assert.ok(getValue() === 3, '繰り上がる');
     assert.ok(getValue() === 4, '繰り上がる');
   });
-
-  runTest();
-})(window.JavaScriptWorkshop);
+}

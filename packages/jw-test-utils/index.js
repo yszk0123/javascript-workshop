@@ -1,6 +1,6 @@
+import React from 'react';
 import document from 'global/document';
-import renderToDom from './src/renderToDom';
-import renderToConsole from './src/renderToConsole';
+import Test from './src/components/Test';
 
 let testCases = [];
 let currentTestCase = null;
@@ -56,7 +56,7 @@ export function describe(message, callback) {
   });
 }
 
-export function runTest(callback, format) {
+export function runTest(callback) {
   callback();
 
   const newTestCases = testCases.map(({ message, callback }) => {
@@ -91,14 +91,8 @@ export function runTest(callback, format) {
     document.body.appendChild(element);
   }
 
-  if (format === 'console') {
-    renderToConsole(state);
-  }
-  else {
-    renderToDom(state, element);
-  }
-
   testCases = [];
+  return <Test {...state} />;
 }
 
 export const assert = {

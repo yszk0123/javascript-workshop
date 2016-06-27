@@ -1,5 +1,5 @@
-import { describe, assert } from '../../common/test-utils';
-import PathResolver from '../../common/PathResolver';
+import { describe, assert } from 'jw-test-utils';
+import { PathResolver } from 'jw-path-resolver';
 
 export default function main() {
   const pathResolver = new PathResolver({
