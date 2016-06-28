@@ -44,6 +44,16 @@ function assertFail(_value, message) {
   printErrorWithMessage('訂正して下さい', message);
 }
 
+function assertThrows(callback, message) {
+  try {
+    callback();
+    printErrorWithMessage('expected: throw', message);
+  }
+  catch (error) {
+    print(message);
+  }
+}
+
 // TODO: Replace with assertDeepEqual
 function assertSimilar(actual, expected, message) {
   assertOk(JSON.stringify(actual) === JSON.stringify(expected), message);
@@ -99,5 +109,6 @@ export const assert = {
   equal: assertEqual,
   ok: assertOk,
   fail: assertFail,
+  throws: assertThrows,
   similar: assertSimilar
 };
