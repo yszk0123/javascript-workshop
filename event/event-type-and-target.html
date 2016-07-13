@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <input id="exampleButton" type="button" value="Click">
+
+  <script>
+    (function() {
+      'use strict';
+      const exampleButton = document.getElementById('exampleButton');
+      exampleButton.addEventListener('click', (event) => {
+        console.log('Event target:', event.target);
+        console.log('Event type:', event.type);
+      });
+    })();
+  </script>
+</body>
+</html>

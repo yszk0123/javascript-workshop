@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    html {
+      font-size: 62.5%;
+    }
+    .OuterBox {
+      width: 300px;
+      height: 200px;
+      padding: 1.4rem;
+    }
+    .InnerBox {
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+    }
+    .NoCapture {
+      background: blue;
+    }
+    .Capture {
+      background: green;
+    }
+    .Button {
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="OuterBox NoCapture">
+    <div class="InnerBox">
+      <t1>Capture: false</t1>
+      <input class="Button" type="button" value="Click">
+    </div>
+  </div>
+  <div class="OuterBox Capture">
+    <div class="InnerBox">
+      <t1>Capture: true</t1>
+      <input class="Button" type="button" value="Click">
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      'use strict';
+      document.querySelector('.OuterBox.NoCapture')
+        .addEventListener('click', printEventInfo, false);
+      document.querySelector('.OuterBox.Capture')
+        .addEventListener('click', printEventInfo, true);
+      document.querySelectorAll('.Button')
+        .forEach((button) => {
+          button.addEventListener('click', printEventInfo);
+        });
+
+      function printEventInfo(event) {
+        console.log('Event target:', event.target);
+        console.log('Event current target:', event.currentTarget);
+        console.log('Event type:', event.type);
+      }
+    })();
+  </script>
+</body>
+</html>

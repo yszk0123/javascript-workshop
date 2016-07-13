@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    html {
+      font-size: 62.5%;
+    }
+    .OuterBox {
+      width: 300px;
+      height: 200px;
+      padding: 1.4rem;
+    }
+    .InnerBox {
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+    }
+    .OuterBox.NoPropagation {
+      background: blue;
+    }
+    .OuterBox.Propagation {
+      background: green;
+    }
+    .Button {
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="OuterBox NoPropagation">
+    <div class="InnerBox NoPropagation">
+      <t1>Propagation: false</t1>
+      <input class="Button" type="button" value="Click">
+    </div>
+  </div>
+  <div class="OuterBox Propagation">
+    <div class="InnerBox Propagation">
+      <t1>Propagation: true</t1>
+      <input class="Button" type="button" value="Click">
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      'use strict';
+      document.querySelector('.InnerBox.NoPropagation')
+        .addEventListener('click', (event) => {
+          console.log('Stop propatagion on', event.currentTarget);
+          event.stopPropagation();
+        });
+      document.querySelectorAll('.OuterBox, .InnerBox, .Button')
+        .forEach((element) => {
+          element.addEventListener('click', printEventInfo);
+        });
+
+      function printEventInfo(event) {
+        console.log('Event target:', event.target);
+        console.log('Event current target:', event.currentTarget);
+        console.log('Event type:', event.type);
+      }
+    })();
+  </script>
+</body>
+</html>
