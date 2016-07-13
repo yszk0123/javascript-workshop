@@ -52,15 +52,17 @@
           console.log('Stop propatagion on', event.currentTarget);
           event.stopPropagation();
         });
-      document.querySelectorAll('.OuterBox, .InnerBox, .Button')
+      [window, document, ...document.querySelectorAll('html, body, .OuterBox, .InnerBox, .Button')]
         .forEach((element) => {
           element.addEventListener('click', printEventInfo);
         });
 
       function printEventInfo(event) {
-        console.log('Event target:', event.target);
-        console.log('Event current target:', event.currentTarget);
-        console.log('Event type:', event.type);
+        console.group('Event');
+        console.log('Target:', event.target);
+        console.log('Current target:', event.currentTarget);
+        console.log('Type:', event.type);
+        console.groupEnd();
       }
     })();
   </script>
