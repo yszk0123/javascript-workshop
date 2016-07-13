@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
-    "start": "start-storybook -p ${PORT:-3000}"
+    "start": "node server.js",
+    "exercise": "start-storybook -p ${PORT:-3000}"
   },
   "keywords": [],
   "author": "Yuji Suzuki",
